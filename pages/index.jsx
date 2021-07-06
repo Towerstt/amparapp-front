@@ -1,5 +1,5 @@
 import Head from "next/head";
-import React from "react";
+import { Fragment } from "react";
 import NavBar from "../components/NavBar";
 import CardCasesEstructure from "../components/CardCases/CardCasesEstructure";
 import InfographiesEstructure from "../components/Infographies/InfographiesEstructure";
@@ -9,7 +9,7 @@ import FooterEstructure from "../components/Footer/FooterEsctructure";
 
 export default function Home() {
   return (
-    <React.Fragment>
+    <Fragment>
       <Head>
         <title> HomePage </title>
         <meta charset="UTF-8" />
@@ -45,7 +45,14 @@ export default function Home() {
         </main>
       </section>
 
-      <CardCasesEstructure />
+      <section className="container-fluid bg-light p-0 pt-5 pb-5 p-md-5 shadow-sm causes-cards">
+        <div className="row d-flex align-items-center flex-column">
+          <h1>Fírmalo</h1>
+          <h2>Casos Activos</h2>
+          <CardCasesEstructure />
+          </div>
+      </section>
+
 
       <InfographiesEstructure />
 
@@ -99,7 +106,7 @@ export default function Home() {
         integrity="sha384-Piv4xVNRyMGpqkS2by6br4gNJ7DXjqk09RmUpJ8jgGtD7zP9yug3goQfGII0yAns"
         crossorigin="anonymous"
       ></script>
-    </React.Fragment>
+    </Fragment>
   );
 }
 

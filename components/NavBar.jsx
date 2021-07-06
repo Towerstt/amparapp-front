@@ -1,4 +1,5 @@
 import Icons from "./Icons";
+import Link from "next/link";
 
 export default function NavBar(props) {
   return (
@@ -10,11 +11,16 @@ export default function NavBar(props) {
       shadow-sm   navbar navbar-light p-0 `}
       >
         <div className="col-sm ">
-          <img
+          <Link href='/'>
+            <a>
+            <img
             className="d-block d-md-none mx-auto w-25"
             src="https://11g-files-juandedios.s3.us-east-2.amazonaws.com/amparapp/amparapp-icono.png"
             alt="Alza la voz logo"
           />
+            </a>
+          
+          </Link>
           <div className="col-sm-2 d-none d-md-flex align-items-center flex-column">
             <div className="collapse" id="navbarToggleExternalContent">
               <div className="p-4">
@@ -37,20 +43,26 @@ export default function NavBar(props) {
           </div>
         </div>
         <div className="d-none d-md-block col-sm">
-          <a className="navbar-brand amparapp-logo">
-            <img
-              className="mx-auto d-block w-15"
+          <a className="navbar-brand amparapp-logo ">
+            <Link href="/">
+              <button>
+              <img
+              className="mx-auto d-block w-15 "
               src="https://11g-files-juandedios.s3.us-east-2.amazonaws.com/amparapp/amparapp-icono.png"
               alt=""
             />
+
+              </button>
+            
+            </Link>
           </a>
         </div>
         <div className="d-none d-md-block col-sm d-md-flex align-items-center justify-content-end">
           <span className="p-3">
-            <Icons source="fas fa-search" />
+            <Icons source="fas fa-search" link='search'/>
           </span>
           <span className="p-3">
-            <Icons source="fas fa-user" />
+            <Icons source="fas fa-user" link='' />
           </span>
         </div>
       </nav>

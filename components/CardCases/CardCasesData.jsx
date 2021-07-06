@@ -11,7 +11,7 @@ export default function CardCasesData(props) {
   return (
 
     <CardCases
-    key={"id"}
+    keyid={"id"}
     image={"https://11g-files-juandedios.s3.us-east-2.amazonaws.com/amparapp/matrimonio.png"}
     title={"title"}
     shortDescription={"shortDescription"}
@@ -20,6 +20,7 @@ export default function CardCasesData(props) {
     limitDate={"limitDate"}
     totalSigners={"totalsigners"}
     creationDate={"creationDate"}
+    path={`/caseDetails${'key'}`}
     />
     
   );

@@ -1,10 +1,13 @@
 import { Fragment } from "react";
+import Link from "next/link";
+
 
 export default function CardCases(props) {
-const {key, image, altImage, title, aditionals, shortDescription, limitDate, totalSigners } = props
+const {keyid, image, altImage, title, aditionals, shortDescription, limitDate, totalSigners, path } = props
   return (
     <Fragment>
-      <div key={key} className="col-span-2 md:col-span-1 card-case-green d-block d-md-flex justify-content-center border-left rounded shadow mb-5 mb-md-0  mx-auto my-8 w-full">
+      <Link href={path}>
+      <div key={keyid} className="col-span-2 md:col-span-1 card-case-green d-block d-md-flex justify-content-center border-left rounded shadow mb-5 mb-md-0  mx-auto my-0 w-full">
         <img
           className="case-img m-3"
           src={image}
@@ -39,6 +42,7 @@ const {key, image, altImage, title, aditionals, shortDescription, limitDate, tot
           />
         </div>
       </div>
+      </Link>
     </Fragment>
   );
 }
