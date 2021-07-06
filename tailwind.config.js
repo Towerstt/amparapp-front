@@ -1,20 +1,22 @@
+
 module.exports = {
+  
   purge: [],
   darkMode: false, // or 'media' or 'class'
   theme: {
     extend: {
-      colors: {
-        charles: '#EFEFEF'
-      },
-      height: {
-        charles: '13px'
-      }
+      backgroundImage: (theme) => ({
+        "hero-pattern":
+          "url('../public/images/vivasnosqueremosopacity.jpg')",
+      }),
+      height: (theme) => ({
+        "screen/2": "45vh",
+        
+      }),
     },
   },
   variants: {
     extend: {},
   },
-  plugins: [
-    require('@tailwindcss/forms')
-  ],
-}
+  plugins: [require("@tailwindcss/forms")],
+};

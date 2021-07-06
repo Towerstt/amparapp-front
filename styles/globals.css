@@ -2,3 +2,267 @@
 @tailwind base;
 @tailwind components;
 @tailwind utilities;
+
+
+*, body, h1, h2, h3, h4, span, p, a {
+    color: #102e44;
+    font-family: 'Roboto', sans-serif;
+  }
+  
+  h1 {
+    font-size: 90px;
+    font-weight: 900;
+  }
+  
+  h2 {
+    font-size: 40px;
+    font-weight: 300;
+  }
+  
+  h3 {
+    font-size: 48px;
+  }
+  
+  h4 {
+    font-size: 16px;
+  }
+  
+  .w-15 {
+    width: 15% !important;
+  }
+  
+  .w-20 {
+    width: 20% !important;
+  }
+  
+  .bg-campaing {
+    background-color: #e9e9e9;
+  }
+  
+  .cover-main {
+    background-image: url(https://11g-files-juandedios.s3.us-east-2.amazonaws.com/amparapp/altavoz.png);
+    background-repeat: no-repeat;
+    background-size: 90%;
+    background-position: center bottom;
+    height: 300px;
+    padding: 0;
+    margin-top: 100px;
+  }
+  
+  .case-img {
+    width: 90%;
+  }
+  
+  .button-sing {
+    width: 80%;
+    max-width: 125px;
+    margin: 25px auto;
+    display: block;
+  }
+  
+  .card-container {
+    gap: 0px;
+  }
+  
+  .card-case-red {
+    border-color: #f4ba41 !important;
+    border-left-width: 3px !important;
+    max-width: 300px;
+  }
+  
+  .card-case-green {
+    border-color: #159005 !important;
+    border-left-width: 3px !important;
+    max-width: 300px;
+  }
+  
+  .card-info img {
+    display: block;
+    height: auto;
+    max-height: 125px;
+  }
+  
+  .card-info div {
+    line-height: initial;
+  }
+  
+  .card-info span {
+    font-size: 45px;
+    font-weight: 900;
+    line-height: 60px;
+    margin: 0;
+    padding: 0;
+  }
+  
+  .card-info p {
+    font-size: 25px;
+    font-weight: 200;
+  }
+  
+  .faqs h2 button {
+    font-size: 30px;
+    font-weight: 300;
+  }
+  
+  .faqs h2 span {
+    color: #102e44;
+    font-weight: 900;
+    border-right: 4px solid #f4ba41;
+    padding-right: 10px;
+    margin-right: 15px;
+  }
+  
+  .registro button {
+    background-color: #fff;
+    border-radius: 38px;
+  }
+  
+  .registro button img {
+    padding: 16px 50px;
+  }
+  
+  .registro button:hover {
+    background-color: #f4ba41;
+  }
+  
+  .form-suscribe input[type=text] {
+    color: #102e44 !important;
+    background-color: #f4ba41 !important;
+    padding: 20px;
+  }
+  
+  .form-suscribe input::-webkit-input-placeholder {
+    color: #102e44 !important;
+    font-size: 16px;
+  }
+  
+  .form-suscribe input:-ms-input-placeholder {
+    color: #102e44 !important;
+    font-size: 16px;
+  }
+  
+  .form-suscribe input::-ms-input-placeholder {
+    color: #102e44 !important;
+    font-size: 16px;
+  }
+  
+  .form-suscribe input::placeholder {
+    color: #102e44 !important;
+    font-size: 16px;
+  }
+  
+  .form-suscribe button {
+    background-color: #102e44 !important;
+  }
+  
+  .causes-cards h1 {
+    font-size: 40px;
+  }
+  
+  .causes-cards h2 {
+    font-size: 20px;
+  }
+  
+  .causes-cards h3 {
+    font-size: 25px;
+    text-transform: uppercase;
+  }
+  
+  .infogaphy img {
+    max-height: 40px;
+  }
+  
+  .infogaphy span {
+    font-size: 40px;
+  }
+  
+  .infogaphy p {
+    font-size: 30px;
+  }
+  
+  .navbar-mobile .botton {
+    background-color: #fff;
+  }
+  
+  .welcome {
+    font-size: 30px;
+  }
+  
+  .dashboard {
+    margin-top: 90px !important;
+  }
+  
+  .dashboard img {
+    margin-bottom: 20px;
+  }
+  
+  .dashboard p {
+    font-size: 20px;
+  }
+  
+  .dashboard button {
+    width: 100%;
+    max-width: 300px;
+    background-color: #fff;
+    border: thin solid #f4ba41;
+  }
+  
+  .dashboard button:hover {
+    background-color: #f4ba41;
+  }
+  
+  .dashboard button img {
+    width: 80%;
+    max-width: 150px;
+  }
+  
+  .dashboard span {
+    font-size: 50px;
+    font-weight: 900;
+  }
+  
+  @media (min-width: 768px) {
+    .bg-campaing {
+      background-color: #fff;
+    }
+    .cover-main {
+      background-image: url(https://11g-files-juandedios.s3.us-east-2.amazonaws.com/amparapp/altavoz.png);
+      background-repeat: no-repeat;
+      background-size: 25%;
+      background-position: center bottom;
+      height: 531px !important;
+      padding: 0;
+      margin-top: 100px;
+    }
+    .case-img {
+      width: 40%;
+    }
+    .card-container {
+      gap: 20px;
+    }
+    .card-case-red {
+      max-width: 550px;
+    }
+    .card-case-green {
+      max-width: 550px;
+    }
+  }
+  
+  .infogaphy img {
+    max-height: 70px;
+  }
+  
+  .dashboard button {
+    width: 100%;
+    margin-bottom: 25px;
+  }
+  
+  .dashboard button img {
+    max-width: 125px;
+  }
+  
+  .dashboard span {
+    font-size: 50px;
+    font-weight: 900;
+  }
+  /*# sourceMappingURL=style.css.map */
