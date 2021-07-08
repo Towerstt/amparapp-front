@@ -6,10 +6,10 @@ export default function DynamicButton(props) {
   if (props.link) {
     return (
       <Link href={link}>
-        <a className={style}>{children}</a>
+        <button className={style}>{children}</button>
       </Link>
     );
   } else {
-    return <button className={style} onClick={onClick} type={type}>{children}</button>;
+    return <button className={style?style:""} onClick={onClick} type={type}>{children}</button>;
   }
 }
