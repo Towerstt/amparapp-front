@@ -48,7 +48,7 @@ export default function Home() {
       <section className="container-fluid bg-light p-0 pt-5 pb-5 p-md-5 shadow-sm causes-cards">
         <div className="row d-flex align-items-center flex-column">
           <h1>Fírmalo</h1>
-          <h2>Casos Activos</h2>
+          <h2 className="mb-10">Casos Activos</h2>
           <CardCasesEstructure />
           </div>
       </section>
