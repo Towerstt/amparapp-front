@@ -1,12 +1,13 @@
 import { Fragment } from "react";
 import DynamicButton from "../DynamicButton";
 import DynamicInput from "../DynamicInput";
+import Icons from "../Icons";
 
 
 export default function FooterEstructure() {
   return (
     <Fragment>
-      <section className="container-fluid footer bg-light ">
+      <section className="container-fluid footer bg-light border-top">
         <div className="row p-5">
           <div className="col-12 col-md-4 px-0 px-md-5">
             <img
@@ -38,17 +39,18 @@ export default function FooterEstructure() {
             <h2>Suscríbete</h2>
 
             <form>
-              <div className="form-row align-items-center form-suscribe">
+              <div className="form-row align-items-center ">
                 <div className="col-sm-12 my-1">
                   <DynamicInput
                     type="text"
-                    className="form-control"
+                    className="mt-2 "
                     id="inlineFormInputName"
-                    placeholder="Registra tu email"
+                    label="Registra tu email"
+                    classNameInput="w-full"
                   />
                 </div>
-                <div className="col-sm-6 my-1">
-                  <DynamicButton className="btn btn-primary" type="submit">Regístrate</DynamicButton>
+                <div className="col-sm-6 my-1 ">
+                  <DynamicButton className="btn btn-primary bg-prussian" type="submit">Regístrate</DynamicButton>
                  
                 </div>
               </div>
@@ -96,12 +98,13 @@ export default function FooterEstructure() {
         </div>
         <div className="col-3">
           <span className="p-3">
-            <i className="fas fa-search"></i>
+          <Icons source="fas fa-search" link='search'/>
           </span>
         </div>
         <div className="col-3">
           <span className="p-3">
-            <i className="fas fa-user"></i>
+            <Icons source="fas fa-user" link='login'/>
+
           </span>
         </div>
       </section>

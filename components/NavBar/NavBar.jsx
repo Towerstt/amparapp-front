@@ -1,14 +1,17 @@
-import Icons from "./Icons";
+import Icons from "../Icons";
 import Link from "next/link";
+import Modal from "./Modal/Modal";
 
 export default function NavBar(props) {
+
+
   return (
     <header>
       <nav
         className={` 
       ${props.fixedTop ? "fixed-top" : ""} 
       ${props.bgTransparent ? "bg-transparent" : "bg-campaing"} 
-      shadow-sm   navbar navbar-light p-0 `}
+      shadow-sm   navbar  navbar-light p-0 `}
       >
         <div className="col-sm ">
           <Link href='/'>
@@ -19,9 +22,10 @@ export default function NavBar(props) {
             alt="Alza la voz logo"
           />
             </a>
-          
           </Link>
-          <div className="col-sm-2 d-none d-md-flex align-items-center flex-column">
+          
+
+          <div className="col-sm-2 d-none d-md-flex align-items-center flex-column ">
             <div className="collapse" id="navbarToggleExternalContent">
               <div className="p-4">
                 <span>MENU</span>
@@ -41,6 +45,8 @@ export default function NavBar(props) {
               </button>
             </nav>
           </div>
+
+
         </div>
         <div className="d-none d-md-block col-sm">
           <a className="navbar-brand amparapp-logo ">
@@ -61,9 +67,8 @@ export default function NavBar(props) {
           <span className="p-3">
             <Icons source="fas fa-search" link='search'/>
           </span>
-          <span className="p-3">
-            <Icons source="fas fa-user" link='' />
-          </span>
+          
+          <Modal/>
         </div>
       </nav>
     </header>

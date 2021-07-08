@@ -1,6 +1,6 @@
 import Head from "next/head";
 import { Fragment } from "react";
-import NavBar from "../components/NavBar";
+import NavBar from "../components/NavBar/NavBar";
 import CardCasesEstructure from "../components/CardCases/CardCasesEstructure";
 import InfographiesEstructure from "../components/Infographies/InfographiesEstructure";
 import FaqsEstructure from "../components/FAQS/FAQSEstructure";

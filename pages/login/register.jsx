@@ -1,11 +1,12 @@
-import Head from "next/head";
-import { Fragment } from "react";
-import NavBar from "../../components/NavBar/NavBar";
-import CardCasesEstructure from "../../components/CardCases/CardCasesEstructure";
-import DynamicInput from "../../components/DynamicInput";
-import FooterEstructure from "../../components/Footer/FooterEsctructure";
 
-export default function SearchPage() {
+import { Fragment } from "react";
+import Head from "next/head";
+import NavBar from "../../components/NavBar/NavBar";
+import FooterEstructure from "../../components/Footer/FooterEsctructure";
+import DynamicButton from "../../components/DynamicButton";
+import Register from "../../components/NavBar/Modal/Register";
+
+export default function RegisterPage() {
   return (
     <Fragment>
       <Head>
@@ -30,27 +31,18 @@ export default function SearchPage() {
       </Head>
 
       <NavBar />
-      <div className="container max-w-full shadow-sm bg-hero-pattern bg-cover ">
-        <div className="grid grid-cols-2 ">
-          <div className="col-span-2 text-4xl font-bold mt-8 flex justify-center	">
-            ¡Busca los casos que más te interesen!
-          </div>
-          <div className="col-span-2 mt-8 flex justify-center mb-20">
-            <DynamicInput
-              type="text"
-              className="mt-4 "
-              label="Busca un caso"
-              classNameInput="w-full  "
-              classNameContainer=" "
-            />
-          </div>
-        </div>
+
+      <div className="text-center mt-4 ">
+        <h3 className="mb-2">¡Bienvenide!</h3>
+        
+
+        <Register />
+
+        
+
+        
       </div>
-      <section className="container-fluid bg-light p-0 pt-5 pb-5 p-md-5 shadow-sm causes-cards">
-        <div className="row d-flex align-items-center flex-column">
-          <CardCasesEstructure />
-        </div>
-      </section>
+
       <FooterEstructure />
     </Fragment>
   );
