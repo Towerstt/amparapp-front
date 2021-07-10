@@ -9,7 +9,6 @@ export default function Register(props) {
   
   const handleSubmit = async (event) => {
     event.preventDefault()
-    if(data.firstName){
       try { 
         const response = await fetch('http://localhost:8080/clients', {
           method : 'POST',
@@ -26,17 +25,14 @@ export default function Register(props) {
       catch (error) {
       
       }
-    }
     
   }
 
   const updateField = e => {
-    console.log(e.target)
     setData({
       ...data,
       [e.target.name]: e.target.value
     });
-    console.log(data)
   };
 
 
