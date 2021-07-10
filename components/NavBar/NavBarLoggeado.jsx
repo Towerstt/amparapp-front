@@ -1,13 +1,9 @@
 import Icons from "../Icons";
 import Link from "next/link";
-import Modal from "./Modal/Modal";
-import DynamicButton from "../DynamicButton";
 
-export default function NavBar(props) {
-
-
+export default function NavBarLoggeado(props) {
   return (
-    <header>
+    <header className=" ">
       <nav
         className={` 
       ${props.fixedTop ? "fixed-top" : ""} 
@@ -15,17 +11,15 @@ export default function NavBar(props) {
       shadow-sm   navbar  navbar-light p-0 `}
       >
         <div className="col-sm ">
-          <Link href='/'>
+          <Link href="/client">
             <a>
-            <img
-            className="d-block d-md-none mx-auto w-25"
-            src="https://11g-files-juandedios.s3.us-east-2.amazonaws.com/amparapp/amparapp-icono.png"
-            alt="Alza la voz logo"
-          />
+              <img
+                className="d-block d-md-none mx-auto w-25"
+                src="https://11g-files-juandedios.s3.us-east-2.amazonaws.com/amparapp/amparapp-icono.png"
+                alt="Alza la voz logo"
+              />
             </a>
           </Link>
-          
-          
 
           <div className="col-sm-2 d-none d-md-flex align-items-center flex-column ">
             <div className="collapse" id="navbarToggleExternalContent">
@@ -47,30 +41,31 @@ export default function NavBar(props) {
               </button>
             </nav>
           </div>
-
-
         </div>
         <div className="d-none d-md-block col-sm">
           <a className="navbar-brand amparapp-logo ">
-            <Link href="/">
+            <Link href="/client">
               <button>
-              <img
-              className="mx-auto d-block w-15 "
-              src="https://11g-files-juandedios.s3.us-east-2.amazonaws.com/amparapp/amparapp-icono.png"
-              alt=""
-            />
-
+                <img
+                  className="mx-auto d-block w-15 "
+                  src="https://11g-files-juandedios.s3.us-east-2.amazonaws.com/amparapp/amparapp-icono.png"
+                  alt=""
+                />
               </button>
-            
             </Link>
           </a>
         </div>
         <div className="d-none d-md-block col-sm d-md-flex align-items-center justify-content-end">
           <span className="p-3">
-            <Icons source="fas fa-search" link='search'/>
+            <Icons source="fas fa-search" link="client/search" />
           </span>
-          
-          <Modal/>
+          <span className="p-3">
+            <span className="p-3">
+              <button type="button">
+                <i className="fas fa-user"></i>
+              </button>
+            </span>
+          </span>
         </div>
       </nav>
     </header>

@@ -314,13 +314,9 @@ input:checked + .slider:before {
   font-size: 30px;
 }
 
-.dashboard {
-  margin-top: 90px !important;
-}
 
-.dashboard img {
-  margin-bottom: 20px;
-}
+
+
 
 .dashboard p {
   font-size: 20px;
@@ -392,3 +388,7 @@ input:checked + .slider:before {
   font-weight: 900;
 }
 /*# sourceMappingURL=style.css.map */
+
+
+
+
