@@ -12,7 +12,7 @@ import ForgetPassword from "./Forget";
 
 //me falta agregar que al picar afuera de la modal se cierre
 
-export default function Modal() {
+export default function Modal(props) {
   const [showModal, setShowModal] = useState(false);
 
 
@@ -58,6 +58,7 @@ export default function Modal() {
           <i className="fas fa-user"></i>
         </button>
       </span>
+      
 
       {showModal ? (
         <>

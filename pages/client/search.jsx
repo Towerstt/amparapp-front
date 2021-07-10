@@ -1,12 +1,14 @@
+
 import Head from "next/head";
 import { Fragment } from "react";
-import NavBar from "../../components/NavBar/NavBar";
 import CardCasesEstructure from "../../components/CardCases/CardCasesEstructure";
 import DynamicInput from "../../components/DynamicInput";
 import FooterEstructure from "../../components/Footer/FooterEsctructure";
+import NavBarLoggeado from "../../components/NavBar/NavBarLoggeado";
 
-export default function SearchPage() {
-  return (
+export default function SearchClient(){
+
+  return(
     <Fragment>
       <Head>
         <title>Busca un caso</title>
@@ -28,8 +30,7 @@ export default function SearchPage() {
         ></link>
         <link rel="stylesheet" href="style.css"></link>
       </Head>
-
-      <NavBar fixedTop="true" />
+      <NavBarLoggeado fixedTop="true"  />
       <div className="container max-w-full shadow-sm bg-hero-pattern bg-cover mt-20  md:mt-14 xl:mt-20">
         <div className="grid grid-cols-2 ">
           <div className="col-span-2 text-4xl font-bold mt-8 flex justify-center	">
@@ -41,7 +42,7 @@ export default function SearchPage() {
               className=" "
               label="Busca un caso"
               classNameInput="w-full  "
-              classNameContainer="   md:mx-28"
+              classNameContainer="md:mx-28"
             />
             
           </div>
@@ -70,5 +71,8 @@ export default function SearchPage() {
         crossorigin="anonymous"
       ></script>
     </Fragment>
-  );
+
+
+  )
 }
+

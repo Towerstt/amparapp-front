@@ -4,6 +4,8 @@ import DynamicButton from "../../DynamicButton";
 
 
 export default function LogIn(props) {
+
+  
   return (
     <Fragment>
       
@@ -36,6 +38,7 @@ export default function LogIn(props) {
           <DynamicButton
             className="bg-prussian rounded-lg shadow-sm my-4 w-28"
             type="submit"
+            
           >
             <p className="text-white m-2 ">Inicia sesión</p>
           </DynamicButton>

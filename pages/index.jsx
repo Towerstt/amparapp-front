@@ -11,9 +11,9 @@ export default function Home() {
   return (
     <Fragment>
       <Head>
-        <title> HomePage </title>
-        <meta charset="UTF-8" />
-        <meta http-equiv="X-UA-Compatible" content="IE=edge" />
+        <title> Alza la Voz! </title>
+        <meta charSet="UTF-8" />
+        <meta httpEquiv="X-UA-Compatible" content="IE=edge" />
         <meta name="description" content="Home page" />
         <meta name="viewport" content="width=device-width, initial-scale=1.0" />
         <link
@@ -33,7 +33,7 @@ export default function Home() {
 
       <NavBar bgTransparent="" fixedTop="true" />
 
-      <section className="container-fluid p-5 p-md-0 bg-hero-pattern bg-cover ">
+      <section className="container-fluid p-5 p-md-0 bg-hero-pattern bg-cover bla">
         <main>
           <div className="cover-main    ">
             <img
