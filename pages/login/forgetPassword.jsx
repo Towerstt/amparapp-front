@@ -9,9 +9,9 @@ export default function ForgetPasswordPage() {
   return (
     <Fragment>
       <Head>
-        <title>search</title>
-        <meta charset="UTF-8" />
-        <meta http-equiv="X-UA-Compatible" content="IE=edge" />
+        <title>Restablece tu contraseña</title>
+        <meta charSet="UTF-8" />
+        <meta httpEquiv="X-UA-Compatible" content="IE=edge" />
         <meta name="description" content="Home page" />
         <meta name="viewport" content="width=device-width, initial-scale=1.0" />
         <link
@@ -29,9 +29,9 @@ export default function ForgetPasswordPage() {
         <link rel="stylesheet" href="style.css"></link>
       </Head>
 
-      <NavBar />
+      <NavBar fixedTop="true"  />
 
-      <div className="text-center mt-4 ">
+      <div className="text-center mt-28 ">
         
 
         <ForgetPassword/>

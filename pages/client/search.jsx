@@ -1,15 +1,17 @@
+
 import Head from "next/head";
 import { Fragment } from "react";
-import NavBar from "../../components/NavBar/NavBar";
 import CardCasesEstructure from "../../components/CardCases/CardCasesEstructure";
 import DynamicInput from "../../components/DynamicInput";
 import FooterEstructure from "../../components/Footer/FooterEsctructure";
+import NavBarLoggeado from "../../components/NavBar/NavBarLoggeado";
 
-export default function SearchPage() {
-  return (
+export default function SearchClient(){
+
+  return(
     <Fragment>
       <Head>
-        <title>search</title>
+        <title>Busca un caso</title>
         <meta charSet="UTF-8" />
         <meta httpEquiv="X-UA-Compatible" content="IE=edge" />
         <meta name="description" content="Home page" />
@@ -18,18 +20,17 @@ export default function SearchPage() {
           rel="stylesheet"
           href="https://cdn.jsdelivr.net/npm/bootstrap@4.6.0/dist/css/bootstrap.min.css"
           integrity="sha384-B0vP5xmATw1+K9KRQjQERJvTumQW0nPEzvF6L/Z6nronJ3oUOFUFpCjEUQouq2+l"
-          crossOrigin="anonymous"
+          crossorigin="anonymous"
         ></link>
         <link
           rel="stylesheet"
           href="https://use.fontawesome.com/releases/v5.8.1/css/all.css"
           integrity="sha384-50oBUHEmvpQ+1lW4y57PTFmhCaXp0ML5d60M1M7uH2+nqUivzIebhndOJK28anvf"
-          crossOrigin="anonymous"
+          crossorigin="anonymous"
         ></link>
         <link rel="stylesheet" href="style.css"></link>
       </Head>
-
-      <NavBar fixedTop="true" />
+      <NavBarLoggeado fixedTop="true"  />
       <div className="container max-w-full shadow-sm bg-hero-pattern bg-cover mt-20  md:mt-14 xl:mt-20">
         <div className="grid grid-cols-2 ">
           <div className="col-span-2 text-4xl font-bold mt-8 flex justify-center	">
@@ -41,7 +42,7 @@ export default function SearchPage() {
               className=" "
               label="Busca un caso"
               classNameInput="w-full  "
-              classNameContainer="   md:mx-28"
+              classNameContainer="md:mx-28"
             />
             
           </div>
@@ -70,5 +71,8 @@ export default function SearchPage() {
         crossorigin="anonymous"
       ></script>
     </Fragment>
-  );
+
+
+  )
 }
+
