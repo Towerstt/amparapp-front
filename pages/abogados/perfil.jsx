@@ -1,17 +1,14 @@
+
 import Head from "next/head";
 import { Fragment } from "react";
 import NavBarLoggeado from "../../components/NavBar/NavBarLoggeado";
 import FooterEstructure from "../../components/Footer/FooterEsctructure";
-import DashboardEstructure from "../../components/Dashboard.jsx/DashboardEstructure";
+import LawyerProfileEdit from "../../components/UI-abogados/LawyerProfileEdit";
 
-
-//en esta funcion se haria el fetch para alimentar la navbar con el avatar del cliente y el nombre del cliente en el dashboard
-
-export default function ClientDashboard() {
+export default function EditLawyerProfilePage() {
   return (
     <Fragment>
       <Head>
-        <title> DashBoard </title>
         <meta charSet="UTF-8" />
         <meta httpEquiv="X-UA-Compatible" content="IE=edge" />
         <meta name="viewport" content="width=device-width, initial-scale=1.0" />
@@ -28,20 +25,23 @@ export default function ClientDashboard() {
           crossOrigin="anonymous"
         />
         <link rel="stylesheet" href="style.css" />
+        <title>Edita tu Perfil</title>
       </Head>
-      <NavBarLoggeado fixedTop="true"  />
 
-      <DashboardEstructure 
-      text={`${'Juan'}  ¡Bienvenido a tu Dashboard de CLIENTE!`}
-      linkPerfil='client/perfil'
-      linkCasos='client/casos'
-      />
+      <NavBarLoggeado fixedTop="true" />
 
-      
-      <FooterEstructure />
+      <section className="container mt-20 pt-5  md:mt-14 xl:mt-20">
+        <img
+          className="d-block mx-auto w-75 "
+          src="https://11g-files-juandedios.s3.us-east-2.amazonaws.com/amparapp/perfil.png"
+          alt=""
+        />
+        <LawyerProfileEdit/>
+
+      </section>
 
       <link rel="preconnect" href="https://fonts.googleapis.com" />
-      <link rel="preconnect" href="https://fonts.gstatic.com" crossOrigin="true" />
+      <link rel="preconnect" href="https://fonts.gstatic.com" crossOrigin= "true" />
       <link
         href="https://fonts.googleapis.com/css2?family=Roboto:ital,wght@0,100;0,300;0,400;0,500;0,700;0,900;1,100;1,300;1,400;1,500;1,700;1,900&display=swap"
         rel="stylesheet"
@@ -56,6 +56,7 @@ export default function ClientDashboard() {
         integrity="sha384-Piv4xVNRyMGpqkS2by6br4gNJ7DXjqk09RmUpJ8jgGtD7zP9yug3goQfGII0yAns"
         crossOrigin="anonymous"
       ></script>
+      <FooterEstructure/>
     </Fragment>
   );
 }

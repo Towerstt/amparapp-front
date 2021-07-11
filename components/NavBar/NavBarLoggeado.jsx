@@ -2,6 +2,7 @@ import Icons from "../Icons";
 import Link from "next/link";
 
 export default function NavBarLoggeado(props) {
+ 
   return (
     <header className=" ">
       <nav
@@ -57,7 +58,7 @@ export default function NavBarLoggeado(props) {
         </div>
         <div className="d-none d-md-block col-sm d-md-flex align-items-center justify-content-end">
           <span className="p-3">
-            <Icons source="fas fa-search" link="client/search" />
+            <Icons source="fas fa-search" link='/search' />
           </span>
           <span className="p-3">
             <span className="p-3">

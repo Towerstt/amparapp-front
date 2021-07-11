@@ -73,17 +73,17 @@ input {
   transition: 0.1s ease-out;
 }
 input:focus {
-  border-color: #6200ee;
+  border-color: #f4ba41 ;
 }
 input:focus + label {
-  color: #6200ee;
+  color: #f4ba41 ;
   top: 0;
   transform: translateY(-50%) scale(0.9);
 }
 input:not(:placeholder-shown) + label {
   top: 0;
   transform: translateY(-50%) scale(0.9);
-  color: #6200ee;
+  color: #f4ba41 ;
 }
 
 /* The switch - the box around the slider */
