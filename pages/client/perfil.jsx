@@ -4,7 +4,7 @@ import NavBarLoggeado from "../../components/NavBar/NavBarLoggeado";
 import FooterEstructure from "../../components/Footer/FooterEsctructure";
 import ClientProfileEdit from "../../components/UI-Client/ClientProfileEdit";
 
-export default function EditProfilePage() {
+export default function EditClientProfilePage() {
   return (
     <Fragment>
       <Head>
@@ -55,6 +55,7 @@ export default function EditProfilePage() {
         integrity="sha384-Piv4xVNRyMGpqkS2by6br4gNJ7DXjqk09RmUpJ8jgGtD7zP9yug3goQfGII0yAns"
         crossOrigin="anonymous"
       ></script>
+      <FooterEstructure/>
     </Fragment>
   );
 }

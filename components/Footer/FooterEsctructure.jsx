@@ -1,6 +1,8 @@
+/* eslint-disable @next/next/no-img-element */
 import { Fragment } from "react";
 import DynamicButton from "../DynamicButton";
 import DynamicInput from "../DynamicInput";
+import Modal from '../NavBar/Modal/Modal'
 import Icons from "../Icons";
 
 
