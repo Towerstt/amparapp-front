@@ -1,10 +1,11 @@
 import Head from "next/head";
-import { Fragment } from "react";
+import { Fragment, useState, useEffect } from "react";
 import NavBarLoggeado from "../../components/NavBar/NavBarLoggeado";
 import FooterEstructure from "../../components/Footer/FooterEsctructure";
 import ClientProfileEdit from "../../components/UI-Client/ClientProfileEdit";
 
 export default function EditClientProfilePage() {
+
   return (
     <Fragment>
       <Head>
