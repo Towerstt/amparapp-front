@@ -29,6 +29,7 @@ export default function FooterEstructure() {
             </p>
             <p>
               <a href="#">Registro</a>
+              <Modal/>
             </p>
             <p>
               <a href="#">Aviso de Privacidad</a>

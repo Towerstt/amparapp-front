@@ -13,8 +13,6 @@ export default function DynamicInput(props) {
           onClick={onClick}
           onChange={onChange}
           className={styleInput}
-          value={value}
-          onChange={onChange}
         />
         <label className="">{label}</label>
       </div>
