@@ -149,9 +149,111 @@ input:checked + .slider:before {
   border-radius: 50%;
 }
 
+.hamburger {
+  cursor: pointer;
+  position: relative;
+  width: 48px;
+  height: 48px;
+  transition: all 0.25s;
+}
+
+.hamburger__top-bun,
+.hamburger__bottom-bun {
+  content: '';
+  position: absolute;
+  left: 15px;
+  width: 18px;
+  height: 1px;
+  background: black;
+  transform: rotate(0);
+  transition: all 0.25s;
+}
+
+.hamburger:hover [class*="-bun"] {
+  background: #999;
+}
+
+.hamburger__top-bun {
+  top: 23px;
+  transform: translateY(-3px);
+}
+
+.hamburger__bottom-bun {
+  bottom: 23px;
+  transform: translateY(3px);
+}
+
+.open {
+  transform: rotate(90deg);
+}
+
+.open .hamburger__top-bun {
+  transform: 
+    rotate(45deg) 
+    translateY(0px);
+}
+
+.open .hamburger__bottom-bun {
+  transform: 
+    rotate(-45deg) 
+    translateY(0px);
+} 
+.drp {
+  position: absolute;
+}
+.dropdown-content {
+  width: 20vw;
+  background-color: white;
+  border: 2px solid rgb(155, 144, 144);
+  position: relative;
+  left: 74vw;
+  top: 16vh;
+  -webkit-box-shadow: 5px 5px black;
+          box-shadow: 5px 5px black;
+}
+
+
+.sidePanel {
+  height: 100vh; /* Specify a height */
+  position: fixed; /* Stay in place */
+  z-index: 1; /* Stay on top */
+  top: 0;
+  left: 0;
+  background-color: white;
+  overflow-x: hidden; /* Disable horizontal scroll */
+  transition: width .3s;
+} 
+
+.listSidePanel{
+  padding: 20px 8px 8px 15px;
+  text-decoration: none;
+  font-size: 17px;
+  color: black;
+  display: block;
+  transition: width .5s;
+
+} 
+
+.listSidePanel:hover{
+
+  color: #3E49D7;
+}
+
+
+
 
 
 /*termina css rodrigo*/
+
+
+
+
+
+
+
+
+
+
 
 .w-15 {
   width: 15% !important;
@@ -392,3 +494,65 @@ input:checked + .slider:before {
 
 
 
+.container-cards-case .card-case {
+  border: thin dotted #f4ba41;
+}
+
+.container-cards-case img {
+  max-width: 50px;
+}
+
+.container-cards-case span {
+  font-size: 18px;
+  font-weight: 300;
+}
+
+.container-cards-case h2 {
+  font-size: 30px;
+  font-weight: 900;
+}
+
+.container-cards-case h3 {
+  font-size: 20px;
+  font-weight: 500;
+}
+
+.container-cards-case p {
+  font-size: 18px;
+  font-weight: 300;
+  text-align: justify;
+}
+
+
+
+
+.menu-logged span {
+  font-size: 30px;
+  font-weight: 900;
+}
+
+.menu-logged ul {
+  list-style: none;
+  text-align: center;
+}
+
+.menu-logged ul li {
+  border: thin dotted #f4ba41;
+  display: -webkit-inline-box;
+  width: auto;
+  min-width: 75px;
+  float: left;
+  margin: 5px;
+  font-size: 17px;
+  font-weight: 800;
+  padding: 10px;
+}
+
+.menu-logged ul li:hover {
+  background-color: #f4ba41;
+}
+
+.menu-logged ul li a {
+  text-decoration: none;
+  color: #102e44;
+}

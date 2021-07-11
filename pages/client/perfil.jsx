@@ -27,20 +27,33 @@ export default function EditClientProfilePage() {
         <title>Edita tu Perfil</title>
       </Head>
 
-      <NavBarLoggeado fixedTop="true" />
+      <NavBarLoggeado
+        fixedTop="true"
+        rutalink="client"
+        rutaSearch="client/search"
+        pagos="client/pagos"
+        editar="client/perfil"
+        casos="client/casos"
+        acerca="client/acerca"
+        aviso="client/aviso"
+        politicas="client/politicas"
+      />
 
       <section className="container mt-20 pt-5  md:mt-14 xl:mt-20">
         <img
-          className="d-block mx-auto w-75 "
+          className="d-block mx-auto w-96 "
           src="https://11g-files-juandedios.s3.us-east-2.amazonaws.com/amparapp/perfil.png"
           alt=""
         />
-        <ClientProfileEdit/>
-
+        <ClientProfileEdit />
       </section>
 
       <link rel="preconnect" href="https://fonts.googleapis.com" />
-      <link rel="preconnect" href="https://fonts.gstatic.com" crossOrigin= "true" />
+      <link
+        rel="preconnect"
+        href="https://fonts.gstatic.com"
+        crossOrigin="true"
+      />
       <link
         href="https://fonts.googleapis.com/css2?family=Roboto:ital,wght@0,100;0,300;0,400;0,500;0,700;0,900;1,100;1,300;1,400;1,500;1,700;1,900&display=swap"
         rel="stylesheet"
@@ -55,7 +68,7 @@ export default function EditClientProfilePage() {
         integrity="sha384-Piv4xVNRyMGpqkS2by6br4gNJ7DXjqk09RmUpJ8jgGtD7zP9yug3goQfGII0yAns"
         crossOrigin="anonymous"
       ></script>
-      <FooterEstructure/>
+      <FooterEstructure />
     </Fragment>
   );
 }
