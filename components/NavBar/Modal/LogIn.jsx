@@ -8,7 +8,7 @@ export default function LogIn(props) {
   const [data, setData] = useState({email : '', password : ''})
   
   const handleSubmit = async (event) => {
-    event.preventDefault()
+    event.preventDefault() 
       try { 
         const response = await fetch('http://localhost:8080/clients/login', {
           method : 'POST',

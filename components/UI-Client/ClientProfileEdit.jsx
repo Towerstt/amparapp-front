@@ -4,47 +4,37 @@ import { useRouter } from 'next/router'
 import { useState } from "react";
 
 export default function ClientProfileEdit() {
+  const url = document.URL
+  const currentUserID = url.split('/')[4]
+  console.log(currentUserID)
 
-
-  const [firstName, setFirstName] = useState("");
-  const [lastName, setLastName] = useState("");
-  const [email, setEmail] = useState("");
-  const [password, setPassword] = useState("");
-  const [confirmPassword, setConfirmPassword] = useState("")
-  const [phoneNumber, setPhoneNumber]= useState("");
-  const [curp, setCurp]= useState('');
-  const [address, setAddress]= useState('');
-  const [birthDate, setBirthDate]= useState('')
-
+  const [data, setData] = useState({firstName : '', lastName : '', email : '', password : '', phoneNumber : '', curp : '',address : '', birthDate : ''})
   
+  const handleSubmit = async (event) => {
+    console.log(data)
+    event.preventDefault()
+      try { 
+        const response = await fetch(`http://localhost:8080/clients/${currentUserID}`, {
+          method : 'PUT',
+          headers : {
+            'Content-Type' : 'application/json'
+          },
+          body : JSON.stringify(data)
+        })
+        const res = await response.json()
+      }
+      catch (error) {
+        console.log(error)
+      }
+    
+  }
 
-  const router = useRouter();
-
-  //falta agregarle el async y el fetch
-  const handleSubmit =  (event) => {
-    event.preventDefault();
-
-    try {
-      const newData = JSON.stringify({
-        firstName,
-        lastName,
-        email,
-        password,
-        phoneNumber,
-        curp,
-        address,
-        birthDate
-        
-      });
-      
-      
-    console.log(newData)
-
-    } catch (error) {
-      console.log(error);
-    }
+  const updateField = e => {
+    setData({
+      ...data,
+      [e.target.name]: e.target.value
+    });
   };
-
 
 
   return (
@@ -57,43 +47,47 @@ export default function ClientProfileEdit() {
         <div className="col-12 col-md-9">
           <div className="d-block d-md-flex ">
             <DynamicInput
+              name='firstName'
+              value={data.firstName}
               type="text"
               className="mx-2 mb-3 "
               label="First name"
               classNameInput=" form-control col-12  "
               classNameContainer=""
-              value={firstName}
-              onChange={(event) => setFirstName(event.target.value)}
+              onChange={updateField}
             />
             <DynamicInput
+              name='lastName'
+              value={data.lastName}
               type="text"
               className="mx-2 mb-3 "
               label="Last name"
               classNameInput=" form-control  col-12  "
               classNameContainer=" "
-              value={lastName}
-                  onChange={(event) => setLastName(event.target.value)}
+              onChange={updateField}
             />
             
           </div>
           <div className="d-block d-md-flex">
           <DynamicInput
+              name='phoneNumber'
+              value={data.phoneNumber}
               type="text"
               className=" mx-2 mb-3 "
               label="Phone number"
               classNameInput=" form-control col-12  "
               classNameContainer=""
-              value={phoneNumber}
-                  onChange={(event) => setPhoneNumber(event.target.value)}
+              onChange={updateField}
             />
             <DynamicInput
+              name='email'
+              value={data.email}
               type="email"
               className=" mx-2 mb-3 "
               label="Email"
               classNameInput=" form-control  col-12  "
               classNameContainer=" "
-              value={email}
-                  onChange={(event) => setEmail(event.target.value)}
+              onChange={updateField}
             />
             
           </div>
@@ -109,22 +103,24 @@ export default function ClientProfileEdit() {
           <div className="d-block d-md-flex">
 
           <DynamicInput
+              name='birthDate'
+              value={data.birthDate}
               type="date"
               className=" mx-2 mb-3 "
               label="Fecha de Nacimiento"
               classNameInput=" form-control col-12  "
               classNameContainer=""
-              value={birthDate}
-                  onChange={(event) => setBirthDate(event.target.value)}
+              onChange={updateField}
             />
             <DynamicInput
+              name='curp'
+              value={data.curp}
               type="text"
               className=" mx-2 mb-3 "
               label="CURP"
               classNameInput=" form-control  col-12  "
               classNameContainer=" "
-              value={curp}
-                  onChange={(event) => setCurp(event.target.value)}
+              onChange={updateField}
             />
             
           </div>
@@ -139,13 +135,14 @@ export default function ClientProfileEdit() {
         <div className="d-block d-md-flex">
           
         <DynamicInput
+                      name='address'
+                      value={data.address}
               type="text"
               className=" mx-2 mb-3 "
               label="Dirección Completa"
               classNameInput=" form-control  col-12  "
               classNameContainer=" "
-              value={address}
-                  onChange={(event) => setAddress(event.target.value)}
+              onChange={updateField}
             />
           
           
@@ -161,24 +158,25 @@ export default function ClientProfileEdit() {
           <div className="d-block d-md-flex">
 
           <DynamicInput
+                        name='password'
+                        value={data.password}
               type="password"
               className=" mx-2 mb-3 "
               label="Password"
               classNameInput=" form-control col-12  "
               classNameContainer=""
-              value={confirmPassword}
-                  onChange={(event) => setConfirmPassword(event.target.value)}
+                  onChange={updateField}
               
               
             />
             <DynamicInput
+              name='confirmPassword'            
               type="password"
               className=" mx-2 mb-3 "
               label="Confirm your Password"
               classNameInput=" form-control  col-12  "
               classNameContainer=" "
-              value={password}
-                  onChange={(event) => setPassword(event.target.value) }
+              onBlur ={(event) => event.target.value != data.password ? alert('Password y confirmación no coinciden'): null}
             />
             
           </div>

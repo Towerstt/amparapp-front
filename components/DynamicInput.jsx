@@ -1,5 +1,5 @@
 export default function DynamicInput(props) {
-  const { className: style, classNameInput:styleInput, classNameContainer:styleContainer, onClick, onChange, type, placeholder, id, label, value, name } = props;
+  const { className: style, classNameInput:styleInput, classNameContainer:styleContainer, onClick, onChange, onBlur, type, placeholder, id, label, value, name } = props;
   return (
     <div className={`container-input  ${style}`}>
       <div className={`material-textfield ${styleContainer}`}>
@@ -13,6 +13,7 @@ export default function DynamicInput(props) {
           onClick={onClick}
           onChange={onChange}
           className={styleInput}
+          onBlur={onBlur}
         />
         <label className="">{label}</label>
       </div>
