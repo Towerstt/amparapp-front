@@ -33,7 +33,7 @@ export default function LawyerDashboard() {
       <NavBarLoggeado fixedTop="true"  />
 
       <DashboardEstructure 
-      text={`${'Rodrigo'}  ¡Bienvenido a tu Dashboard de ADMINISTRADOR!`}
+      text={`${'Juan'}  ¡Bienvenido a tu Dashboard de ADMINISTRADOR!`}
       linkPerfil='abogados/perfil'
       linkCasos='abogados/casos'
       />

@@ -3,10 +3,7 @@ import DynamicButton from "../DynamicButton";
 import { useRouter } from 'next/router'
 import { useState } from "react";
 
-export default function ClientProfileEdit() {
-  const url = document.URL
-  const currentUserID = url.split('/')[4]
-  console.log(currentUserID)
+export default function ClientProfileEdit(props) {
 
   const [data, setData] = useState({firstName : '', lastName : '', email : '', password : '', phoneNumber : '', curp : '',address : '', birthDate : ''})
   
@@ -14,7 +11,7 @@ export default function ClientProfileEdit() {
     console.log(data)
     event.preventDefault()
       try { 
-        const response = await fetch(`http://localhost:8080/clients/${currentUserID}`, {
+        const response = await fetch(`http://localhost:8080/clients/${props.id}`, {
           method : 'PUT',
           headers : {
             'Content-Type' : 'application/json'

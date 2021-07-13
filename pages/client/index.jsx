@@ -15,11 +15,9 @@ export default function ClientDashboard() {
     const encryptedData = localStorage.getItem('tkn')
     setTkn(encryptedData)
     fetch(`http://localhost:8080/clients/${token}`)
-    .then((response) => response.json())
-      .then((json) => setActiveUser(json.data.User))
+      .then((response) => response.json())
+        .then((json) => setActiveUser(json.data.User))
   }, [token])
-
-  console.log(activeUser)
 
   return (
     <Fragment>
@@ -46,7 +44,8 @@ export default function ClientDashboard() {
 
       <DashboardEstructure 
       text={`¡Hola ${activeUser ? activeUser[0].firstName : ''} ${activeUser ? activeUser[0].lastName : ''}!  ¡Bienvenido a tu Dashboard de CLIENTE!`}
-      linkPerfil={`clients/${activeUser ? activeUser[0]._id : ''}`}
+      data={`${activeUser ? activeUser[0]._id : ''}`}
+      linkPerfil={`client/${activeUser ? activeUser[0]._id : ''}`}
       linkCasos='client/casos'
       />
 

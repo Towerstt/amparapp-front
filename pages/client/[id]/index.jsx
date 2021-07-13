@@ -1,11 +1,11 @@
 import Head from "next/head";
 import { Fragment, useState, useEffect } from "react";
-import NavBarLoggeado from "../../components/NavBar/NavBarLoggeado";
-import FooterEstructure from "../../components/Footer/FooterEsctructure";
-import ClientProfileEdit from "../../components/UI-Client/ClientProfileEdit";
+import NavBarLoggeado from "../../../components/NavBar/NavBarLoggeado";
+import FooterEstructure from "../../../components/Footer/FooterEsctructure";
+import ClientProfileEdit from "../../../components/UI-Client/ClientProfileEdit";
 
-export default function EditClientProfilePage() {
-
+export default function EditClientProfilePage(props) {
+  console.log("ID page" , props.id)
   return (
     <Fragment>
       <Head>
@@ -36,7 +36,7 @@ export default function EditClientProfilePage() {
           src="https://11g-files-juandedios.s3.us-east-2.amazonaws.com/amparapp/perfil.png"
           alt=""
         />
-        <ClientProfileEdit/>
+        <ClientProfileEdit userId = {props.id}/>
 
       </section>
 
@@ -60,3 +60,11 @@ export default function EditClientProfilePage() {
     </Fragment>
   );
 }
+
+export function getServerSideProps (context) {
+  const id = context.params.id
+  return {props : {
+    id
+  }}
+
+} 

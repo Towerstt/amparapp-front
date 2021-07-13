@@ -1,28 +1,14 @@
 import { Fragment, useState } from "react";
 import DynamicInput from "../../DynamicInput";
 import DynamicButton from "../../DynamicButton";
-// import sgMail from "@sendgrid/mail";
+// 
 import ResetMail from "../../../pages/login/resetMail";
 
 export default function ForgetPassword() {
   const [email, setEmail] = useState('')
 
   
-  // sgMail.setApiKey(process.env.SENDGRID_API_KEY);
-  // const msg = {
-  //   to: email, // Change to your recipient
-  //   from: 'towerstt3@gmail.com', // Change to your verified sender
-  //   subject: "Reset your password",
-  //   html: <ResetMail/>,
-  // };
-  // sgMail
-  //   .send(msg)
-  //   .then(() => {
-  //     console.log("Email sent");
-  //   })
-  //   .catch((error) => {
-  //     console.error(error);
-  //   });
+
 
   return (
     <Fragment>
