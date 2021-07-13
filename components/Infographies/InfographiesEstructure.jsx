@@ -2,21 +2,6 @@ import { useState, useEffect } from 'react'
 import Infographies from '../Infographies/Infographies'
 
 export default function InfographiesEstructure(props){
-  const [numberOfCases, setNumberCases] = useState(0)
-
-  
-  //Podríamos pasar esto a ServerSideRender porque serían datos estáticos cada vez que se carga la página.
-  useEffect(() =>{
-    fetch('http://localhost:8080/cases')
-    .then(response => response.json())
-    .then(data => {
-      // console.log(data)
-      setNumberCases(data.data.allCases.length)})
-
-  },[])
-
-
-
   return(
     <section className="container-fluid p-5 infogaphy border">
 
@@ -39,7 +24,7 @@ export default function InfographiesEstructure(props){
             className="icon"
             src="https://11g-files-juandedios.s3.us-east-2.amazonaws.com/amparapp/icon-amparos.png"
             alt="numero total de amparos ganados"
-            number={numberOfCases}
+            number={props.casesCount}
             text={"Amparos"}
           />
 

@@ -14,7 +14,7 @@ export default function CardCasesData(props) {
           limitDate={limitDate}
           totalSigners={signers ? signers.length : 0}
           creationDate={creationDate}
-          path={`/caseDetails${'key'}`}
+          path={`/client/:id/case/${_id}`}
           />
         )
     }

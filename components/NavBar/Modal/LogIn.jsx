@@ -2,24 +2,21 @@
 import { Fragment, useState } from "react";
 import DynamicInput from "../../DynamicInput";
 import DynamicButton from "../../DynamicButton";
+import {useRouter} from 'next/router'
+import { login } from "../../../lib/api";
 
 
 export default function LogIn(props) {
+  const history = useRouter()
   const [data, setData] = useState({email : '', password : ''})
   
   const handleSubmit = async (event) => {
     event.preventDefault() 
-      try { 
-        const response = await fetch('http://localhost:8080/clients/login', {
-          method : 'POST',
-          headers : {
-            'Content-Type' : 'application/json'
-          },
-          body : JSON.stringify(data)
-        })
-        const res = await response.json()
-        const token = res.data.token
+      try {
+        const userLoggedIn = await login(data)
+        const token = userLoggedIn.token
         localStorage.setItem('tkn', token)
+        history.reload(window.location)
       }
       catch (error) {
       
@@ -76,7 +73,6 @@ export default function LogIn(props) {
           <DynamicButton
             className="bg-prussian rounded-lg shadow-sm my-4 w-28"
             type="submit"
-            
           >
             <p className="text-white m-2 ">Inicia sesión</p>
           </DynamicButton>

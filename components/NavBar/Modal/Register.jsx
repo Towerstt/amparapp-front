@@ -2,24 +2,20 @@
 import { Fragment, useState } from "react";
 import DynamicInput from "../../DynamicInput";
 import DynamicButton from "../../DynamicButton";
+import {useRouter} from 'next/router'
+import { postNewUser } from "../../../lib/api";
 
 export default function Register(props) {
-
+  const history = useRouter()
   const [data, setData] = useState({firstName : '', lastName : '', email : '', password : ''})
   
   const handleSubmit = async (event) => {
     event.preventDefault()
-      try { 
-        const response = await fetch('http://localhost:8080/clients', {
-          method : 'POST',
-          headers : {
-            'Content-Type' : 'application/json'
-          },
-          body : JSON.stringify(data)
-        })
-        const res = await response.json()
-        const token = res.data.token
+      try {
+        const newUser = await postNewUser(data)
+        const token = newUser.token
         localStorage.setItem('tkn', token)
+        history.reload(window.location)
 
       }
       catch (error) {

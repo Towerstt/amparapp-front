@@ -1,13 +1,10 @@
-import { Fragment, useState } from "react";
+import { Fragment, useEffect, useState } from "react";
 import DynamicInput from "../../DynamicInput";
 import DynamicButton from "../../DynamicButton";
-// 
-import ResetMail from "../../../pages/login/resetMail";
+import { passwordRecovery } from "../../../lib/api";
 
 export default function ForgetPassword() {
-  const [email, setEmail] = useState('')
-
-  
+  const [email, setEmail] = useState('')  
 
 
   return (
@@ -32,15 +29,14 @@ export default function ForgetPassword() {
           label="Email address"
           classNameInput="w-full "
           classNameContainer=" mx-14"
-          onChange={e => {
-            localStorage.setItem('temp-mail', e.target.value)
-            setEmail(e.target.value)}}
+          onChange={e => {setEmail(e.target.value)}}
         />
 
         <div className="w-full flex-col flex items-center">
           <DynamicButton
             className="bg-prussian rounded-lg shadow-sm my-4 w-24"
             type="submit"
+            onClick={(e) => passwordRecovery(e.nativeEvent.path[3][0].value)}
           >
             <p className="text-white m-2 ">ENVIAR </p>
           </DynamicButton>
