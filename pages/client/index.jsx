@@ -3,6 +3,7 @@ import { Fragment, useState, useEffect } from "react";
 import NavBarLoggeado from "../../components/NavBar/NavBarLoggeado";
 import FooterEstructure from "../../components/Footer/FooterEsctructure";
 import DashboardEstructure from "../../components/Dashboard.jsx/DashboardEstructure";
+import { setCurrentUser } from "../../lib/api";
 
 //en esta funcion se haria el fetch para alimentar la navbar con el avatar del cliente y el nombre del cliente en el dashboard
 
@@ -10,15 +11,13 @@ export default function ClientDashboard() {
   
   const [token, setTkn] = useState('')
   const [activeUser, setActiveUser] = useState()
-  useEffect(() =>{
+  useEffect( async () =>{
     const encryptedData = localStorage.getItem('tkn')
     setTkn(encryptedData)
-    fetch(`http://localhost:8080/clients/${token}`)
-    .then((response) => response.json())
-      .then((json) => setActiveUser(json.data.User))
-  }, [token])
-
-  console.log(activeUser)
+    const response = await setCurrentUser(token)
+    console.log(response)
+    setActiveUser(response.User)
+  }, [])
 
   return (
     <Fragment>
@@ -55,6 +54,7 @@ export default function ClientDashboard() {
 
       <DashboardEstructure 
       text={`¡Hola ${activeUser ? activeUser[0].firstName : ''} ${activeUser ? activeUser[0].lastName : ''}!  ¡Bienvenido a tu Dashboard de CLIENTE!`}
+      data={`${activeUser ? activeUser[0]._id : ''}`}
       linkPerfil={`client/${activeUser ? activeUser[0]._id : ''}`}
       linkCasos='client/casos'
       />

@@ -7,8 +7,8 @@ import InfographiesEstructure from "../components/Infographies/InfographiesEstru
 import FaqsEstructure from "../components/FAQS/FAQSEstructure";
 import DynamicButton from "../components/DynamicButton";
 import FooterEstructure from "../components/Footer/FooterEsctructure";
-
-export default function Home() {
+import { getCasesInfo, getClientsInfo } from "../lib/api"
+export default function Home(props) {
   return (
     <Fragment>
       <Head>
@@ -55,7 +55,7 @@ export default function Home() {
       </section>
 
 
-      <InfographiesEstructure />
+      <InfographiesEstructure signersCount={props.numberOfSigners} usersCount={props.numberOfUsers} casesCount={props.numberOfCases} />
 
       <section className="container-fluid p-5 d-none d-md-block ">
         <div className="d-flex justify-content-center align-items-center faqs ">
@@ -113,3 +113,13 @@ export default function Home() {
 }
 
 
+export async function getServerSideProps (context) {
+  const casesInfo = await getCasesInfo()
+
+  const clientsInfo =  await getClientsInfo()
+   return {props : {
+     numberOfUsers : clientsInfo.count,
+     numberOfSigners : clientsInfo.signersCount,
+     numberOfCases : casesInfo.count
+   }}
+}

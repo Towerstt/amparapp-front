@@ -1,27 +1,16 @@
 import DynamicInput from "../DynamicInput";
 import DynamicButton from "../DynamicButton";
-import { useRouter } from 'next/router'
 import { useState } from "react";
+import { editUserData } from "../../lib/api";
 
-export default function ClientProfileEdit() {
-  const url = document.URL
-  const currentUserID = url.split('/')[4]
-  console.log(currentUserID)
+export default function ClientProfileEdit(props) {
 
   const [data, setData] = useState({firstName : '', lastName : '', email : '', password : '', phoneNumber : '', curp : '',address : '', birthDate : ''})
   
   const handleSubmit = async (event) => {
-    console.log(data)
     event.preventDefault()
       try { 
-        const response = await fetch(`http://localhost:8080/clients/${currentUserID}`, {
-          method : 'PUT',
-          headers : {
-            'Content-Type' : 'application/json'
-          },
-          body : JSON.stringify(data)
-        })
-        const res = await response.json()
+        const newData = editUserData(props.id, data)
       }
       catch (error) {
         console.log(error)
