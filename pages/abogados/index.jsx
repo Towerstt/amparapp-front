@@ -30,7 +30,17 @@ export default function LawyerDashboard() {
         />
         <link rel="stylesheet" href="style.css" />
       </Head>
-      <NavBarLoggeado fixedTop="true"  />
+      <NavBarLoggeado 
+      fixedTop="true" 
+      rutalink='abogados' 
+      searchDisplay='true'
+      pagos="abogados/pagos"
+        editar="abogados/perfil"
+        casos="abogados/casos"
+        acerca="abogados/acerca"
+        aviso="abogados/aviso"
+        politicas="abogados/politicas"
+      />
 
       <DashboardEstructure 
       text={`${'Rodrigo'}  ¡Bienvenido a tu Dashboard de ADMINISTRADOR!`}

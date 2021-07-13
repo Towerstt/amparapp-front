@@ -1,15 +1,22 @@
 import Head from "next/head";
-import { Fragment } from "react";
+import { Fragment, useState } from "react";
 import NavBarLoggeado from "../../components/NavBar/NavBarLoggeado";
 import FooterEstructure from "../../components/Footer/FooterEsctructure";
-import LawyerProfileEdit from "../../components/UI-abogados/LawyerProfileEdit";
+import CardAdminCases from "../../components/UI-abogados/CardAdminCases";
+import DynamicButton from "../../components/DynamicButton";
 
-export default function EditLawyerProfilePage() {
+export default function AdminCasesPage() {
+  //en esta funcion se haria el fetch para saber todos los casos asignados que tiene el abogado y se vacia la info en CardAdminCases
+  // se crean 3 casos por fila en web, 1 caso por fila en mobile
+
+  //el h2 que dice "¡Ooops, parece que aún no tienes casos creados!" es dinamico, si el fetch sí trae casos, debería cambiar su estado a d-none
+  const [showMessage, setShowMessage] = useState("d-block");
+
   return (
     <Fragment>
       <Head>
-        <meta charSet="UTF-8" />
-        <meta httpEquiv="X-UA-Compatible" content="IE=edge" />
+        <meta charset="UTF-8" />
+        <meta http-equiv="X-UA-Compatible" content="IE=edge" />
         <meta name="viewport" content="width=device-width, initial-scale=1.0" />
         <link
           rel="stylesheet"
@@ -24,9 +31,8 @@ export default function EditLawyerProfilePage() {
           crossOrigin="anonymous"
         />
         <link rel="stylesheet" href="style.css" />
-        <title>Edita tu Perfil</title>
+        <title>Admin cases</title>
       </Head>
-
       <NavBarLoggeado
         fixedTop="true"
         rutalink="abogados"
@@ -38,15 +44,40 @@ export default function EditLawyerProfilePage() {
         aviso="abogados/aviso"
         politicas="abogados/politicas"
       />
-
       <section className="container mt-20 pt-5  md:mt-14 xl:mt-20">
-        <img
-          className="d-block mx-auto w-96 "
-          src="https://11g-files-juandedios.s3.us-east-2.amazonaws.com/amparapp/perfil.png"
-          alt=""
-        />
-        <LawyerProfileEdit />
+        <div>
+          <img
+            className="d-block mx-auto w-96"
+            src="https://11g-files-juandedios.s3.us-east-2.amazonaws.com/amparapp/admin-casos.png"
+            alt=""
+          />
+        </div>
+        <div className={`flex justify-center mt-4 ${showMessage}`}>
+          <h2 className="text-center">
+            ¡Ooops, parece que aún no tienes casos creados!
+          </h2>
+        </div>
+        <div className="flex justify-center mt-4   ">
+          <DynamicButton
+            className="bg-prussian rounded-lg shadow-sm  w-auto"
+            link="/abogado/createcase"
+          >
+            <p className="text-white m-2 text-2xl">Crea un nuevo caso</p>
+          </DynamicButton>
+        </div>
+
+        <div className="container my-4">
+          <div className="grid grid-cols-1  md:grid-cols-3">
+            <CardAdminCases
+              link={`${"id"}`}
+              title={"title"}
+              responsibleUser={"responsibleUser"}
+              sentenceEffects={"sentenceEffects"}
+            />
+          </div>
+        </div>
       </section>
+      <FooterEstructure />
 
       <link rel="preconnect" href="https://fonts.googleapis.com" />
       <link
@@ -68,7 +99,6 @@ export default function EditLawyerProfilePage() {
         integrity="sha384-Piv4xVNRyMGpqkS2by6br4gNJ7DXjqk09RmUpJ8jgGtD7zP9yug3goQfGII0yAns"
         crossOrigin="anonymous"
       ></script>
-      <FooterEstructure />
     </Fragment>
   );
 }

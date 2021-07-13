@@ -1,4 +1,3 @@
-
 import Head from "next/head";
 import { Fragment } from "react";
 import CardCasesEstructure from "../../components/CardCases/CardCasesEstructure";
@@ -6,9 +5,8 @@ import DynamicInput from "../../components/DynamicInput";
 import FooterEstructure from "../../components/Footer/FooterEsctructure";
 import NavBarLoggeado from "../../components/NavBar/NavBarLoggeado";
 
-export default function SearchClient(){
-
-  return(
+export default function SearchClient() {
+  return (
     <Fragment>
       <Head>
         <title>Busca un caso</title>
@@ -30,7 +28,17 @@ export default function SearchClient(){
         ></link>
         <link rel="stylesheet" href="style.css"></link>
       </Head>
-      <NavBarLoggeado fixedTop="true"  />
+      <NavBarLoggeado
+        fixedTop="true"
+        rutalink="client"
+        rutaSearch="client/search"
+        pagos="client/pagos"
+        editar="client/perfil"
+        casos="client/casos"
+        acerca="client/acerca"
+        aviso="client/aviso"
+        politicas="client/politicas"
+      />
       <div className="container max-w-full shadow-sm bg-hero-pattern bg-cover mt-20  md:mt-14 xl:mt-20">
         <div className="grid grid-cols-2 ">
           <div className="col-span-2 text-4xl font-bold mt-8 flex justify-center	">
@@ -44,7 +52,6 @@ export default function SearchClient(){
               classNameInput="w-full  "
               classNameContainer="md:mx-28"
             />
-            
           </div>
         </div>
       </div>
@@ -55,7 +62,11 @@ export default function SearchClient(){
       </section>
       <FooterEstructure />
       <link rel="preconnect" href="https://fonts.googleapis.com" />
-      <link rel="preconnect" href="https://fonts.gstatic.com" crossOrigin="true" />
+      <link
+        rel="preconnect"
+        href="https://fonts.gstatic.com"
+        crossOrigin="true"
+      />
       <link
         href="https://fonts.googleapis.com/css2?family=Roboto:ital,wght@0,100;0,300;0,400;0,500;0,700;0,900;1,100;1,300;1,400;1,500;1,700;1,900&display=swap"
         rel="stylesheet"
@@ -71,8 +82,5 @@ export default function SearchClient(){
         crossOrigin="anonymous"
       ></script>
     </Fragment>
-
-
-  )
+  );
 }
-

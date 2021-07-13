@@ -1,6 +1,7 @@
 import Head from "next/head";
 import { Fragment } from "react";
 import NavBar from "../components/NavBar/NavBar";
+import Modal from "../components/NavBar/Modal/Modal"
 import CardCasesEstructure from "../components/CardCases/CardCasesEstructure";
 import InfographiesEstructure from "../components/Infographies/InfographiesEstructure";
 import FaqsEstructure from "../components/FAQS/FAQSEstructure";
@@ -76,12 +77,13 @@ export default function Home() {
 
       <section className="container-fluid p-5 registro d-none d-md-block">
         <div className="row m-5">
-          <DynamicButton className="Regular border-0 shadow-sm d-block w-25 mx-auto">
+          <DynamicButton className="Regular border-0 shadow-sm d-flex align-items-center w-25 mx-auto">
             <img
               className="d-block w-100 mx-auto"
               src="https://11g-files-juandedios.s3.us-east-2.amazonaws.com/amparapp/registrate.png"
               alt=""
             />
+            <Modal/>
           </DynamicButton>
         </div>
       </section>
