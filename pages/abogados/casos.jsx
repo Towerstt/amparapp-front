@@ -4,19 +4,21 @@ import NavBarLoggeado from "../../components/NavBar/NavBarLoggeado";
 import FooterEstructure from "../../components/Footer/FooterEsctructure";
 import CardAdminCases from "../../components/UI-abogados/CardAdminCases";
 import DynamicButton from "../../components/DynamicButton";
+import FirmCasesEstructure from "../../components/CardCases/FirmCasesEstructure";
+import ActiveCasesEstructure from "../../components/CardCases/ActiveCasesEstructure";
 
 export default function AdminCasesPage() {
   //en esta funcion se haria el fetch para saber todos los casos asignados que tiene el abogado y se vacia la info en CardAdminCases
   // se crean 3 casos por fila en web, 1 caso por fila en mobile
 
   //el h2 que dice "¡Ooops, parece que aún no tienes casos creados!" es dinamico, si el fetch sí trae casos, debería cambiar su estado a d-none
-  const [showMessage, setShowMessage] = useState("d-block");
+  const [showMessage, setShowMessage] = useState("md:block");
 
   return (
     <Fragment>
       <Head>
-        <meta charset="UTF-8" />
-        <meta http-equiv="X-UA-Compatible" content="IE=edge" />
+        <meta charSet="UTF-8" />
+        <meta httpEquiv="X-UA-Compatible" content="IE=edge" />
         <meta name="viewport" content="width=device-width, initial-scale=1.0" />
         <link
           rel="stylesheet"
@@ -44,7 +46,7 @@ export default function AdminCasesPage() {
         aviso="abogados/aviso"
         politicas="abogados/politicas"
       />
-      <section className="container mt-20 pt-5  md:mt-14 xl:mt-20">
+      <section className="container mt-20 pt-5  md:mt-14 xl:mt-20 ">
         <div>
           <img
             className="d-block mx-auto w-96"
@@ -52,11 +54,12 @@ export default function AdminCasesPage() {
             alt=""
           />
         </div>
-        <div className={`flex justify-center mt-4 ${showMessage}`}>
-          <h2 className="text-center">
+        <div className={`flex justify-center mt-4  hidden ${showMessage}`}>
+          <h2 className="text-center ">
             ¡Ooops, parece que aún no tienes casos creados!
           </h2>
         </div>
+
         <div className="flex justify-center mt-4   ">
           <DynamicButton
             className="bg-prussian rounded-lg shadow-sm  w-auto"
@@ -66,17 +69,58 @@ export default function AdminCasesPage() {
           </DynamicButton>
         </div>
 
-        <div className="container my-4">
-          <div className="grid grid-cols-1  md:grid-cols-3">
-            <CardAdminCases
-              link={`${"id"}`}
-              title={"title"}
-              responsibleUser={"responsibleUser"}
-              sentenceEffects={"sentenceEffects"}
-            />
+        <div className="grid grid-cols-1 md:hidden my-16">
+          <FirmCasesEstructure />
+
+          <ActiveCasesEstructure />
+        </div>
+
+        <div className=" hidden md:block container my-4 ">
+          <div className="grid grid-cols-2  ">
+            <div className="col-span-1 border-r-2 border-prussian">
+              <div className="grid grid-cols-2">
+                <div className="col-span-2 border-2  bg-honeyyellow rounded-lg shadow-sm	border-prussian mx-14 lg:mx-24 justify-center flex">
+                  <p>Casos en firma</p>
+                </div>
+                <div className="col-span-2 lg:col-span-1">
+                  <CardAdminCases
+                    link={`${"id"}`}
+                    title={"title"}
+                    responsibleUser={"responsibleUser"}
+                    sentenceEffects={"sentenceEffects"}
+                  />
+                </div>
+                
+              </div>
+            </div>
+
+            <div className="col-span-1">
+              <div className="grid grid-cols-2">
+                <div className="col-span-2 border-2  bg-honeyyellow rounded-lg shadow-sm	border-prussian mx-14 lg:mx-24 justify-center flex">
+                  <p>Casos Activos</p>
+                </div>
+                <div className="col-span-2 lg:col-span-1">
+                  <CardAdminCases
+                    link={`${"id"}`}
+                    title={"title"}
+                    responsibleUser={"responsibleUser"}
+                    sentenceEffects={"sentenceEffects"}
+                  />
+                </div>
+                <div className="col-span-2 lg:col-span-1">
+                  <CardAdminCases
+                    link={`${"id"}`}
+                    title={"title"}
+                    responsibleUser={"responsibleUser"}
+                    sentenceEffects={"sentenceEffects"}
+                  />
+                </div>
+              </div>
+            </div>
           </div>
         </div>
       </section>
+
       <FooterEstructure />
 
       <link rel="preconnect" href="https://fonts.googleapis.com" />
@@ -102,3 +146,12 @@ export default function AdminCasesPage() {
     </Fragment>
   );
 }
+
+/*
+<CardAdminCases
+              link={`${"id"}`}
+              title={"title"}
+              responsibleUser={"responsibleUser"}
+              sentenceEffects={"sentenceEffects"}
+            />
+            */

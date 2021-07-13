@@ -1,29 +1,21 @@
+
 import Head from "next/head";
-import { Fragment, useState, useEffect } from "react";
+import { Fragment, useState } from "react";
 import NavBarLoggeado from "../../components/NavBar/NavBarLoggeado";
 import FooterEstructure from "../../components/Footer/FooterEsctructure";
-import DashboardEstructure from "../../components/Dashboard.jsx/DashboardEstructure";
+import CardAdminCases from "../../components/UI-abogados/CardAdminCases";
+import DynamicButton from "../../components/DynamicButton";
 
-//en esta funcion se haria el fetch para alimentar la navbar con el avatar del cliente y el nombre del cliente en el dashboard
+export default function ClientCasesPage() {
+  //en esta funcion se haria el fetch para saber todos los casos asignados que tiene el cliente y se vacia la info en CardAdminCases
+  // se crean 3 casos por fila en web, 1 caso por fila en mobile
 
-export default function ClientDashboard() {
-  
-  const [token, setTkn] = useState('')
-  const [activeUser, setActiveUser] = useState()
-  useEffect(() =>{
-    const encryptedData = localStorage.getItem('tkn')
-    setTkn(encryptedData)
-    fetch(`http://localhost:8080/clients/${token}`)
-    .then((response) => response.json())
-      .then((json) => setActiveUser(json.data.User))
-  }, [token])
-
-  console.log(activeUser)
+  //el h2 que dice "¡Ooops, parece que aún no tienes casos firmados!" es dinamico, si el fetch sí trae casos, debería cambiar su estado a d-none
+  const [showMessage, setShowMessage] = useState("d-block");
 
   return (
     <Fragment>
       <Head>
-        <title> DashBoard </title>
         <meta charSet="UTF-8" />
         <meta httpEquiv="X-UA-Compatible" content="IE=edge" />
         <meta name="viewport" content="width=device-width, initial-scale=1.0" />
@@ -40,6 +32,7 @@ export default function ClientDashboard() {
           crossOrigin="anonymous"
         />
         <link rel="stylesheet" href="style.css" />
+        <title>Admin cases</title>
       </Head>
       <NavBarLoggeado
         fixedTop="true"
@@ -52,13 +45,32 @@ export default function ClientDashboard() {
         aviso='client/aviso'
         politicas='client/politicas'
       />
+      <section className="container mt-20 pt-5  md:mt-14 xl:mt-20">
+        <div>
+          <img
+            className="d-block mx-auto w-96"
+            src="https://11g-files-juandedios.s3.us-east-2.amazonaws.com/amparapp/admin-casos.png"
+            alt=""
+          />
+        </div>
+        <div className={`flex justify-center mt-4 ${showMessage}`}>
+          <h2 className="text-center">
+            ¡Ooops, parece que aún no tienes casos firmados!
+          </h2>
+        </div>
+        
 
-      <DashboardEstructure 
-      text={`¡Hola ${activeUser ? activeUser[0].firstName : ''} ${activeUser ? activeUser[0].lastName : ''}!  ¡Bienvenido a tu Dashboard de CLIENTE!`}
-      linkPerfil={`client/${activeUser ? activeUser[0]._id : ''}`}
-      linkCasos='client/casos'
-      />
-
+        <div className="container my-4">
+          <div className="grid grid-cols-1  md:grid-cols-3">
+            <CardAdminCases
+              link={`${"detailCase"}`}
+              title={"title"}
+              responsibleUser={"responsibleUser"}
+              sentenceEffects={"sentenceEffects"}
+            />
+          </div>
+        </div>
+      </section>
       <FooterEstructure />
 
       <link rel="preconnect" href="https://fonts.googleapis.com" />

@@ -1,29 +1,13 @@
 import Head from "next/head";
-import { Fragment, useState, useEffect } from "react";
+import { Fragment } from "react";
 import NavBarLoggeado from "../../components/NavBar/NavBarLoggeado";
 import FooterEstructure from "../../components/Footer/FooterEsctructure";
-import DashboardEstructure from "../../components/Dashboard.jsx/DashboardEstructure";
+import PaymentsRow from "../../components/UI-abogados/PaymentsRow";
 
-//en esta funcion se haria el fetch para alimentar la navbar con el avatar del cliente y el nombre del cliente en el dashboard
-
-export default function ClientDashboard() {
-  
-  const [token, setTkn] = useState('')
-  const [activeUser, setActiveUser] = useState()
-  useEffect(() =>{
-    const encryptedData = localStorage.getItem('tkn')
-    setTkn(encryptedData)
-    fetch(`http://localhost:8080/clients/${token}`)
-    .then((response) => response.json())
-      .then((json) => setActiveUser(json.data.User))
-  }, [token])
-
-  console.log(activeUser)
-
+export default function PaymentsPage() {
   return (
     <Fragment>
       <Head>
-        <title> DashBoard </title>
         <meta charSet="UTF-8" />
         <meta httpEquiv="X-UA-Compatible" content="IE=edge" />
         <meta name="viewport" content="width=device-width, initial-scale=1.0" />
@@ -40,26 +24,73 @@ export default function ClientDashboard() {
           crossOrigin="anonymous"
         />
         <link rel="stylesheet" href="style.css" />
+        <title>Pagos</title>
       </Head>
       <NavBarLoggeado
-        fixedTop="true"
-        rutalink="client"
-        rutaSearch="client/search"
-        pagos='client/pagos'
-        editar='client/perfil'
-        casos='client/casos'
-        acerca='client/acerca'
-        aviso='client/aviso'
-        politicas='client/politicas'
+      fixedTop="true" 
+      rutalink='abogados' 
+      searchDisplay='true'
+      pagos="abogados/pagos"
+        editar="abogados/perfil"
+        casos="abogados/casos"
+        acerca="abogados/acerca"
+        aviso="abogados/aviso"
+        politicas="abogados/politicas"
       />
+      <section className="container mt-20 pt-5  md:mt-14 xl:mt-20 mb-28">
+        <div>
+          <img
+            className="d-block mx-auto w-50"
+            src="https://11g-files-juandedios.s3.us-east-2.amazonaws.com/amparapp/pagos.png"
+            alt=""
+          />
+        </div>
 
-      <DashboardEstructure 
-      text={`¡Hola ${activeUser ? activeUser[0].firstName : ''} ${activeUser ? activeUser[0].lastName : ''}!  ¡Bienvenido a tu Dashboard de CLIENTE!`}
-      linkPerfil={`client/${activeUser ? activeUser[0]._id : ''}`}
-      linkCasos='client/casos'
-      />
+        <table className="table">
+          <thead>
+            <tr>
+              <th scope="col">#</th>
+              <th scope="col">Cliente</th>
+              <th scope="col">ID. Cliente</th>
+              <th scope="col">Caso</th>
+              <th scope="col">Status</th>
+              <th scope="col">Monto</th>
+              <th scope="col">Fecha</th>
+            </tr>
+          </thead>
 
-      <FooterEstructure />
+
+          <tbody>
+            <PaymentsRow
+            number={'1'}
+            client={'rodrigo jauregui'}
+            clientId={'1234'}
+            title={'matrimonio igualitario'}
+            paymentStatus={'PAGADO'}
+            ammount={'1000'}
+            date={'01/01/2021'}
+            />
+
+            
+           
+
+
+          </tbody>
+
+          <thead className="">
+            <tr>
+              <th scope="col"></th>
+              <th scope="col"></th>
+              <th scope="col"></th>
+              <th scope="col"></th>
+              <th scope="col">TOTAL:</th>
+              <th scope="col">$500</th>
+              <th scope="col"></th>
+            </tr>
+          </thead>
+        </table>
+      </section>
+      <FooterEstructure/>
 
       <link rel="preconnect" href="https://fonts.googleapis.com" />
       <link

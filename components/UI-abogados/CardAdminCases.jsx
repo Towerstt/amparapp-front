@@ -18,7 +18,7 @@ export default function CardAdminCases(props) {
             <h3>{props.responsibleUser}</h3>
             <span>Solicitud:</span>
             <p>{props.sentenceEffects}</p>
-            <button className="bg-honeyyellow rounded-lg p-2 w-1/2 place-self-center mt-4">Administrar</button>
+            <button className="bg-honeyyellow rounded-lg p-2 w-auto place-self-center mt-4">Administrar</button>
           </div>
         </Link>
 

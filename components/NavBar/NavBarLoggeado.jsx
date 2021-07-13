@@ -9,7 +9,7 @@ export default function NavBarLoggeado(props) {
         className={` 
       ${props.fixedTop ? "fixed-top" : ""} 
       ${props.bgTransparent ? "bg-transparent" : "bg-campaing"} 
-      shadow-sm   navbar  navbar-light p-0 `}
+      shadow-sm   navbar bg-light navbar-light p-0 `}
       >
         <div className="col-sm ">
           <Link href={`/${props.rutalink}`}>

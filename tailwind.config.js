@@ -3,6 +3,12 @@ module.exports = {
   purge: [],
   darkMode: false, // or 'media' or 'class'
   theme: {
+    borderColor: theme => ({
+      ...theme('colors'),
+       DEFAULT: theme('colors.gray.300', 'currentColor'),
+       'prussian': '#102e44 ',
+       'honeyyellow':'#ffb703',
+    }),
     textColor: theme => theme('colors'),
      textColor: {
       'honeyyellow':'#ffb703',       
