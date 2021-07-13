@@ -4,7 +4,6 @@ import NavBarLoggeado from "../../components/NavBar/NavBarLoggeado";
 import FooterEstructure from "../../components/Footer/FooterEsctructure";
 import DashboardEstructure from "../../components/Dashboard.jsx/DashboardEstructure";
 
-
 //en esta funcion se haria el fetch para alimentar la navbar con el avatar del cliente y el nombre del cliente en el dashboard
 
 export default function ClientDashboard() {
@@ -40,7 +39,17 @@ export default function ClientDashboard() {
         />
         <link rel="stylesheet" href="style.css" />
       </Head>
-      <NavBarLoggeado fixedTop="true"  />
+      <NavBarLoggeado
+        fixedTop="true"
+        rutalink="client"
+        rutaSearch="client/search"
+        pagos='client/pagos'
+        editar='client/perfil'
+        casos='client/casos'
+        acerca='client/acerca'
+        aviso='client/aviso'
+        politicas='client/politicas'
+      />
 
       <DashboardEstructure 
       text={`¡Hola ${activeUser ? activeUser[0].firstName : ''} ${activeUser ? activeUser[0].lastName : ''}!  ¡Bienvenido a tu Dashboard de CLIENTE!`}
@@ -49,11 +58,14 @@ export default function ClientDashboard() {
       linkCasos='client/casos'
       />
 
-      
       <FooterEstructure />
 
       <link rel="preconnect" href="https://fonts.googleapis.com" />
-      <link rel="preconnect" href="https://fonts.gstatic.com" crossOrigin="true" />
+      <link
+        rel="preconnect"
+        href="https://fonts.gstatic.com"
+        crossOrigin="true"
+      />
       <link
         href="https://fonts.googleapis.com/css2?family=Roboto:ital,wght@0,100;0,300;0,400;0,500;0,700;0,900;1,100;1,300;1,400;1,500;1,700;1,900&display=swap"
         rel="stylesheet"
