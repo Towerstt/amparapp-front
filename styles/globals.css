@@ -243,6 +243,10 @@ input:checked + .slider:before {
 
 
 
+
+
+
+
 /*termina css rodrigo*/
 
 
@@ -555,4 +559,10 @@ input:checked + .slider:before {
 .menu-logged ul li a {
   text-decoration: none;
   color: #102e44;
+}
+
+.carga-caso h2 {
+  font-size: 16px !important;
+  font-weight: 400 !important;
+  text-align: right;
 }

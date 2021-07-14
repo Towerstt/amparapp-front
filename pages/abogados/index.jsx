@@ -34,22 +34,22 @@ export default function LawyerDashboard() {
       fixedTop="true" 
       rutalink='abogados' 
       searchDisplay='true'
-      pagos="abogados/pagos"
-        editar="abogados/perfil"
-        casos="abogados/casos"
-        acerca="abogados/acerca"
-        aviso="abogados/aviso"
-        politicas="abogados/politicas"
+        pagos={`abogados/${'id'}/pagos`}
+        editar={`abogados/${'id'}/perfil`}
+        casos={`abogados/${'id'}/cases`}
+        acerca={`abogados/${'id'}/about`}
+        aviso={`abogados/${'id'}/aviso`}
+        politicas={`abogados/${'id'}/politicas`}
       />
 
       <DashboardEstructure 
       text={`${'Juan'}  ¡Bienvenido a tu Dashboard de ADMINISTRADOR!`}
-      linkPerfil='abogados/perfil'
-      linkCasos='abogados/casos'
+      linkPerfil={`abogados/${'id'}/perfil`}
+      linkCasos={`abogados/${'id'}/cases`}
       />
 
       
-      <FooterEstructure />
+      <FooterEstructure displayRegister="true" />
 
       <link rel="preconnect" href="https://fonts.googleapis.com" />
       <link rel="preconnect" href="https://fonts.gstatic.com" crossOrigin="true" />

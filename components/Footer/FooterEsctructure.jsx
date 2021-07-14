@@ -6,7 +6,7 @@ import Modal from '../NavBar/Modal/Modal'
 import Icons from "../Icons";
 
 
-export default function FooterEstructure() {
+export default function FooterEstructure(props) {
   return (
     <Fragment>
       <section className="container-fluid footer bg-light border-top">
@@ -27,7 +27,7 @@ export default function FooterEstructure() {
             <p>
               <a href="#"> Acerca de Nosotros</a>
             </p>
-            <p>
+            <p className={`${props.displayRegister&&'hidden'}`}>
               <a href="#">Registro</a>
               <Modal/>
             </p>
@@ -52,9 +52,9 @@ export default function FooterEstructure() {
                     classNameInput="w-full"
                   />
                 </div>
-                <div className="col-sm-6 my-1 ">
+                <div className={` col-sm-6 my-1 ${props.displayRegister&&'hidden'}`}>
                   <DynamicButton className="btn btn-primary bg-prussian" type="submit">Regístrate</DynamicButton>
-                 
+                  
                 </div>
               </div>
             </form>

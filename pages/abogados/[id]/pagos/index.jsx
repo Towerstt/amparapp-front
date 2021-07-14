@@ -1,8 +1,9 @@
+
 import Head from "next/head";
 import { Fragment } from "react";
-import NavBarLoggeado from "../../components/NavBar/NavBarLoggeado";
-import FooterEstructure from "../../components/Footer/FooterEsctructure";
-import PaymentsRow from "../../components/UI-abogados/PaymentsRow";
+import NavBarLoggeado from "../../../../components/NavBar/NavBarLoggeado";
+import FooterEstructure from "../../../../components/Footer/FooterEsctructure";
+import PaymentsRow from "../../../../components/UI-abogados/PaymentsRow";
 
 export default function PaymentsPage() {
   return (
@@ -30,12 +31,12 @@ export default function PaymentsPage() {
       fixedTop="true" 
       rutalink='abogados' 
       searchDisplay='true'
-      pagos="abogados/pagos"
-        editar="abogados/perfil"
-        casos="abogados/casos"
-        acerca="abogados/acerca"
-        aviso="abogados/aviso"
-        politicas="abogados/politicas"
+      pagos={`abogados/${'id'}/pagos`}
+        editar={`abogados/${'id'}/perfil`}
+        casos={`abogados/${'id'}/cases`}
+        acerca={`abogados/${'id'}/about`}
+        aviso={`abogados/${'id'}/aviso`}
+        politicas={`abogados/${'id'}/politicas`}
       />
       <section className="container mt-20 pt-5  md:mt-14 xl:mt-20 mb-28">
         <div>
@@ -90,7 +91,7 @@ export default function PaymentsPage() {
           </thead>
         </table>
       </section>
-      <FooterEstructure/>
+      <FooterEstructure displayRegister="true" />
 
       <link rel="preconnect" href="https://fonts.googleapis.com" />
       <link

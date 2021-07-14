@@ -1,10 +1,13 @@
-
 import Head from "next/head";
 import { Fragment, useState } from "react";
 import NavBarLoggeado from "../../components/NavBar/NavBarLoggeado";
 import FooterEstructure from "../../components/Footer/FooterEsctructure";
 import CardAdminCases from "../../components/UI-abogados/CardAdminCases";
 import DynamicButton from "../../components/DynamicButton";
+
+import FirmCasesEstructure from "../../components/CardCases/FirmCasesEstructure";
+import ActiveCasesEstructure from "../../components/CardCases/ActiveCasesEstructure";
+import CardCasesEstructure from "../../components/CardCases/CardCasesEstructure";
 
 export default function ClientCasesPage() {
   //en esta funcion se haria el fetch para saber todos los casos asignados que tiene el cliente y se vacia la info en CardAdminCases
@@ -38,12 +41,12 @@ export default function ClientCasesPage() {
         fixedTop="true"
         rutalink="client"
         rutaSearch="client/search"
-        pagos='client/pagos'
-        editar='client/perfil'
-        casos='client/casos'
-        acerca='client/acerca'
-        aviso='client/aviso'
-        politicas='client/politicas'
+        pagos="client/pagos"
+        editar="client/perfil"
+        casos="client/casos"
+        acerca="client/acerca"
+        aviso="client/aviso"
+        politicas="client/politicas"
       />
       <section className="container mt-20 pt-5  md:mt-14 xl:mt-20">
         <div>
@@ -58,16 +61,41 @@ export default function ClientCasesPage() {
             ¡Ooops, parece que aún no tienes casos firmados!
           </h2>
         </div>
-        
 
-        <div className="container my-4">
-          <div className="grid grid-cols-1  md:grid-cols-3">
-            <CardAdminCases
-              link={`${"detailCase"}`}
-              title={"title"}
-              responsibleUser={"responsibleUser"}
-              sentenceEffects={"sentenceEffects"}
-            />
+        <div className="grid grid-cols-1 md:hidden my-16">
+          <FirmCasesEstructure />
+
+          <ActiveCasesEstructure />
+        </div>
+
+        <div className=" hidden md:block container my-4 ">
+          <div className="grid grid-cols-2  ">
+            <div className="col-span-1 border-r-2 border-prussian">
+              <div className="grid grid-cols-2">
+                <div className="col-span-2 border-2  bg-honeyyellow rounded-lg shadow-sm	border-prussian mx-14 lg:mx-24 justify-center flex">
+                  <p>Casos en firma</p>
+                </div>
+                <div className="col-span-2 xl:col-span-1">
+                    <CardCasesEstructure />
+                </div>
+              </div>
+            </div>
+
+            <div className="col-span-1">
+              <div className="grid grid-cols-2">
+                <div className="col-span-2 border-2  bg-honeyyellow rounded-lg shadow-sm	border-prussian mx-14 lg:mx-24 justify-center flex">
+                  <p>Casos Activos</p>
+                </div>
+                <div className="col-span-2       xl:col-span-1">
+                  <CardAdminCases
+                    link={`${"id"}`}
+                    title={"title"}
+                    responsibleUser={"responsibleUser"}
+                    sentenceEffects={"sentenceEffects"}
+                  />
+                </div>
+              </div>
+            </div>
           </div>
         </div>
       </section>

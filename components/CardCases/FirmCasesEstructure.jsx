@@ -13,7 +13,7 @@ export default function FirmCasesEstructure(props) {
 
   return (
     <Fragment>
-      <div className="col-span-1">
+      <div className={`col-span-1 ${props.displayButton && 'hidden'}`}>
         <DynamicButton
           className="bg-honeyyellow border-2 	border-prussian  rounded-lg shadow-sm  w-full"
           onClick={onFirmCasesToggle}

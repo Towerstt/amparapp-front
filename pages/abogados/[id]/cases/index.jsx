@@ -1,11 +1,13 @@
+
 import Head from "next/head";
 import { Fragment, useState } from "react";
-import NavBarLoggeado from "../../components/NavBar/NavBarLoggeado";
-import FooterEstructure from "../../components/Footer/FooterEsctructure";
-import CardAdminCases from "../../components/UI-abogados/CardAdminCases";
-import DynamicButton from "../../components/DynamicButton";
-import FirmCasesEstructure from "../../components/CardCases/FirmCasesEstructure";
-import ActiveCasesEstructure from "../../components/CardCases/ActiveCasesEstructure";
+import NavBarLoggeado from "../../../../components/NavBar/NavBarLoggeado";
+import FooterEstructure from "../../../../components/Footer/FooterEsctructure";
+import CardAdminCases from "../../../../components/UI-abogados/CardAdminCases";
+import DynamicButton from "../../../../components/DynamicButton";
+import FirmCasesEstructure from "../../../../components/CardCases/FirmCasesEstructure";
+import ActiveCasesEstructure from "../../../../components/CardCases/ActiveCasesEstructure";
+import CardCasesEstructure from "../../../../components/CardCases/CardCasesEstructure";
 
 export default function AdminCasesPage() {
   //en esta funcion se haria el fetch para saber todos los casos asignados que tiene el abogado y se vacia la info en CardAdminCases
@@ -39,12 +41,12 @@ export default function AdminCasesPage() {
         fixedTop="true"
         rutalink="abogados"
         searchDisplay="true"
-        pagos="abogados/pagos"
-        editar="abogados/perfil"
-        casos="abogados/casos"
-        acerca="abogados/acerca"
-        aviso="abogados/aviso"
-        politicas="abogados/politicas"
+        pagos={`abogados/${'id'}/pagos`}
+        editar={`abogados/${'id'}/perfil`}
+        casos={`abogados/${'id'}/cases`}
+        acerca={`abogados/${'id'}/about`}
+        aviso={`abogados/${'id'}/aviso`}
+        politicas={`abogados/${'id'}/politicas`}
       />
       <section className="container mt-20 pt-5  md:mt-14 xl:mt-20 ">
         <div>
@@ -63,14 +65,14 @@ export default function AdminCasesPage() {
         <div className="flex justify-center mt-4   ">
           <DynamicButton
             className="bg-prussian rounded-lg shadow-sm  w-auto"
-            link="/abogado/createcase"
+            link={`/abogados/${'id'}/cases/create-case`}
           >
             <p className="text-white m-2 text-2xl">Crea un nuevo caso</p>
           </DynamicButton>
         </div>
 
         <div className="grid grid-cols-1 md:hidden my-16">
-          <FirmCasesEstructure />
+          <FirmCasesEstructure  />
 
           <ActiveCasesEstructure />
         </div>
@@ -82,7 +84,20 @@ export default function AdminCasesPage() {
                 <div className="col-span-2 border-2  bg-honeyyellow rounded-lg shadow-sm	border-prussian mx-14 lg:mx-24 justify-center flex">
                   <p>Casos en firma</p>
                 </div>
-                <div className="col-span-2 lg:col-span-1">
+                <div className="col-span-2 xl:col-span-1">
+                <CardCasesEstructure />
+
+                </div>
+                
+              </div>
+            </div>
+
+            <div className="col-span-1">
+              <div className="grid grid-cols-2">
+                <div className="col-span-2 border-2  bg-honeyyellow rounded-lg shadow-sm	border-prussian mx-14 lg:mx-24 justify-center flex">
+                  <p>Casos Activos</p>
+                </div>
+                <div className="col-span-2       xl:col-span-1">
                   <CardAdminCases
                     link={`${"id"}`}
                     title={"title"}
@@ -94,29 +109,6 @@ export default function AdminCasesPage() {
               </div>
             </div>
 
-            <div className="col-span-1">
-              <div className="grid grid-cols-2">
-                <div className="col-span-2 border-2  bg-honeyyellow rounded-lg shadow-sm	border-prussian mx-14 lg:mx-24 justify-center flex">
-                  <p>Casos Activos</p>
-                </div>
-                <div className="col-span-2 lg:col-span-1">
-                  <CardAdminCases
-                    link={`${"id"}`}
-                    title={"title"}
-                    responsibleUser={"responsibleUser"}
-                    sentenceEffects={"sentenceEffects"}
-                  />
-                </div>
-                <div className="col-span-2 lg:col-span-1">
-                  <CardAdminCases
-                    link={`${"id"}`}
-                    title={"title"}
-                    responsibleUser={"responsibleUser"}
-                    sentenceEffects={"sentenceEffects"}
-                  />
-                </div>
-              </div>
-            </div>
           </div>
         </div>
       </section>

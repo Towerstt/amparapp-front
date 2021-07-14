@@ -179,7 +179,7 @@ export default function LawyerProfileEdit() {
         </div>
       </div>
 
-      <div className="col-12 flex justify-center align">
+      <div className="col-12 flex justify-center align my-3">
         <DynamicButton
           className="bg-prussian rounded-lg shadow-sm my-4 "
           type="submit"
