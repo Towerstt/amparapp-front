@@ -40,16 +40,16 @@ export default function LogIn(props) {
   return (
     <Fragment>
       
-      <div className="flex justify-center">
+      <div className="flex justify-center authFFF">
         <img
           // eslint-disable-next-line react/no-unknown-property
-          class="w-48  d-block "
+          class="w-48 d-block "
           src="https://11g-files-juandedios.s3.us-east-2.amazonaws.com/amparapp/ingresar.png"
           alt=""
         />
       </div>
 
-      <form className="mt-3" onSubmit={handleSubmit}>
+      <form className="mt-3 form-auth" onSubmit={handleSubmit}>
         <DynamicInput
           value={data.email}
           name='email'

@@ -16,7 +16,7 @@ module.exports = {
     extend: {
       backgroundImage: (theme) => ({
         "hero-pattern":
-          "url('../public/images/vivasnosqueremosopacity.jpg')",
+          "url('https://11g-files-juandedios.s3.us-east-2.amazonaws.com/amparapp/fondo-home3.png')",
       }),
       height: (theme) => ({
         "screen/2": "45vh",
