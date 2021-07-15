@@ -3,7 +3,7 @@ import { Fragment } from "react";
 import Head from "next/head";
 import NavBarLoggeado from "../../../../../components/NavBar/NavBarLoggeado";
 import FooterEstructure from "../../../../../components/Footer/FooterEsctructure";
-import VistaCasoFirmar from "../../../../../components/CardCases/VistaCasoFirmar/VistaCasoFirmarDatos";
+import VistaCasoFirmarDatos from "../../../../../components/CardCases/VistaCasoFirmar/VistaCasoFirmarDatos";
 
 export default function LoggedDetailCasoEnFirmaPage(props) {
   return (
@@ -38,7 +38,7 @@ export default function LoggedDetailCasoEnFirmaPage(props) {
         aviso={`abogados/${"id"}/aviso`}
         politicas={`abogados/${"id"}/politicas`}
       />
-      <VistaCasoFirmar 
+      <VistaCasoFirmarDatos 
       DontDisplayImgFirm="true"
       />
       

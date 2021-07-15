@@ -247,6 +247,41 @@ input:checked + .slider:before {
 
 
 
+
+
+
+
+
+
+
+
+.scrollmenu {
+  overflow:scroll;
+  white-space: nowrap;
+}
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
 /*termina css rodrigo*/
 
 

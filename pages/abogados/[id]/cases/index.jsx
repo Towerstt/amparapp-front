@@ -8,6 +8,7 @@ import DynamicButton from "../../../../components/DynamicButton";
 import FirmCasesEstructure from "../../../../components/CardCases/FirmCasesEstructure";
 import ActiveCasesEstructure from "../../../../components/CardCases/ActiveCasesEstructure";
 import CardCasesEstructure from "../../../../components/CardCases/CardCasesEstructure";
+import LoggedCardCasesEstructure from "../../../../components/CardCases/LoggedCardCases/LoggedCardCasesEstructure";
 
 export default function AdminCasesPage() {
   //en esta funcion se haria el fetch para saber todos los casos asignados que tiene el abogado y se vacia la info en CardAdminCases
@@ -73,7 +74,6 @@ export default function AdminCasesPage() {
 
         <div className="grid grid-cols-1 md:hidden my-16">
           <FirmCasesEstructure  
-          hiddenDisplay="true"
           />
 
           <ActiveCasesEstructure />
@@ -87,7 +87,7 @@ export default function AdminCasesPage() {
                   <p>Casos en firma</p>
                 </div>
                 <div className="col-span-2 xl:col-span-1">
-                <CardCasesEstructure />
+                <LoggedCardCasesEstructure />
 
                 </div>
                 
@@ -101,20 +101,13 @@ export default function AdminCasesPage() {
                 </div>
                 <div className="col-span-2      lg:mx-12">
                   <CardAdminCases
-                    link={`${"id"}`}
+                    link={`/abogados/${'id'}/cases/casos-activos/${'cactivo'}`}
                     title={"title"}
                     responsibleUser={"responsibleUser"}
                     sentenceEffects={"sentenceEffects"}
                   />
                 </div>
-                <div className="col-span-2      lg:mx-12">
-                  <CardAdminCases
-                    link={`${"id"}`}
-                    title={"title"}
-                    responsibleUser={"responsibleUser"}
-                    sentenceEffects={"sentenceEffects"}
-                  />
-                </div>
+                
                 
               </div>
             </div>
