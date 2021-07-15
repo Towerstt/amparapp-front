@@ -13,7 +13,7 @@ export default function FirmCasesEstructure(props) {
 
   return (
     <Fragment>
-      <div className={`col-span-1 ${props.displayButton && 'hidden'}`}>
+      <div className={`col-span-1 ${''}`}>
         <DynamicButton
           className="bg-honeyyellow border-2 	border-prussian  rounded-lg shadow-sm  w-full"
           onClick={onFirmCasesToggle}
@@ -23,7 +23,9 @@ export default function FirmCasesEstructure(props) {
       </div>
 
       <div className={`col-span-1 grid grid-cols-1 ${displayFirmCases}`}>
-        <CardCasesEstructure />
+        <CardCasesEstructure 
+        hiddenDisplay={props.hiddenDisplay}
+        />
       </div>
     </Fragment>
   );

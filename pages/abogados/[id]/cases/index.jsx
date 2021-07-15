@@ -72,7 +72,9 @@ export default function AdminCasesPage() {
         </div>
 
         <div className="grid grid-cols-1 md:hidden my-16">
-          <FirmCasesEstructure  />
+          <FirmCasesEstructure  
+          hiddenDisplay="true"
+          />
 
           <ActiveCasesEstructure />
         </div>
@@ -97,7 +99,15 @@ export default function AdminCasesPage() {
                 <div className="col-span-2 border-2  bg-honeyyellow rounded-lg shadow-sm	border-prussian mx-14 lg:mx-24 justify-center flex">
                   <p>Casos Activos</p>
                 </div>
-                <div className="col-span-2       xl:col-span-1">
+                <div className="col-span-2      lg:mx-12">
+                  <CardAdminCases
+                    link={`${"id"}`}
+                    title={"title"}
+                    responsibleUser={"responsibleUser"}
+                    sentenceEffects={"sentenceEffects"}
+                  />
+                </div>
+                <div className="col-span-2      lg:mx-12">
                   <CardAdminCases
                     link={`${"id"}`}
                     title={"title"}

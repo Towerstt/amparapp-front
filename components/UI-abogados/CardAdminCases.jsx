@@ -6,7 +6,7 @@ export default function CardAdminCases(props) {
       <div className="d-block d-md-flex justify-content-around align-items-center container-cards-case">
 
         <Link href={props.link}>
-          <div className="card-case card p-5 my-8 w-full md:w-5/6  ">
+          <div className="card-case card p-5 mt-4 w-full md:w-5/6  ">
             <img
               className="d-block mx-auto "
               src="https://11g-files-juandedios.s3.us-east-2.amazonaws.com/amparapp/icon-case.png"
