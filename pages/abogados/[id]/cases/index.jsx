@@ -9,6 +9,7 @@ import FirmCasesEstructure from "../../../../components/CardCases/FirmCasesEstru
 import ActiveCasesEstructure from "../../../../components/CardCases/ActiveCasesEstructure";
 import CardCasesEstructure from "../../../../components/CardCases/CardCasesEstructure";
 import { getLawyerData } from "../../../../lib/api";
+import LoggedCardCasesEstructure from "../../../../components/CardCases/LoggedCardCases/LoggedCardCasesEstructure";
 
 export default async function AdminCasesPage(props) {
   console.log("AdminCases", props.id)
@@ -76,7 +77,6 @@ export default async function AdminCasesPage(props) {
 
         <div className="grid grid-cols-1 md:hidden my-16">
           <FirmCasesEstructure  
-          hiddenDisplay="true"
           />
 
           <ActiveCasesEstructure />
@@ -90,7 +90,7 @@ export default async function AdminCasesPage(props) {
                   <p>Casos en firma</p>
                 </div>
                 <div className="col-span-2 xl:col-span-1">
-                <CardCasesEstructure />
+                <LoggedCardCasesEstructure />
 
                 </div>
                 
@@ -104,20 +104,13 @@ export default async function AdminCasesPage(props) {
                 </div>
                 <div className="col-span-2      lg:mx-12">
                   <CardAdminCases
-                    link={`${"id"}`}
+                    link={`/abogados/${'id'}/cases/casos-activos/${'cactivo'}`}
                     title={"title"}
                     responsibleUser={"responsibleUser"}
                     sentenceEffects={"sentenceEffects"}
                   />
                 </div>
-                <div className="col-span-2      lg:mx-12">
-                  <CardAdminCases
-                    link={`${"id"}`}
-                    title={"title"}
-                    responsibleUser={"responsibleUser"}
-                    sentenceEffects={"sentenceEffects"}
-                  />
-                </div>
+                
                 
               </div>
             </div>

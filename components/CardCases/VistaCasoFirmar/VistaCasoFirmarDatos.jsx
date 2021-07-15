@@ -3,14 +3,18 @@ import Link from "next/link";
 import VistaCasoFirmarEstructura from "./VistaCasoFirmarEstructura";
 
 
-export default function VistaCasoFirmar(props){
+export default function VistaCasoFirmarDatos(props){
 
 
-  
+  //DontDisplayImgFirm="true"
+  //path={`/abogados/${'id'}/cases/casos-en-firma/${'cfirma'}`}
+      
 
   return(
     <Fragment>
       <VistaCasoFirmarEstructura
+      DontDisplayImgFirm={props.DontDisplayImgFirm}
+      
       /*
       image={props.data.image}
       title={props.data.title}

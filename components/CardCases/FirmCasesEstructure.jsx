@@ -1,6 +1,7 @@
 import { Fragment, useState } from "react";
 import CardCasesEstructure from "./CardCasesEstructure";
 import DynamicButton from "../DynamicButton";
+import LoggedCardCasesEstructure from "./LoggedCardCases/LoggedCardCasesEstructure";
 
 export default function FirmCasesEstructure(props) {
 
@@ -23,8 +24,16 @@ export default function FirmCasesEstructure(props) {
       </div>
 
       <div className={`col-span-1 grid grid-cols-1 ${displayFirmCases}`}>
-        <CardCasesEstructure 
-        hiddenDisplay={props.hiddenDisplay}
+        <LoggedCardCasesEstructure
+        keyid={'keyid'} 
+        image={"https://img.culturacolectiva.com/featured/2018/11/18/1542574766023/tren-maya-ecocidio-medium.jpg"}
+        altImage={'altImage'} 
+        title={'title'} 
+        aditionals={'aditionals'} 
+        plaint={'plaint'} 
+        limitDate={'10/10/10'} 
+        totalSigners={'1000'} 
+        id={'1'}
         />
       </div>
     </Fragment>

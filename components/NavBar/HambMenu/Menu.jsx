@@ -32,7 +32,7 @@ export default function Menu(props) {
         <MenuList
           classNameI="fas fa-user-alt mr-2"
           text="Editar Perfil"
-          link={`client/${props.user}`}
+          link={`${props.user}`}
           classNameButton=""
         />
 
@@ -48,7 +48,7 @@ export default function Menu(props) {
         <MenuList
           classNameI="fas fa-folder mr-2"
           text="Mis Casos"
-          link={`client/${props.user}/cases`}
+          link={`${props.user}/cases`}
           classNameButton="w-28"
         />
         <div className="flex flex-col mt-4">

@@ -28,7 +28,8 @@ export default function ActiveCasesEstructure(){
 
   <div className={`col-span-1 grid grid-cols-1 ${displayActiveCases}`}>
     <CardAdminCases
-      link={`${"id"}`}
+      link={`/abogados/${'id'}/cases/casos-activos/${'cactivo'}`}
+
       title={"title"}
       responsibleUser={"responsibleUser"}
       sentenceEffects={"sentenceEffects"}
