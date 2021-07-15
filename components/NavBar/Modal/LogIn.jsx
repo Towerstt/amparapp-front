@@ -2,41 +2,42 @@
 import { Fragment, useState } from "react";
 import DynamicInput from "../../DynamicInput";
 import DynamicButton from "../../DynamicButton";
-import {useRouter} from 'next/router'
+import { useRouter } from "next/router";
 import { login } from "../../../lib/api";
 
-
 export default function LogIn(props) {
-  const history = useRouter()
-  const [data, setData] = useState({email : '', password : ''})
-  
-  const handleSubmit = async (event) => {
-    event.preventDefault() 
-      try {
-        const userLoggedIn = await login(data)
-        const token = userLoggedIn.token
-        localStorage.setItem('tkn', token)
-        history.reload(window.location)
-      }
-      catch (error) {
-      
-      }
-    
-  }
+  const router = useRouter();
+  const [data, setData] = useState({
+    email: "",
+    password: "",
+    checkbox: false,
+  });
 
-  const updateField = e => {
+  const handleSubmit = async (event) => {
+    event.preventDefault();
+    try {
+      const userLoggedIn = await login(data);
+      const token = userLoggedIn.token;
+      localStorage.setItem("tkn", token);
+      if(data.checkbox){
+        router.replace("/abogados");
+      }
+      else{
+        router.replace("/client");
+      }
+      
+    } catch (error) {}
+  };
+
+  const updateField = (e) => {
     setData({
       ...data,
-      [e.target.name]: e.target.value
+      [e.target.name]: e.target.value,
     });
   };
 
-
-
-
   return (
     <Fragment>
-      
       <div className="flex justify-center authFFF">
         <img
           // eslint-disable-next-line react/no-unknown-property
@@ -49,7 +50,7 @@ export default function LogIn(props) {
       <form className="mt-3 form-auth" onSubmit={handleSubmit}>
         <DynamicInput
           value={data.email}
-          name='email'
+          name="email"
           type="email"
           className="mt-4 "
           label="Email address"
@@ -60,7 +61,7 @@ export default function LogIn(props) {
 
         <DynamicInput
           value={data.password}
-          name='password'
+          name="password"
           type="password"
           className="mt-4 "
           label="Password"
@@ -69,8 +70,14 @@ export default function LogIn(props) {
           onChange={updateField}
         />
 
-        
-
+        <div class="flex mt-6">
+          <label class="flex items-center">
+            <input type="checkbox" name='checkbox' value={data.checkbox} onChange={(e => setData({ ...data, checkbox: e.target.checked}))}/>
+            <span class="ml-2">
+              Soy Abogado
+            </span>
+          </label>
+        </div>
 
         <div className="w-full flex-col flex items-center">
           <DynamicButton

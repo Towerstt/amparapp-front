@@ -20,10 +20,10 @@
         background-color: $white;
     }
 
-    input:focus {
-        background-color: $white !important;
-        border: 2px solid $blue !important;
-    }
+    // input:focus {
+    //     background-color: $white !important;
+    //     border: 2px solid $blue !important;
+    // }
 
     input:not(:placeholder-shown) + label {
         color: $blue;

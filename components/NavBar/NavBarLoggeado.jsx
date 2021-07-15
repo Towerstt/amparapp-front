@@ -56,7 +56,7 @@ export default function NavBarLoggeado(props) {
           <span className="p-3">
             <span className="p-3">
               <button type="button">
-                <i className="fas fa-user"></i>
+                <i className="fas fa-user d-none"></i>
               </button>
             </span>
           </span>

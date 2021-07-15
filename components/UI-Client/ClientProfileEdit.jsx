@@ -2,15 +2,17 @@ import DynamicInput from "../DynamicInput";
 import DynamicButton from "../DynamicButton";
 import { useState } from "react";
 import { editUserData } from "../../lib/api";
+import { useRouter } from "next/router";
 
 export default function ClientProfileEdit(props) {
-
+  const router = useRouter();
   const [data, setData] = useState({firstName : '', lastName : '', email : '', password : '', phoneNumber : '', curp : '',address : '', birthDate : ''})
   
   const handleSubmit = async (event) => {
     event.preventDefault()
       try { 
-        const newData = editUserData(props.id, data)
+        const newData = await editUserData(props.id, data)
+        router.replace("/client");
       }
       catch (error) {
         console.log(error)

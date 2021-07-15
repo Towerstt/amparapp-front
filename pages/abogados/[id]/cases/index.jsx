@@ -1,6 +1,6 @@
 
 import Head from "next/head";
-import { Fragment, useState } from "react";
+import { Fragment, useState, useEffect } from "react";
 import NavBarLoggeado from "../../../../components/NavBar/NavBarLoggeado";
 import FooterEstructure from "../../../../components/Footer/FooterEsctructure";
 import CardAdminCases from "../../../../components/UI-abogados/CardAdminCases";
@@ -8,13 +8,16 @@ import DynamicButton from "../../../../components/DynamicButton";
 import FirmCasesEstructure from "../../../../components/CardCases/FirmCasesEstructure";
 import ActiveCasesEstructure from "../../../../components/CardCases/ActiveCasesEstructure";
 import CardCasesEstructure from "../../../../components/CardCases/CardCasesEstructure";
+import { getLawyerData } from "../../../../lib/api";
 
-export default function AdminCasesPage() {
+export default async function AdminCasesPage(props) {
+  console.log("AdminCases", props.id)
+
+  // 
   //en esta funcion se haria el fetch para saber todos los casos asignados que tiene el abogado y se vacia la info en CardAdminCases
   // se crean 3 casos por fila en web, 1 caso por fila en mobile
 
   //el h2 que dice "¡Ooops, parece que aún no tienes casos creados!" es dinamico, si el fetch sí trae casos, debería cambiar su estado a d-none
-  const [showMessage, setShowMessage] = useState("md:block");
 
   return (
     <Fragment>
@@ -56,7 +59,7 @@ export default function AdminCasesPage() {
             alt=""
           />
         </div>
-        <div className={`flex justify-center mt-4  hidden ${showMessage}`}>
+        <div className={`flex justify-center mt-4  hidden md:block`}>
           <h2 className="text-center ">
             ¡Ooops, parece que aún no tienes casos creados!
           </h2>
@@ -149,11 +152,10 @@ export default function AdminCasesPage() {
   );
 }
 
-/*
-<CardAdminCases
-              link={`${"id"}`}
-              title={"title"}
-              responsibleUser={"responsibleUser"}
-              sentenceEffects={"sentenceEffects"}
-            />
-            */
+
+export function getServerSideProps (context){
+  const id = context.params.id
+  return {props : {
+    id
+  }}
+}

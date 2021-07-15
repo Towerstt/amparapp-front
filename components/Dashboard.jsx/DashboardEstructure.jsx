@@ -1,6 +1,7 @@
 import DynamicButton from "../DynamicButton";
 
 export default function DashboardEstructure(props) {
+  console.log('DE', props)
   return (
     <section className="container-fluid  bg-light p-5 dashboard mt-20  md:mt-14 xl:mt-20" >
       <div className="row d-block p-0 p-mb-5">

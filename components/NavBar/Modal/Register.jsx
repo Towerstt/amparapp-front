@@ -6,7 +6,7 @@ import {useRouter} from 'next/router'
 import { postNewUser } from "../../../lib/api";
 
 export default function Register(props) {
-  const history = useRouter()
+  const router = useRouter()
   const [data, setData] = useState({firstName : '', lastName : '', email : '', password : ''})
   
   const handleSubmit = async (event) => {
@@ -15,7 +15,7 @@ export default function Register(props) {
         const newUser = await postNewUser(data)
         const token = newUser.token
         localStorage.setItem('tkn', token)
-        history.reload(window.location)
+        router.replace(`/client`)
 
       }
       catch (error) {

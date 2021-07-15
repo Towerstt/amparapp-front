@@ -1,27 +1,16 @@
 import Head from "next/head";
 import { Fragment, useState, useEffect } from "react";
-import NavBarLoggeado from "../../components/NavBar/NavBarLoggeado";
-import FooterEstructure from "../../components/Footer/FooterEsctructure";
-import DashboardEstructure from "../../components/Dashboard.jsx/DashboardEstructure";
-import { setCurrentUser } from "../../lib/api";
- 
-//en esta funcion se haria el fetch para alimentar la navbar con el avatar del cliente y el nombre del cliente en el dashboard
+import NavBarLoggeado from "../../../components/NavBar/NavBarLoggeado";
+import FooterEstructure from "../../../components/Footer/FooterEsctructure";
+import ClientProfileEdit from "../../../components/UI-Client/ClientProfileEdit";
+import { getUserData } from "../../../lib/api";
+import LawyerProfileEdit from "../../../components/UI-abogados/LawyerProfileEdit";
 
-export default function ClientDashboard() {
-  
-  const [token, setTkn] = useState('')
-  const [activeUser, setActiveUser] = useState()
-  useEffect( async () =>{
-    const encryptedData = localStorage.getItem('tkn')
-    setTkn(encryptedData)
-    const response = await setCurrentUser(token)
-    setActiveUser(response.User)
-  },[token])
-
+export default function EditClientProfilePage(props) {
+  console.log("edit", props.id)
   return (
     <Fragment>
       <Head>
-        <title> DashBoard </title>
         <meta charSet="UTF-8" />
         <meta httpEquiv="X-UA-Compatible" content="IE=edge" />
         <meta name="viewport" content="width=device-width, initial-scale=1.0" />
@@ -38,28 +27,31 @@ export default function ClientDashboard() {
           crossOrigin="anonymous"
         />
         <link rel="stylesheet" href="style.css" />
+        <title>Edita tu Perfil</title>
       </Head>
+
       <NavBarLoggeado
-        user={activeUser ? activeUser[0]._id : ''}
+        userId = {props.id}
         fixedTop="true"
-        rutalink="client"
-        rutaSearch="client/search"
-        pagos='client/pagos'
-        editar='client/perfil'
-        casos='client/casos'
-        acerca='client/acerca'
-        aviso='client/aviso'
-        politicas='client/politicas'
+        rutalink="abogados"
+        rutaSearch="abogados/search"
+        pagos="abogados/pagos"
+        editar="abogados/perfil"
+        casos="abogados/casos"
+        acerca="abogados/acerca"
+        aviso="abogados/aviso"
+        politicas="abogados/politicas"
       />
 
-      <DashboardEstructure 
-      text={`¡Hola ${activeUser ? activeUser[0].firstName : ''} ${activeUser ? activeUser[0].lastName : ''}!  ¡Bienvenido a tu Dashboard de CLIENTE!`}
-      data={`${activeUser ? activeUser[0]._id : ''}`}
-      linkPerfil={`client/${activeUser ? activeUser[0]._id : ''}`}
-      linkCasos={activeUser ? `client/${activeUser[0]._id}/cases` : 'client/casos'}
-      />
+      <section className="container mt-20 pt-5  md:mt-14 xl:mt-20">
+        <img
+          className="d-block mx-auto w-96 "
+          src="https://11g-files-juandedios.s3.us-east-2.amazonaws.com/amparapp/perfil.png"
+          alt=""
+        />
+        <LawyerProfileEdit userId = {props.id}/>
 
-      <FooterEstructure />
+      </section>
 
       <link rel="preconnect" href="https://fonts.googleapis.com" />
       <link
@@ -81,6 +73,15 @@ export default function ClientDashboard() {
         integrity="sha384-Piv4xVNRyMGpqkS2by6br4gNJ7DXjqk09RmUpJ8jgGtD7zP9yug3goQfGII0yAns"
         crossOrigin="anonymous"
       ></script>
+      <FooterEstructure />
     </Fragment>
   );
 }
+
+export async function getServerSideProps (context) {
+  const id = context.params.id
+  return {props : {
+    id
+  }}
+
+} 

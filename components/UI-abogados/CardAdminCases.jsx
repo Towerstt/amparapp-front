@@ -1,6 +1,7 @@
 import Link from "next/link";
 
 export default function CardAdminCases(props) {
+  console.log('CardAdmin', props)
   return (
     <div className="col-span-1">
       <div className="d-block d-md-flex justify-content-around align-items-center container-cards-case">

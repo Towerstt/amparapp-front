@@ -35,7 +35,7 @@ export default function NavBar(props) {
             </div>
             <nav className="navbar navbar-light">
               <button
-                className="navbar-toggler"
+                className="navbar-toggler d-none"
                 type="button"
                 data-toggle="collapse"
                 data-target="#navbarToggleExternalContent"
@@ -43,7 +43,7 @@ export default function NavBar(props) {
                 aria-expanded="false"
                 aria-label="Toggle navigation"
               >
-                <span className="navbar-toggler-icon"></span>
+                <span className="navbar-toggler-icon d-none"></span>
               </button>
             </nav>
           </div>
