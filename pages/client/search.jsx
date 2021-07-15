@@ -1,11 +1,14 @@
 import Head from "next/head";
-import { Fragment } from "react";
+import { Fragment, useState } from "react";
 import CardCasesEstructure from "../../components/CardCases/CardCasesEstructure";
 import DynamicInput from "../../components/DynamicInput";
 import FooterEstructure from "../../components/Footer/FooterEsctructure";
 import NavBarLoggeado from "../../components/NavBar/NavBarLoggeado";
 
 export default function SearchClient() {
+  const[dataToSearch, setDataToSearch] = useState('')
+
+
   return (
     <Fragment>
       <Head>
@@ -51,13 +54,14 @@ export default function SearchClient() {
               label="Busca un caso"
               classNameInput="w-full  "
               classNameContainer="md:mx-28"
+              onChange={e => setDataToSearch(e.target.value)}
             />
           </div>
-        </div>
+        </div> 
       </div>
       <section className="container-fluid bg-light p-0 pt-5 pb-5 p-md-5 shadow-sm causes-cards">
         <div className="row d-flex align-items-center flex-column">
-          <CardCasesEstructure />
+          <CardCasesEstructure data={dataToSearch}/>
         </div>
       </section>
       <FooterEstructure />

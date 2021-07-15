@@ -12,7 +12,7 @@ export default function DynamicInput(props) {
           type={type}
           onClick={onClick}
           onChange={onChange}
-          className={styleInput}
+          className={`${styleInput} rounded-lg`}
           onBlur={onBlur}
         />
         <label className="">{label}</label>

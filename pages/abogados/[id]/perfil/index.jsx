@@ -1,11 +1,11 @@
+
 import Head from "next/head";
-import { Fragment, useState, useEffect } from "react";
-import NavBarLoggeado from "../../components/NavBar/NavBarLoggeado";
-import FooterEstructure from "../../components/Footer/FooterEsctructure";
-import ClientProfileEdit from "../../components/UI-Client/ClientProfileEdit";
+import { Fragment } from "react";
+import NavBarLoggeado from "../../../../components/NavBar/NavBarLoggeado";
+import FooterEstructure from "../../../../components/Footer/FooterEsctructure";
+import LawyerProfileEdit from "../../../../components/UI-abogados/LawyerProfileEdit";
 
-export default function EditClientProfilePage() {
-
+export default function EditLawyerProfilePage() {
   return (
     <Fragment>
       <Head>
@@ -30,14 +30,14 @@ export default function EditClientProfilePage() {
 
       <NavBarLoggeado
         fixedTop="true"
-        rutalink="client"
-        rutaSearch="client/search"
-        pagos="client/pagos"
-        editar="client/perfil"
-        casos="client/casos"
-        acerca="client/acerca"
-        aviso="client/aviso"
-        politicas="client/politicas"
+        rutalink="abogados"
+        searchDisplay="true"
+        pagos={`abogados/${'id'}/pagos`}
+        editar={`abogados/${'id'}/perfil`}
+        casos={`abogados/${'id'}/cases`}
+        acerca={`abogados/${'id'}/about`}
+        aviso={`abogados/${'id'}/aviso`}
+        politicas={`abogados/${'id'}/politicas`}
       />
 
       <section className="container mt-20 pt-5  md:mt-14 xl:mt-20">
@@ -46,8 +46,9 @@ export default function EditClientProfilePage() {
           src="https://11g-files-juandedios.s3.us-east-2.amazonaws.com/amparapp/perfil.png"
           alt=""
         />
-        <ClientProfileEdit />
+        <LawyerProfileEdit />
       </section>
+      <FooterEstructure displayRegister="true" />
 
       <link rel="preconnect" href="https://fonts.googleapis.com" />
       <link
@@ -69,7 +70,7 @@ export default function EditClientProfilePage() {
         integrity="sha384-Piv4xVNRyMGpqkS2by6br4gNJ7DXjqk09RmUpJ8jgGtD7zP9yug3goQfGII0yAns"
         crossOrigin="anonymous"
       ></script>
-      <FooterEstructure />
+      
     </Fragment>
   );
 }

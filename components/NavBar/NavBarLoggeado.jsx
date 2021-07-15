@@ -3,13 +3,14 @@ import Link from "next/link";
 import HambMenu from "./HambMenu/HambMenu";
 
 export default function NavBarLoggeado(props) {
+  console.log('navlogeado', props)
   return (
     <header className=" ">
       <nav
         className={` 
       ${props.fixedTop ? "fixed-top" : ""} 
       ${props.bgTransparent ? "bg-transparent" : "bg-campaing"} 
-      shadow-sm   navbar  navbar-light p-0 `}
+      shadow-sm   navbar bg-light navbar-light p-0 `}
       >
         <div className="col-sm ">
           <Link href={`/${props.rutalink}`}>
@@ -24,6 +25,7 @@ export default function NavBarLoggeado(props) {
 
           <div className="col-sm-2 d-none d-md-flex align-items-center flex-column  ">
             <HambMenu
+              user={props.user}
               pagos={props.pagos}
               editar={props.editar}
               casos={props.casos}

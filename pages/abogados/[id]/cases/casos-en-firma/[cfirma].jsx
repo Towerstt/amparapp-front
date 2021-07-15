@@ -1,14 +1,15 @@
-import Head from "next/head";
 import { Fragment } from "react";
-import NavBarLoggeado from "../../components/NavBar/NavBarLoggeado";
-import FooterEstructure from "../../components/Footer/FooterEsctructure";
-import LawyerProfileEdit from "../../components/UI-abogados/LawyerProfileEdit";
 
-export default function EditLawyerProfilePage() {
+import Head from "next/head";
+import NavBarLoggeado from "../../../../../components/NavBar/NavBarLoggeado";
+import FooterEstructure from "../../../../../components/Footer/FooterEsctructure";
+import VistaCasoFirmar from "../../../../../components/CardCases/VistaCasoFirmar/VistaCasoFirmarDatos";
+
+export default function LoggedDetailCasoEnFirmaPage(props) {
   return (
     <Fragment>
       <Head>
-        <meta charSet="UTF-8" />
+        <meta charset="UTF-8" />
         <meta httpEquiv="X-UA-Compatible" content="IE=edge" />
         <meta name="viewport" content="width=device-width, initial-scale=1.0" />
         <link
@@ -24,29 +25,24 @@ export default function EditLawyerProfilePage() {
           crossOrigin="anonymous"
         />
         <link rel="stylesheet" href="style.css" />
-        <title>Edita tu Perfil</title>
+        <title>Caso en firma</title>
       </Head>
-
       <NavBarLoggeado
         fixedTop="true"
         rutalink="abogados"
         searchDisplay="true"
-        pagos="abogados/pagos"
-        editar="abogados/perfil"
-        casos="abogados/casos"
-        acerca="abogados/acerca"
-        aviso="abogados/aviso"
-        politicas="abogados/politicas"
+        pagos={`abogados/${"id"}/pagos`}
+        editar={`abogados/${"id"}/perfil`}
+        casos={`abogados/${"id"}/cases`}
+        acerca={`abogados/${"id"}/about`}
+        aviso={`abogados/${"id"}/aviso`}
+        politicas={`abogados/${"id"}/politicas`}
       />
-
-      <section className="container mt-20 pt-5  md:mt-14 xl:mt-20">
-        <img
-          className="d-block mx-auto w-96 "
-          src="https://11g-files-juandedios.s3.us-east-2.amazonaws.com/amparapp/perfil.png"
-          alt=""
-        />
-        <LawyerProfileEdit />
-      </section>
+      <VistaCasoFirmar 
+      DontDisplayImgFirm="true"
+      />
+      
+      <FooterEstructure displayRegister="true" />
 
       <link rel="preconnect" href="https://fonts.googleapis.com" />
       <link
@@ -68,7 +64,6 @@ export default function EditLawyerProfilePage() {
         integrity="sha384-Piv4xVNRyMGpqkS2by6br4gNJ7DXjqk09RmUpJ8jgGtD7zP9yug3goQfGII0yAns"
         crossOrigin="anonymous"
       ></script>
-      <FooterEstructure />
     </Fragment>
   );
 }

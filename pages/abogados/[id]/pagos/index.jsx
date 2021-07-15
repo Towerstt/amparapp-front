@@ -1,29 +1,14 @@
 
 import Head from "next/head";
-import { Fragment, useState, useEffect } from "react";
-import NavBarLoggeado from "../../components/NavBar/NavBarLoggeado";
-import FooterEstructure from "../../components/Footer/FooterEsctructure";
-import DashboardEstructure from "../../components/Dashboard.jsx/DashboardEstructure";
-import { setCurrentLawyer } from "../../lib/api";
+import { Fragment } from "react";
+import NavBarLoggeado from "../../../../components/NavBar/NavBarLoggeado";
+import FooterEstructure from "../../../../components/Footer/FooterEsctructure";
+import PaymentsRow from "../../../../components/UI-abogados/PaymentsRow";
 
-
-//en esta funcion se haria el fetch para alimentar la navbar con el avatar del abogado y el nombre del abogado en el dashboard
-
-export default function LawyerDashboard() {
-  const [token, setTkn] = useState('')
-  const [activeLawyer, setActiveLawyer] = useState()
-  useEffect( async () =>{
-    const encryptedData = localStorage.getItem('tkn')
-    setTkn(encryptedData)
-    console.log('Encr', encryptedData)
-    const response = await setCurrentLawyer(token)
-    console.log(response)
-    setActiveLawyer(response)
-  },[token])
+export default function PaymentsPage() {
   return (
     <Fragment>
       <Head>
-        <title> DashBoard </title>
         <meta charSet="UTF-8" />
         <meta httpEquiv="X-UA-Compatible" content="IE=edge" />
         <meta name="viewport" content="width=device-width, initial-scale=1.0" />
@@ -40,30 +25,80 @@ export default function LawyerDashboard() {
           crossOrigin="anonymous"
         />
         <link rel="stylesheet" href="style.css" />
+        <title>Pagos</title>
       </Head>
-      <NavBarLoggeado 
+      <NavBarLoggeado
       fixedTop="true" 
       rutalink='abogados' 
       searchDisplay='true'
-        pagos={`abogados/${'id'}/pagos`}
+      pagos={`abogados/${'id'}/pagos`}
         editar={`abogados/${'id'}/perfil`}
         casos={`abogados/${'id'}/cases`}
         acerca={`abogados/${'id'}/about`}
         aviso={`abogados/${'id'}/aviso`}
         politicas={`abogados/${'id'}/politicas`}
       />
+      <section className="container mt-20 pt-5  md:mt-14 xl:mt-20 mb-28">
+        <div>
+          <img
+            className="d-block mx-auto w-50"
+            src="https://11g-files-juandedios.s3.us-east-2.amazonaws.com/amparapp/pagos.png"
+            alt=""
+          />
+        </div>
 
-      <DashboardEstructure 
-      text={`${'Juan'}  ¡Bienvenido a tu Dashboard de ADMINISTRADOR!`}
-      linkPerfil={`abogados/${'id'}/perfil`}
-      linkCasos={`abogados/${'id'}/cases`}
-      />
+        <table className="table">
+          <thead>
+            <tr>
+              <th scope="col">#</th>
+              <th scope="col">Cliente</th>
+              <th scope="col">ID. Cliente</th>
+              <th scope="col">Caso</th>
+              <th scope="col">Status</th>
+              <th scope="col">Monto</th>
+              <th scope="col">Fecha</th>
+            </tr>
+          </thead>
 
-      
+
+          <tbody>
+            <PaymentsRow
+            number={'1'}
+            client={'rodrigo jauregui'}
+            clientId={'1234'}
+            title={'matrimonio igualitario'}
+            paymentStatus={'PAGADO'}
+            ammount={'1000'}
+            date={'01/01/2021'}
+            />
+
+            
+           
+
+
+          </tbody>
+
+          <thead className="">
+            <tr>
+              <th scope="col"></th>
+              <th scope="col"></th>
+              <th scope="col"></th>
+              <th scope="col"></th>
+              <th scope="col">TOTAL:</th>
+              <th scope="col">$500</th>
+              <th scope="col"></th>
+            </tr>
+          </thead>
+        </table>
+      </section>
       <FooterEstructure displayRegister="true" />
 
       <link rel="preconnect" href="https://fonts.googleapis.com" />
-      <link rel="preconnect" href="https://fonts.gstatic.com" crossOrigin="true" />
+      <link
+        rel="preconnect"
+        href="https://fonts.gstatic.com"
+        crossOrigin="true"
+      />
       <link
         href="https://fonts.googleapis.com/css2?family=Roboto:ital,wght@0,100;0,300;0,400;0,500;0,700;0,900;1,100;1,300;1,400;1,500;1,700;1,900&display=swap"
         rel="stylesheet"

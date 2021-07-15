@@ -2,7 +2,7 @@ import DynamicButton from "../DynamicButton";
 
 export default function DashboardEstructure(props) {
   return (
-    <section className="container-fluid  bg-light p-5 dashboard mt-20  md:mt-14 xl:mt-20">
+    <section className="container-fluid  bg-light p-5 dashboard mt-20  md:mt-14 xl:mt-20" >
       <div className="row d-block p-0 p-mb-5">
         <img
           className="d-block mx-auto md:w-8/12 xl:w-1/2"
@@ -12,7 +12,8 @@ export default function DashboardEstructure(props) {
         <p className="text-center welcome mb-14">{props.text} </p>
 
         <div className="d-block d-md-flex align-items-center justify-content-md-center">
-          <DynamicButton 
+          <DynamicButton
+          data={props.data}
           className="mx-2 d-flex align-items-center px-3 shadow-sm"
           link={props.linkPerfil}
           >
@@ -23,6 +24,7 @@ export default function DashboardEstructure(props) {
             <span>Perfil</span>
           </DynamicButton>
           <DynamicButton 
+          
           className="mx-2 d-flex align-items-center px-3 shadow-sm"
           link={props.linkCasos}
           >
