@@ -3,9 +3,10 @@ import { Fragment, useState, useEffect } from "react";
 import NavBarLoggeado from "../../../components/NavBar/NavBarLoggeado";
 import FooterEstructure from "../../../components/Footer/FooterEsctructure";
 import ClientProfileEdit from "../../../components/UI-Client/ClientProfileEdit";
+import { getUserData } from "../../../lib/api";
 
 export default function EditClientProfilePage(props) {
-  console.log("ID page" , props.id)
+  console.log("edit", props.id)
   return (
     <Fragment>
       <Head>
@@ -29,6 +30,7 @@ export default function EditClientProfilePage(props) {
       </Head>
 
       <NavBarLoggeado
+        userId = {props.id}
         fixedTop="true"
         rutalink="client"
         rutaSearch="client/search"
@@ -75,7 +77,7 @@ export default function EditClientProfilePage(props) {
   );
 }
 
-export function getServerSideProps (context) {
+export async function getServerSideProps (context) {
   const id = context.params.id
   return {props : {
     id

@@ -2,6 +2,7 @@ import React, { useState } from "react";
 import Menu from "./Menu";
 
 export default function HambMenu(props) {
+  console.log("hambmenu", props)
   const [open, setOpen] = useState("close");
   const [width, setWidth] = useState("w-0");
   const [display, setDisplay]= useState('d-none')
@@ -36,6 +37,7 @@ export default function HambMenu(props) {
 
             <div className= {`menu-logged grid grid-cols-1 mt-8 ${display}`}>
               <Menu
+              user={props.user}
               pagos={props.pagos}
               editar={props.editar}
               casos={props.casos}
