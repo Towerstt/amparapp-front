@@ -56,7 +56,7 @@ export default function ClientDashboard() {
       text={`¡Hola ${activeUser ? activeUser[0].firstName : ''} ${activeUser ? activeUser[0].lastName : ''}!  ¡Bienvenido a tu Dashboard de CLIENTE!`}
       data={`${activeUser ? activeUser[0]._id : ''}`}
       linkPerfil={`client/${activeUser ? activeUser[0]._id : ''}`}
-      linkCasos='client/casos'
+      linkCasos={activeUser ? `client/${activeUser[0]._id}/cases` : 'client/casos'}
       />
 
       <FooterEstructure />

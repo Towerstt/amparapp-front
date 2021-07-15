@@ -9,7 +9,7 @@ import FirmCasesEstructure from "../../components/CardCases/FirmCasesEstructure"
 import ActiveCasesEstructure from "../../components/CardCases/ActiveCasesEstructure";
 import CardCasesEstructure from "../../components/CardCases/CardCasesEstructure";
 
-export default function ClientCasesPage() {
+export default function ClientCasesPage(props) {
   //en esta funcion se haria el fetch para saber todos los casos asignados que tiene el cliente y se vacia la info en CardAdminCases
   // se crean 3 casos por fila en web, 1 caso por fila en mobile
 
@@ -76,7 +76,7 @@ export default function ClientCasesPage() {
                   <p>Casos en firma</p>
                 </div>
                 <div className="col-span-2 xl:col-span-1">
-                    <CardCasesEstructure />
+                    <CardCasesEstructure userId = {props.id}/>
                 </div>
               </div>
             </div>
@@ -123,4 +123,12 @@ export default function ClientCasesPage() {
       ></script>
     </Fragment>
   );
+}
+
+
+export function getServerSideProps (context){
+  const id = context.params.id
+  return {props : {
+    id
+  }}
 }
