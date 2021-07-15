@@ -1,0 +1,17 @@
+/*AGREGAR MIXINS*/
+@import './variables.scss';
+
+@mixin text-color {
+    color:$blue ;
+}
+
+@mixin inset-yellow-shadow {
+    box-shadow: inset 1px 2px 5px $yellowShadow;
+}
+
+@mixin inset-white-shadow {
+    box-shadow: inset 1px 2px 5px $whiteShadow !important;
+}
+
+
+

@@ -31,7 +31,7 @@ export default function LogInPage() {
 
       <NavBar fixedTop="true"  />
 
-      <div className="text-center mt-28 ">
+      <div className="text-center mt-28 modal-auth">
         <h3 className="mb-2">¡Bienvenide!</h3>
         <DynamicButton
           className="bg-transparent rounded-lg mb-4 mt-2 w-56"

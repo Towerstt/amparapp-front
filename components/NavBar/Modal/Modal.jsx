@@ -65,17 +65,19 @@ export default function Modal(props) {
           <div className="justify-center items-center flex overflow-x-hidden overflow-y-auto fixed inset-0 z-50 outline-none focus:outline-none">
             <div className="relative w-auto my-6 mx-auto max-w-3xl">
               {/*content*/}
-              <div className="border-0 rounded shadow relative   w-full h-full bg-white outline-none focus:outline-none">
+              <div className="border-0 rounded-3xl shadow-xl relative w-full h-full bg-white outline-none focus:outline-none box-modal p-2">
                 <div className="flex justify-end">
-                  <DynamicButton
-                  onClick={closeModal}
-                  >
-                    <XCircleIcon className="w-10 m-2 " />
+                  <DynamicButton onClick={closeModal}>
+                  
+                  <XCircleIcon 
+                    className="w-10 m-2 " 
+                    />
 
                   </DynamicButton>
                   
                 </div>
-                <h1 className={`my-2 mx-16  text-6xl ${forget}`}> ¡Bienvenide!</h1>
+
+                <h1 className={`my-8 mx-16  text-5xl ${forget}`}> ¡Bienvenide!</h1>
 
                 {/*toogle*/}
                 <div className={`flex justify-content-center ${forget} `}>
@@ -103,7 +105,7 @@ export default function Modal(props) {
                 type="text"
                 onClick={changeScreen}
               >
-                ¿Olvidaste tu contraseña?
+                <b>¿Olvidaste tu contraseña?</b>
               </DynamicButton>
                 </div>
               </div>

@@ -109,7 +109,9 @@ input:not(:placeholder-shown) + label {
   left: 0;
   right: 0;
   bottom: 0;
-  background-color: rgb(209, 42, 42);
+  /*background-color: rgb(209, 42, 42);*/
+  background-color: #dc4c07;
+  box-shadow: inset 2px 4px 3px #16161675;
   -webkit-transition: 0.4s;
   transition: 0.4s;
 }
