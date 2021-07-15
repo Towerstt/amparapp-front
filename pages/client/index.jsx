@@ -15,9 +15,8 @@ export default function ClientDashboard() {
     const encryptedData = localStorage.getItem('tkn')
     setTkn(encryptedData)
     const response = await setCurrentUser(token)
-    console.log(response)
     setActiveUser(response.User)
-  }, [])
+  },[token])
 
   return (
     <Fragment>
@@ -41,6 +40,7 @@ export default function ClientDashboard() {
         <link rel="stylesheet" href="style.css" />
       </Head>
       <NavBarLoggeado
+        user={activeUser ? activeUser[0]._id : ''}
         fixedTop="true"
         rutalink="client"
         rutaSearch="client/search"

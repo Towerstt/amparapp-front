@@ -2,7 +2,9 @@ import { Fragment } from "react";
 import MenuList from "./MenuList";
 import DynamicButton from "../../DynamicButton";
 
+
 export default function Menu(props) {
+  console.log("Menu", props)
   return (
     <Fragment>
       <div className="card   border-0 menu-logged">
@@ -30,7 +32,7 @@ export default function Menu(props) {
         <MenuList
           classNameI="fas fa-user-alt mr-2"
           text="Editar Perfil"
-          link={`${props.editar}`}
+          link={`client/${props.user}`}
           classNameButton=""
         />
 
@@ -46,7 +48,7 @@ export default function Menu(props) {
         <MenuList
           classNameI="fas fa-folder mr-2"
           text="Mis Casos"
-          link={`${props.casos}`}
+          link={`client/${props.user}/cases`}
           classNameButton="w-28"
         />
         <div className="flex flex-col mt-4">

@@ -24,7 +24,7 @@ const {keyid, image, altImage, title, aditionals, shortDescription, limitDate, t
             <p className="m-0">{limitDate}</p>
           </div>
           <div className="bg-warning p-1">
-            <div className="bg-dark w-50 p-1"></div>
+            <div className="bg-dark p-1 w-25"></div>
           </div>
           <div className="d-flex justify-content-start mt-2">
             <span>
@@ -33,7 +33,7 @@ const {keyid, image, altImage, title, aditionals, shortDescription, limitDate, t
             <p className="m-0">{totalSigners}</p>
           </div>
           <div className="bg-warning p-1">
-            <div className="bg-dark w-50 p-1"></div>
+            <div className="bg-dark w-25 p-1"></div>
           </div>
           <img
             className="button-sing"

@@ -1,14 +1,25 @@
 
 import Head from "next/head";
-import { Fragment } from "react";
+import { Fragment, useState, useEffect } from "react";
 import NavBarLoggeado from "../../components/NavBar/NavBarLoggeado";
 import FooterEstructure from "../../components/Footer/FooterEsctructure";
 import DashboardEstructure from "../../components/Dashboard.jsx/DashboardEstructure";
+import { setCurrentLawyer } from "../../lib/api";
 
 
 //en esta funcion se haria el fetch para alimentar la navbar con el avatar del abogado y el nombre del abogado en el dashboard
 
 export default function LawyerDashboard() {
+  const [token, setTkn] = useState('')
+  const [activeLawyer, setActiveLawyer] = useState()
+  useEffect( async () =>{
+    const encryptedData = localStorage.getItem('tkn')
+    setTkn(encryptedData)
+    console.log('Encr', encryptedData)
+    const response = await setCurrentLawyer(token)
+    console.log(response)
+    setActiveLawyer(response)
+  },[token])
   return (
     <Fragment>
       <Head>

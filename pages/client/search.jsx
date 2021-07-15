@@ -1,5 +1,5 @@
 import Head from "next/head";
-import { Fragment, useEffect, useState } from "react";
+import { Fragment, useState } from "react";
 import CardCasesEstructure from "../../components/CardCases/CardCasesEstructure";
 import DynamicInput from "../../components/DynamicInput";
 import FooterEstructure from "../../components/Footer/FooterEsctructure";
@@ -57,7 +57,7 @@ export default function SearchClient() {
               onChange={e => setDataToSearch(e.target.value)}
             />
           </div>
-        </div>
+        </div> 
       </div>
       <section className="container-fluid bg-light p-0 pt-5 pb-5 p-md-5 shadow-sm causes-cards">
         <div className="row d-flex align-items-center flex-column">
