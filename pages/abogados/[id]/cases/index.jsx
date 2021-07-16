@@ -1,4 +1,3 @@
-
 import Head from "next/head";
 import { Fragment, useState, useEffect } from "react";
 import NavBarLoggeado from "../../../../components/NavBar/NavBarLoggeado";
@@ -10,15 +9,26 @@ import ActiveCasesEstructure from "../../../../components/CardCases/ActiveCasesE
 import CardCasesEstructure from "../../../../components/CardCases/CardCasesEstructure";
 import { getLawyerData } from "../../../../lib/api";
 import LoggedCardCasesEstructure from "../../../../components/CardCases/LoggedCardCases/LoggedCardCasesEstructure";
+import { getCasesInfo } from "../../../../lib/api";
 
 export default function AdminCasesPage(props) {
-  console.log("AdminCases", props)
+  const activeLawyerId = props.id;
+  const [data, setData] = useState({ signed: "", active: "" });
 
-  // 
-  //en esta funcion se haria el fetch para saber todos los casos asignados que tiene el abogado y se vacia la info en CardAdminCases
-  // se crean 3 casos por fila en web, 1 caso por fila en mobile
-
-  //el h2 que dice "¡Ooops, parece que aún no tienes casos creados!" es dinamico, si el fetch sí trae casos, debería cambiar su estado a d-none
+  useEffect(async () => {
+    const response = await getCasesInfo();
+    const allCases = response.allCases;
+    console.log("Values", Object.values(allCases));
+    const casesSigned = Object.values(allCases).filter((el) => {
+      el.responsibleUser === activeLawyerId;
+    });
+    setData({ ...data, signed: casesSigned });
+    const today = new Date();
+    const activeCases = casesSigned.filter((el) => {
+      el.limitDate < today ? el : "";
+    });
+    setData({ ...data, active: activeCases });
+  }, []);
 
   return (
     <Fragment>
@@ -45,12 +55,12 @@ export default function AdminCasesPage(props) {
         fixedTop="true"
         rutalink="abogados"
         searchDisplay="true"
-        pagos={`abogados/${'id'}/pagos`}
-        editar={`abogados/${'id'}/perfil`}
-        casos={`abogados/${'id'}/cases`}
-        acerca={`abogados/${'id'}/about`}
-        aviso={`abogados/${'id'}/aviso`}
-        politicas={`abogados/${'id'}/politicas`}
+        pagos={`abogados/${"id"}/pagos`}
+        editar={`abogados/${"id"}/perfil`}
+        casos={`abogados/${"id"}/cases`}
+        acerca={`abogados/${"id"}/about`}
+        aviso={`abogados/${"id"}/aviso`}
+        politicas={`abogados/${"id"}/politicas`}
       />
       <section className="container mt-20 pt-5  md:mt-14 xl:mt-20 ">
         <div>
@@ -62,24 +72,25 @@ export default function AdminCasesPage(props) {
         </div>
         <div className={`flex justify-center mt-4  hidden md:block`}>
           <h2 className="text-center ">
-            ¡Ooops, parece que aún no tienes casos creados!
+            {data.signed
+              ? ""
+              : "¡Ooops, parece que aún no tienes casos creados!"}
           </h2>
         </div>
 
         <div className="flex justify-center mt-4   ">
           <DynamicButton
             className="bg-prussian rounded-lg shadow-sm  w-auto"
-            link={`/abogados/${'id'}/cases/create-case`}
+            link={`/abogados/${activeLawyerId}/cases/create-case`}
           >
             <p className="text-white m-2 text-2xl">Crea un nuevo caso</p>
           </DynamicButton>
         </div>
 
         <div className="grid grid-cols-1 md:hidden my-16">
-          <FirmCasesEstructure  
-          />
+          <FirmCasesEstructure data={data.signed} />
 
-          <ActiveCasesEstructure />
+          <ActiveCasesEstructure data={data.active} />
         </div>
 
         <div className=" hidden md:block container my-4 ">
@@ -90,10 +101,8 @@ export default function AdminCasesPage(props) {
                   <p>Casos en firma</p>
                 </div>
                 <div className="col-span-2 xl:col-span-1">
-                <LoggedCardCasesEstructure />
-
+                  <LoggedCardCasesEstructure userId = {props.id} data={data.signed}/>
                 </div>
-                
               </div>
             </div>
 
@@ -104,17 +113,15 @@ export default function AdminCasesPage(props) {
                 </div>
                 <div className="col-span-2      lg:mx-12">
                   <CardAdminCases
-                    link={`/abogados/${'id'}/cases/casos-activos/${'cactivo'}`}
+                  data={data.active}
+                    link={`/abogados/${"id"}/cases/casos-activos/${"cactivo"}`}
                     title={"title"}
                     responsibleUser={"responsibleUser"}
                     sentenceEffects={"sentenceEffects"}
                   />
                 </div>
-                
-                
               </div>
             </div>
-
           </div>
         </div>
       </section>
@@ -145,10 +152,11 @@ export default function AdminCasesPage(props) {
   );
 }
 
-
-export function getServerSideProps (context){
-  const id = context.params.id
-  return {props : {
-    id
-  }}
+export function getServerSideProps(context) {
+  const id = context.params.id;
+  return {
+    props: {
+      id,
+    },
+  };
 }
