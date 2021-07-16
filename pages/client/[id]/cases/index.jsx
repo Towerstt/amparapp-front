@@ -1,5 +1,6 @@
+/* eslint-disable react-hooks/exhaustive-deps */
 import Head from "next/head";
-import { Fragment, useState } from "react";
+import { Fragment, useState, useEffect } from "react";
 import NavBarLoggeado from "../../../../components/NavBar/NavBarLoggeado";
 import FooterEstructure from "../../../../components/Footer/FooterEsctructure";
 import CardAdminCases from "../../../../components/UI-abogados/CardAdminCases";
@@ -8,8 +9,27 @@ import DynamicButton from "../../../../components/DynamicButton";
 import FirmCasesEstructure from "../../../../components/CardCases/FirmCasesEstructure";
 import ActiveCasesEstructure from "../../../../components/CardCases/ActiveCasesEstructure";
 import CardCasesEstructure from "../../../../components/CardCases/CardCasesEstructure";
+import { getCasesInfo } from "../../../../lib/api";
 
 export default function ClientCasesPage(props) {
+  const activeUserId = props.id
+  const [data, setData] = useState({signed : '', active : ''})
+
+  useEffect(async () => {
+    const response = await getCasesInfo()
+    const allCases = response.allCases
+    console.log('Values',Object.values(allCases))
+    const casesSigned = Object.values(allCases).filter((el) => {
+      el.signers.find(signer => signer === activeUserId) ? el : ''
+    })
+    setData({...data, signed : casesSigned})
+    const today = new Date
+    const activeCases = casesSigned.filter(el => {
+      el.limitDate < today ? el : ''
+    })
+    setData({...data, active : activeCases})
+  },[])
+
   //en esta funcion se haria el fetch para saber todos los casos asignados que tiene el cliente y se vacia la info en CardAdminCases
   // se crean 3 casos por fila en web, 1 caso por fila en mobile
 
@@ -58,14 +78,14 @@ export default function ClientCasesPage(props) {
         </div>
         <div className={`flex justify-center mt-4 ${showMessage}`}>
           <h2 className="text-center">
-            ¡Ooops, parece que aún no tienes casos firmados!
+            {data.signed ? '' :'¡Ooops, parece que aún no tienes casos firmados!'}
           </h2>
         </div>
 
         <div className="grid grid-cols-1 md:hidden my-16">
-          <FirmCasesEstructure />
+          <FirmCasesEstructure data={data.signed}/>
 
-          <ActiveCasesEstructure />
+          <ActiveCasesEstructure data={data.active}/>
         </div>
 
         <div className=" hidden md:block container my-4 ">
@@ -76,7 +96,7 @@ export default function ClientCasesPage(props) {
                   <p>Casos en firma</p>
                 </div>
                 <div className="col-span-2 xl:col-span-1">
-                    <CardCasesEstructure userId = {props.id}/>
+                    <CardCasesEstructure userId = {props.id} data={data.signed}/>
                 </div>
               </div>
             </div>
@@ -88,6 +108,7 @@ export default function ClientCasesPage(props) {
                 </div>
                 <div className="col-span-2       xl:col-span-1">
                   <CardAdminCases
+                    data={data.active}
                     link={`${"id"}`}
                     title={"title"}
                     responsibleUser={"responsibleUser"}

@@ -1,43 +1,45 @@
 
 import Link from "next/link"
+import { useEffect } from "react"
+import { useState } from "react/cjs/react.development"
+import { getLawyerData } from "../../../lib/api"
 
 export default function VistaCasoFirmarEstructura(props){
+  console.log('VCDDFFF', props)
 
-/*
-      sentenceEffects={props.data.sentenceEffects}
-      cost={props.data.cost}
-      
-       
-      
-      imgProfile={props.data.imgProfile}
-*/
-  
+  const {title, image, plaint, shortDescription, sentenceEffects, cost, limitDate, signers, longDescription, responsibleUser, aditionals} = props.data
+  const [lawyerData, setLawyerData] = useState({})
+  useEffect(async () => {
+    // const response = await getLawyerData(responsibleUser)
+    const response = await getLawyerData('60f12ebf8f80e68b05334940')
+    setLawyerData(response.lawyer[0])
+  },[])
 
   return(
     <section className="  mt-20 pt-5  md:mt-14 xl:mt-20 md:mx-16  xl:mx-20 " >
         <div className="grid grid-cols-6 mb-10">
 
           <div className="col-span-6 flex justify-center ">
-            <h2 className=" text-2xl md:text-3xl text-center lg:text-5xl xl:text-6xl font-bold mb-6 md:mb-12">{props.title}</h2>
+            <h2 className=" text-2xl md:text-3xl text-center lg:text-5xl xl:text-6xl font-bold mb-6 md:mb-12">{title}</h2>
           </div>
 
           <div className="col-span-6 md:col-span-3   md:m-4 h-48 md:h-auto xl:col-span-2 order-1">
             <img
               className=" h-full w-full shadow-lg md:border-honeyyellow md:border-2 "
-              src={props.image}
-              alt={props.title}
+              src={image}
+              alt={title}
             />
           </div>
 
           <div className="col-span-6 md:col-span-3 xl:col-span-2  md:m-4 p-3 shadow-lg order-2 md:order-3 xl:order-2">
             <h2 className="text-xl font-medium lg:text-2xl">
-              {props.plaint}
+              {plaint}
             </h2>
             <h4 className="font-bold mt-3 text-xl">Resumen:</h4>
-            <p className="text-justify">{props.shortDescription}</p>
+            <p className="text-justify">{shortDescription}</p>
             <h4 className="font-bold mt-3 text-xl">Efectos de la demanda:</h4>
-            <p className="text-justify">{props.sentenceEffects}</p>
-            <h4 className="font-bold mt-3 text-xl">Costo de la demanda: <span className="">{`$${props.cost}`}</span> </h4>
+            <p className="text-justify">{sentenceEffects}</p>
+            <h4 className="font-bold mt-3 text-xl">Costo de la demanda: <span className="">{`$${cost}`}</span> </h4>
 
           </div>
 
@@ -52,7 +54,7 @@ export default function VistaCasoFirmarEstructura(props){
                   <span>
                     <i className="fas fa-stopwatch mr-2"></i>
                   </span>
-                  <p className="m-0">{props.limitDate}</p>
+                  <p className="m-0">{limitDate}</p>
                 </div>
                 <div className="bg-warning p-1 mx-5 mb-2">
                   <div className="bg-dark w-50 p-1"></div>
@@ -64,7 +66,7 @@ export default function VistaCasoFirmarEstructura(props){
                   <span>
                     <i className="fas fa-signature mr-2"></i>
                   </span>
-                  <p className="m-0">{props.signers}</p>
+                  <p className="m-0">{signers ? signers.length : 0}</p>
                 </div>
                 <div className="bg-warning p-1 mx-5 mb-2">
                   <div className="bg-dark w-50 p-1"></div>
@@ -77,17 +79,17 @@ export default function VistaCasoFirmarEstructura(props){
                   </span>
                   <div className="grid grid-cols-2">
                     <div className="col-span-1 mt-1"><p>Nombre:</p></div>
-                    <div className="col-span-1 mt-1"><p>{`${props.name} ${props.lastName}`}</p></div>
+                    <div className="col-span-1 mt-1"><p>{`${lawyerData.name} ${lawyerData.lastName}`}</p></div>
                     <div className="col-span-1 mt-1"><p>Email:</p></div>
-                    <div className="col-span-1 mt-1"><p>{props.email}</p> </div>
+                    <div className="col-span-1 mt-1"><p>{lawyerData.email}</p> </div>
                     <div className="col-span-1 mt-1"><p>Cédula Profesional:</p> </div>
-                    <div className="col-span-1 mt-1"><p>{props.idCard}</p> </div>
+                    <div className="col-span-1 mt-1"><p>{lawyerData.idCard}</p> </div>
                     <div className="col-span-1 mt-1"><p>LinkedIn:</p> </div>
-                    <div className="col-span-1 mt-1"><p>{props.linkedin}</p></div>
+                    <div className="col-span-1 mt-1"><p>{lawyerData.linkedin}</p></div>
                     <div className="col-span-1 mt-1"><p>ONG</p></div>
-                    <div className="col-span-1 mt-1"><p>{props.enterprise}</p></div>
+                    <div className="col-span-1 mt-1"><p>{lawyerData.enterprise}</p></div>
                     <div className="col-span-1 mt-1"><p>website:</p></div>
-                    <div className="col-span-1 mt-1"><p>{props.website}</p></div>
+                    <div className="col-span-1 mt-1"><p>{lawyerData.website}</p></div>
                   </div>
                 </div>
               </div>
@@ -133,7 +135,7 @@ export default function VistaCasoFirmarEstructura(props){
               </div>
 
               <div className="col-span-2 flex justify-center px-4 pb-4">
-                <p className="text-justify">{props.longDescription}</p>
+                <p className="text-justify">{longDescription}</p>
 
               </div>
 
