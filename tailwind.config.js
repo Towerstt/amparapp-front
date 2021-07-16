@@ -3,6 +3,12 @@ module.exports = {
   purge: [],
   darkMode: false, // or 'media' or 'class'
   theme: {
+    borderColor: theme => ({
+      ...theme('colors'),
+       DEFAULT: theme('colors.gray.300', 'currentColor'),
+       'prussian': '#102e44 ',
+       'honeyyellow':'#ffb703',
+    }),
     textColor: theme => theme('colors'),
      textColor: {
       'honeyyellow':'#ffb703',       
@@ -16,7 +22,7 @@ module.exports = {
     extend: {
       backgroundImage: (theme) => ({
         "hero-pattern":
-          "url('../public/images/vivasnosqueremosopacity.jpg')",
+          "url('https://11g-files-juandedios.s3.us-east-2.amazonaws.com/amparapp/amparapp-cover.png')",
       }),
       height: (theme) => ({
         "screen/2": "45vh",

@@ -1,11 +1,14 @@
 import Head from "next/head";
-import { Fragment } from "react";
+import { Fragment, useState } from "react";
 import NavBar from "../../components/NavBar/NavBar";
 import CardCasesEstructure from "../../components/CardCases/CardCasesEstructure";
 import DynamicInput from "../../components/DynamicInput";
 import FooterEstructure from "../../components/Footer/FooterEsctructure";
 
 export default function SearchPage() {
+  const[dataToSearch, setDataToSearch] = useState('')
+
+
   return (
     <Fragment>
       <Head>
@@ -42,6 +45,7 @@ export default function SearchPage() {
               label="Busca un caso"
               classNameInput="w-full  "
               classNameContainer="   md:mx-28"
+              onChange={e => setDataToSearch(e.target.value)}
             />
             
           </div>
@@ -49,26 +53,17 @@ export default function SearchPage() {
       </div>
       <section className="container-fluid bg-light p-0 pt-5 pb-5 p-md-5 shadow-sm causes-cards">
         <div className="row d-flex align-items-center flex-column">
-          <CardCasesEstructure />
+          <CardCasesEstructure data={dataToSearch}/>
         </div>
       </section>
       <FooterEstructure />
       <link rel="preconnect" href="https://fonts.googleapis.com" />
-      <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin />
+      <link rel="preconnect" href="https://fonts.gstatic.com" crossOrigin='true' />
       <link
         href="https://fonts.googleapis.com/css2?family=Roboto:ital,wght@0,100;0,300;0,400;0,500;0,700;0,900;1,100;1,300;1,400;1,500;1,700;1,900&display=swap"
         rel="stylesheet"
       />
-      <script
-        src="https://code.jquery.com/jquery-3.5.1.slim.min.js"
-        integrity="sha384-DfXdz2htPH0lsSSs5nCTpuj/zy4C+OGpamoFVy38MVBnE+IbbVYUew+OrCXaRkfj"
-        crossorigin="anonymous"
-      ></script>
-      <script
-        src="https://cdn.jsdelivr.net/npm/bootstrap@4.6.0/dist/js/bootstrap.bundle.min.js"
-        integrity="sha384-Piv4xVNRyMGpqkS2by6br4gNJ7DXjqk09RmUpJ8jgGtD7zP9yug3goQfGII0yAns"
-        crossorigin="anonymous"
-      ></script>
+
     </Fragment>
   );
 }

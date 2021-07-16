@@ -2,57 +2,55 @@
 import { Fragment, useState } from "react";
 import DynamicInput from "../../DynamicInput";
 import DynamicButton from "../../DynamicButton";
-
+import { useRouter } from "next/router";
+import { login } from "../../../lib/api";
 
 export default function LogIn(props) {
-  const [data, setData] = useState({email : '', password : ''})
-  
-  const handleSubmit = async (event) => {
-    event.preventDefault()
-      try { 
-        const response = await fetch('http://localhost:8080/clients/login', {
-          method : 'POST',
-          headers : {
-            'Content-Type' : 'application/json'
-          },
-          body : JSON.stringify(data)
-        })
-        const res = await response.json()
-        const token = res.data.token
-        localStorage.setItem('tkn', token)
-      }
-      catch (error) {
-      
-      }
-    
-  }
+  const router = useRouter();
+  const [data, setData] = useState({
+    email: "",
+    password: "",
+    checkbox: false,
+  });
 
-  const updateField = e => {
+  const handleSubmit = async (event) => {
+    event.preventDefault();
+    try {
+      const userLoggedIn = await login(data);
+      const token = userLoggedIn.token;
+      localStorage.setItem("tkn", token);
+      if(data.checkbox){
+        router.push("/abogados");
+      }
+      else{
+        router.push("/client");
+      }
+      
+    } catch (error) {}
+  };
+
+  const updateField = (e) => {
     setData({
       ...data,
-      [e.target.name]: e.target.value
+      [e.target.name]: e.target.value,
     });
   };
 
-
-
-
   return (
     <Fragment>
-      
-      <div className="flex justify-center">
+      <div className="flex justify-center authFFF">
         <img
           // eslint-disable-next-line react/no-unknown-property
-          class="w-48  d-block "
+          className="w-48 d-block "
           src="https://11g-files-juandedios.s3.us-east-2.amazonaws.com/amparapp/ingresar.png"
           alt=""
         />
       </div>
 
-      <form className="mt-3" onSubmit={handleSubmit}>
+      <form className="mt-3 form-auth" onSubmit={handleSubmit}>
         <DynamicInput
           value={data.email}
-          name='email'
+          name="email"
           type="email"
           className="mt-4 "
           label="Email address"
@@ -63,7 +61,7 @@ export default function LogIn(props) {
 
         <DynamicInput
           value={data.password}
-          name='password'
+          name="password"
           type="password"
           className="mt-4 "
           label="Password"
@@ -72,11 +70,19 @@ export default function LogIn(props) {
           onChange={updateField}
         />
 
+        <div className="flex align-items-center justify-content-center mt-6 bg-white">
+          <label className="flex items-center">
+            <input type="checkbox" name='checkbox' value={data.checkbox} onChange={(e => setData({ ...data, checkbox: e.target.checked}))}/>
+            <span className="ml-2">
+              Soy Abogado
+            </span>
+          </label>
+        </div>
+
         <div className="w-full flex-col flex items-center">
           <DynamicButton
             className="bg-prussian rounded-lg shadow-sm my-4 w-28"
             type="submit"
-            
           >
             <p className="text-white m-2 ">Inicia sesión</p>
           </DynamicButton>

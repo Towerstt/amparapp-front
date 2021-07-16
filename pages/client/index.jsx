@@ -1,13 +1,23 @@
 import Head from "next/head";
-import { Fragment } from "react";
+import { Fragment, useState, useEffect } from "react";
 import NavBarLoggeado from "../../components/NavBar/NavBarLoggeado";
 import FooterEstructure from "../../components/Footer/FooterEsctructure";
 import DashboardEstructure from "../../components/Dashboard.jsx/DashboardEstructure";
-
-
+import { setCurrentUser } from "../../lib/api";
+ 
 //en esta funcion se haria el fetch para alimentar la navbar con el avatar del cliente y el nombre del cliente en el dashboard
 
 export default function ClientDashboard() {
+  
+  const [token, setTkn] = useState('')
+  const [activeUser, setActiveUser] = useState()
+  useEffect( async () =>{
+    const encryptedData = localStorage.getItem('tkn')
+    setTkn(encryptedData)
+    const response = await setCurrentUser(token)
+    setActiveUser(response.User)
+  },[token])
+
   return (
     <Fragment>
       <Head>
@@ -29,24 +39,39 @@ export default function ClientDashboard() {
         />
         <link rel="stylesheet" href="style.css" />
       </Head>
-      <NavBarLoggeado fixedTop="true"  />
-
-      <DashboardEstructure 
-      text={`${'Juan'}  ¡Bienvenido a tu Dashboard de CLIENTE!`}
-      linkPerfil='client/perfil'
-      linkCasos='client/casos'
+      <NavBarLoggeado
+        user={activeUser ? activeUser[0]._id : ''}
+        fixedTop="true"
+        rutalink="client"
+        rutaSearch="client/search"
+        pagos='client/pagos'
+        editar='client/perfil'
+        casos='client/casos'
+        acerca='client/acerca'
+        aviso='client/aviso'
+        politicas='client/politicas'
       />
 
-      
+      <DashboardEstructure 
+      text={`¡Hola ${activeUser ? activeUser[0].firstName : ''} ${activeUser ? activeUser[0].lastName : ''}!  ¡Bienvenido a tu Dashboard de CLIENTE!`}
+      data={`${activeUser ? activeUser[0]._id : ''}`}
+      linkPerfil={`client/${activeUser ? activeUser[0]._id : ''}`}
+      linkCasos={activeUser ? `client/${activeUser[0]._id}/cases` : 'client/casos'}
+      />
+
       <FooterEstructure />
 
       <link rel="preconnect" href="https://fonts.googleapis.com" />
-      <link rel="preconnect" href="https://fonts.gstatic.com" crossOrigin="true" />
+      <link
+        rel="preconnect"
+        href="https://fonts.gstatic.com"
+        crossOrigin="true"
+      />
       <link
         href="https://fonts.googleapis.com/css2?family=Roboto:ital,wght@0,100;0,300;0,400;0,500;0,700;0,900;1,100;1,300;1,400;1,500;1,700;1,900&display=swap"
         rel="stylesheet"
       />
-      <script
+      {/* <script
         src="https://code.jquery.com/jquery-3.5.1.slim.min.js"
         integrity="sha384-DfXdz2htPH0lsSSs5nCTpuj/zy4C+OGpamoFVy38MVBnE+IbbVYUew+OrCXaRkfj"
         crossOrigin="anonymous"
@@ -55,7 +80,7 @@ export default function ClientDashboard() {
         src="https://cdn.jsdelivr.net/npm/bootstrap@4.6.0/dist/js/bootstrap.bundle.min.js"
         integrity="sha384-Piv4xVNRyMGpqkS2by6br4gNJ7DXjqk09RmUpJ8jgGtD7zP9yug3goQfGII0yAns"
         crossOrigin="anonymous"
-      ></script>
+      ></script> */}
     </Fragment>
   );
 }

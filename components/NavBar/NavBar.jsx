@@ -2,22 +2,23 @@ import Icons from "../Icons";
 import Link from "next/link";
 import Modal from "./Modal/Modal";
 import DynamicButton from "../DynamicButton";
+import Image from "next/image";
 
 export default function NavBar(props) {
 
 
   return (
     <header>
-      <nav
+      <nav id="icona-amparapp"
         className={` 
       ${props.fixedTop ? "fixed-top" : ""} 
       ${props.bgTransparent ? "bg-transparent" : "bg-campaing"} 
-      shadow-sm   navbar  navbar-light p-0 `}
+      shadow-sm   navbar bg-light navbar-light p-0 `}
       >
         <div className="col-sm ">
           <Link href='/'>
             <a>
-            <img
+            <Image
             className="d-block d-md-none mx-auto w-25"
             src="https://11g-files-juandedios.s3.us-east-2.amazonaws.com/amparapp/amparapp-icono.png"
             alt="Alza la voz logo"
@@ -35,7 +36,7 @@ export default function NavBar(props) {
             </div>
             <nav className="navbar navbar-light">
               <button
-                className="navbar-toggler"
+                className="navbar-toggler d-none"
                 type="button"
                 data-toggle="collapse"
                 data-target="#navbarToggleExternalContent"
@@ -43,7 +44,7 @@ export default function NavBar(props) {
                 aria-expanded="false"
                 aria-label="Toggle navigation"
               >
-                <span className="navbar-toggler-icon"></span>
+                <span className="navbar-toggler-icon d-none"></span>
               </button>
             </nav>
           </div>
@@ -54,7 +55,7 @@ export default function NavBar(props) {
           <a className="navbar-brand amparapp-logo ">
             <Link href="/">
               <button>
-              <img
+              <Image
               className="mx-auto d-block w-15 "
               src="https://11g-files-juandedios.s3.us-east-2.amazonaws.com/amparapp/amparapp-icono.png"
               alt=""
