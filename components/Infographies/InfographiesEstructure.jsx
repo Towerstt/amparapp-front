@@ -7,21 +7,21 @@ export default function InfographiesEstructure(props){
 
         <div className="row d-flex justify-content-center p-0 p-md-5">
           <Infographies
-            className="d-block"
+            className="icon infographies"
             src="https://11g-files-juandedios.s3.us-east-2.amazonaws.com/amparapp/icon.causas.png"
             alt="causas activas"
             number={props.usersCount}
             text="Usuarios activos"
           />
           <Infographies
-            className="icon"
+            className="icon infographies"
             src="https://11g-files-juandedios.s3.us-east-2.amazonaws.com/amparapp/icon-firmas.png"
             alt="numero total de firmantes"
             number={props.signersCount}
             text={"Firmas"}
           />
           <Infographies
-            className="icon"
+            className="icon infographies"
             src="https://11g-files-juandedios.s3.us-east-2.amazonaws.com/amparapp/icon-amparos.png"
             alt="numero total de amparos ganados"
             number={props.casesCount}
