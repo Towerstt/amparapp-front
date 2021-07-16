@@ -28,7 +28,7 @@ export default function CaseDetailsInputs(props) {
     aditionals: [],
     status: "",
     creationDate: new Date(),
-    responsibleUser: props.id,
+    responsibleUser: props.dataId,
     signers : [],
     documents : {}
   });
@@ -108,6 +108,7 @@ export default function CaseDetailsInputs(props) {
     try {
       data.documents.demanda = demanda
       data.documents.poder = poder
+      data.status = 'registering'
       const newCase = await postNewCase(data)
       console.log(newCase)
       router.replace("/abogados");

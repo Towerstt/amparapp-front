@@ -57,6 +57,7 @@ export default function AdminCasesPage(props) {
         <title>Admin cases</title>
       </Head>
       <NavBarLoggeado
+        user = {props.id}
         fixedTop="true"
         rutalink="abogados"
         searchDisplay="true"
@@ -85,6 +86,7 @@ export default function AdminCasesPage(props) {
 
         <div className="flex justify-center mt-4   ">
           <DynamicButton
+          userId={activeLawyerId}
             className="bg-prussian rounded-lg shadow-sm  w-auto"
             link={`/abogados/${activeLawyerId}/cases/create-case`}
           >

@@ -9,7 +9,7 @@ import { getCase } from "../../../../lib/api";
 export default function LoggedDetailCasoEnFirmaPage(props) {
   console.log('LDCSDDFSDf', props)
   const [caseData, setCaseData] = useState('')
-    useEffect(async () => {
+    useEffect(async () => { 
       const response = await getCase(props.caseId)
       console.log(response[0])
       setCaseData(response[0])
@@ -39,12 +39,12 @@ export default function LoggedDetailCasoEnFirmaPage(props) {
         fixedTop="true"
         rutalink="client"
         searchDisplay="true"
-        pagos={`client/${"id"}/pagos`}
-        editar={`client/${"id"}/perfil`}
-        casos={`client/${"id"}/cases`}
-        acerca={`client/${"id"}/about`}
-        aviso={`client/${"id"}/aviso`}
-        politicas={`client/${"id"}/politicas`}
+        pagos={`client/${props.id}/pagos`}
+        editar={`client/${props.id}/perfil`}
+        casos={`client/${props.id}/cases`}
+        acerca={`client/${props.id}/about`}
+        aviso={`client/${props.id}/aviso`}
+        politicas={`client/${props.id}/politicas`}
       />
       <VistaCasoFirmar 
       DontDisplayImgFirm="true"

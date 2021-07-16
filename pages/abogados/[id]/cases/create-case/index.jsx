@@ -4,7 +4,8 @@ import NavBarLoggeado from "../../../../../components/NavBar/NavBarLoggeado";
 import FooterEstructure from "../../../../../components/Footer/FooterEsctructure";
 import CaseDetailsInputs from "../../../../../components/UI-abogados/Crear-caso/CaseDetailsInputs";
 
-export default function CreateNewCasePage() {
+export default function CreateNewCasePage(props) {
+  console.log('CreateNewCasePage', props)
   return (
     <Fragment> 
       <Head>
@@ -27,6 +28,7 @@ export default function CreateNewCasePage() {
         <title>Crea un caso</title>
       </Head>
       <NavBarLoggeado
+      user={props.id}
         fixedTop="true"
         rutalink="abogados"
         searchDisplay="true"
@@ -52,7 +54,7 @@ export default function CreateNewCasePage() {
         <div className="col-span-2 md:mx-16  xl:mx-20 ">
           <form>
 
-          <CaseDetailsInputs/>
+          <CaseDetailsInputs dataId={props.id}/>
 
           </form>
         </div>
@@ -101,3 +103,9 @@ image LISTO
     responsibleUser 
     signers 
     */
+
+
+export  function getServerSideProps (context) {
+      const id = context.params.id
+      return {props : {id}}
+    }
