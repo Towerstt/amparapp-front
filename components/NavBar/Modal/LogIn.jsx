@@ -20,10 +20,10 @@ export default function LogIn(props) {
       const token = userLoggedIn.token;
       localStorage.setItem("tkn", token);
       if(data.checkbox){
-        router.replace("/abogados");
+        router.push("/abogados");
       }
       else{
-        router.replace("/client");
+        router.push("/client");
       }
       
     } catch (error) {}

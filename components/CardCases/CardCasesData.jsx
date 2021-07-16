@@ -3,7 +3,7 @@ import CardCases from "./CardCases";
 
 export default function CardCasesData(props) {  
   console.log('CCD', props)
-    const dataToPrint = ({_id, image, title, shortDescription, aditionals, limitDate, signers, creationDate}) =>{
+    const dataToPrint = ({_id, image, title, shortDescription, aditionals, limitDate, signers, creationDate, plaint}) =>{
         return(
           <CardCases 
           key={_id}
@@ -15,6 +15,7 @@ export default function CardCasesData(props) {
           limitDate={limitDate}
           totalSigners={signers ? signers.length : 0}
           creationDate={creationDate}
+          plaint={plaint}
           path={props.userId ? `/client/${props.userId}/cases/${_id}` : `/detalle-del-caso/${_id}`}
           />
         )

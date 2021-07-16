@@ -1,10 +1,20 @@
 import { Fragment } from "react";
 import MenuList from "./MenuList";
 import DynamicButton from "../../DynamicButton";
-
+import { useRouter } from "next/router";
 
 export default function Menu(props) {
-  console.log("Menu", props)
+
+  const router = useRouter();
+
+
+  const logOut = ()=>{
+    const encryptedData = localStorage.removeItem("tkn");
+    router.replace('/')
+
+  }
+
+  //console.log("Menu", props);
   return (
     <Fragment>
       <div className="card   border-0 menu-logged">
@@ -32,7 +42,11 @@ export default function Menu(props) {
         <MenuList
           classNameI="fas fa-user-alt mr-2"
           text="Editar Perfil"
-          link={props.politicas.split('/')[0] === 'client' ? `client/${props.user}` : `abogados/${props.user}`}
+          link={
+            props.politicas.split("/")[0] === "client"
+              ? `client/${props.user}`
+              : `abogados/${props.user}`
+          }
           classNameButton=""
         />
 
@@ -44,29 +58,26 @@ export default function Menu(props) {
           />
           <span>Casos</span>
         </div>
-        
+
         <MenuList
           classNameI="fas fa-folder mr-2"
           text="Mis Casos"
-          link={props.politicas.split('/')[0] === 'client' ? `client/${props.user}/cases` : `abogados/${props.user}/cases`}
+          link={
+            props.politicas.split("/")[0] === "client"
+              ? `client/${props.user}/cases`
+              : `abogados/${props.user}/cases`
+          }
           classNameButton="w-28"
         />
-        <div className="flex flex-col mt-4">
-          <DynamicButton
-            link={`${props.acerca}`}
-            children="Acerca de Nosotros"
+
+        <div className="flex justify-center items-center mt-6">
+          <button 
+          className="rounded-lg bg-honeyyellow border-2 p-1"
+          onClick={logOut}
+          >
             
-          />
-          <DynamicButton
-            link={`${props.privacidad}`}
-            children="Aviso de Privacidad"
-            className="mt-2"
-          />
-          <DynamicButton
-            link={`${props.politicas}`}
-            children="Políticas de Pago"
-            className="mt-2"
-          />
+            <p className="font-bold text-2xl text-white">Cerrar sesión</p>{" "}
+          </button>
         </div>
       </div>
     </Fragment>

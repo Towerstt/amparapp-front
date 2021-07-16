@@ -1,14 +1,45 @@
 import Head from "next/head";
-import { Fragment } from "react";
+import { Fragment, useState, useEffect } from "react";
 import NavBar from "../components/NavBar/NavBar";
-import Modal from "../components/NavBar/Modal/Modal"
+import Modal from "../components/NavBar/Modal/Modal";
 import CardCasesEstructure from "../components/CardCases/CardCasesEstructure";
 import InfographiesEstructure from "../components/Infographies/InfographiesEstructure";
 import FaqsEstructure from "../components/FAQS/FAQSEstructure";
 import DynamicButton from "../components/DynamicButton";
 import FooterEstructure from "../components/Footer/FooterEsctructure";
-import { getCasesInfo, getClientsInfo } from "../lib/api"
+import NavBarLoggeado from "../components/NavBar/NavBarLoggeado";
+import {
+  getCasesInfo,
+  getClientsInfo,
+  setCurrentLawyer,
+  setCurrentUser,
+} from "../lib/api";
 export default function Home(props) {
+  const [hiddenNavBar, setHiddenNavBar] = useState("hidden");
+
+  const [token, setTkn] = useState("");
+  const [activeUser, setActiveUser] = useState("");
+  const [usertype, setUserType] = useState("");
+
+  useEffect(async () => {
+    const encryptedData = localStorage.getItem("tkn");
+
+    if (encryptedData) {
+      setHiddenNavBar("");
+      setTkn(encryptedData);
+      const responseUser = await setCurrentUser(token);
+      const responseLawyer = await setCurrentLawyer(token);
+
+      if (responseUser.User.length === 0) {
+        setActiveUser(responseLawyer.lawyer);
+        setUserType("abogados");
+      } else {
+        setActiveUser(responseUser.User);
+        setUserType("client");
+      }
+    }
+  }, [token]);
+
   return (
     <Fragment>
       <Head>
@@ -31,8 +62,25 @@ export default function Home(props) {
         ></link>
         <link rel="stylesheet" href="style.css"></link>
       </Head>
-      
-      <NavBar bgTransparent="" fixedTop="true" />
+
+      <div className="">
+        <NavBar bgTransparent="" fixedTop="true" />
+      </div>
+      <div className={`${hiddenNavBar}`}>
+        <NavBarLoggeado
+          user={activeUser ? activeUser[0]._id : ""}
+          fixedTop="true"
+          searchDisplay={usertype === "abogados" ? "true" : ""}
+          rutalink={usertype}
+          rutaSearch={`${usertype}/search`}
+          pagos={`${usertype}/pagos`}
+          editar={`${usertype}/perfil`}
+          casos={`${usertype}/casos`}
+          acerca={`${usertype}/acerca`}
+          aviso={`${usertype}/aviso`}
+          politicas={`${usertype}/politicas`}
+        />
+      </div>
 
       <section className="container-fluid p-5 p-md-0 bg-hero-pattern bg-cover bla">
         <main>
@@ -57,8 +105,11 @@ export default function Home(props) {
           </div>
       </section>
 
-
-      <InfographiesEstructure signersCount={props.numberOfSigners} usersCount={props.numberOfUsers} casesCount={props.numberOfCases} />
+      <InfographiesEstructure
+        signersCount={props.numberOfSigners}
+        usersCount={props.numberOfUsers}
+        casesCount={props.numberOfCases}
+      />
 
       <section className="container-fluid p-5 d-none d-md-block ">
         <div className="d-flex justify-content-center align-items-center faqs ">
@@ -86,16 +137,16 @@ export default function Home(props) {
               src="https://11g-files-juandedios.s3.us-east-2.amazonaws.com/amparapp/lema.png"
               alt=""
             />
-
         </div>
       </section>
-      <FooterEstructure/>
-      
+      <FooterEstructure />
 
-
-      
       <link rel="preconnect" href="https://fonts.googleapis.com" />
-      <link rel="preconnect" href="https://fonts.gstatic.com" crossOrigin="true" />
+      <link
+        rel="preconnect"
+        href="https://fonts.gstatic.com"
+        crossOrigin="true"
+      />
       <link
         href="https://fonts.googleapis.com/css2?family=Roboto:ital,wght@0,100;0,300;0,400;0,500;0,700;0,900;1,100;1,300;1,400;1,500;1,700;1,900&display=swap"
         rel="stylesheet"
@@ -114,14 +165,15 @@ export default function Home(props) {
   );
 }
 
+export async function getServerSideProps(context) {
+  const casesInfo = await getCasesInfo();
 
-export async function getServerSideProps (context) {
-  const casesInfo = await getCasesInfo()
-
-  const clientsInfo =  await getClientsInfo()
-   return {props : {
-     numberOfUsers : clientsInfo.count,
-     numberOfSigners : clientsInfo.signersCount,
-     numberOfCases : casesInfo.count
-   }}
+  const clientsInfo = await getClientsInfo();
+  return {
+    props: {
+      numberOfUsers: clientsInfo.count,
+      numberOfSigners: clientsInfo.signersCount,
+      numberOfCases: casesInfo.count,
+    },
+  };
 }

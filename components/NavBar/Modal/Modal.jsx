@@ -43,6 +43,8 @@ export default function Modal(props) {
   }
 
   const closeModal= ()=>{
+    console.log('si paso')
+
     setShowModal(false)
     setForgetDisplay('d-none')
     setActive("d-block")
@@ -96,7 +98,10 @@ export default function Modal(props) {
                 </div>
 
                 <div className={`${forgetDisplay}`}>
-                  <ForgetPassword/>
+                  <ForgetPassword
+
+                  
+                  />
                 </div>
                 <div className="flex justify-center">
 
