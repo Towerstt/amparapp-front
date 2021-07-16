@@ -87,9 +87,11 @@ export default function Home(props) {
       <section className="container-fluid p-5 p-md-0 bg-hero-pattern bg-cover bla">
         <main>
           <div className="cover-main">
-            <img
+            <Image
               className="mx-auto w-50 d-block"
               src="https://11g-files-juandedios.s3.us-east-2.amazonaws.com/amparapp/slogan.png"
+              width={500}
+              height={500}
               alt=""
             />
           </div>
