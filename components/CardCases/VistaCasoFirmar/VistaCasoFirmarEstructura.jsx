@@ -5,7 +5,7 @@ import { getLawyerData } from "../../../lib/api";
 import DynamicButton from "../../DynamicButton";
 
 export default function VistaCasoFirmarEstructura(props) {
-  console.log("VCDDFFF", props);
+  console.log("VCDDFFF", props.data.responsibleUser);
 
   const {
     title,
@@ -23,10 +23,11 @@ export default function VistaCasoFirmarEstructura(props) {
   } = props.data;
   const [lawyerData, setLawyerData] = useState({});
   useEffect(async () => {
-    // const response = await getLawyerData(responsibleUser)
-    const response = await getLawyerData("60f12ebf8f80e68b05334940");
+    if(!responsibleUser) return
+    console.log('RU', responsibleUser)
+    const response = await getLawyerData(props.data.responsibleUser);
     setLawyerData(response.lawyer[0]);
-  }, []);
+  }, [responsibleUser]);
 
   return (
     <section className="  mt-20 pt-5  md:mt-14 xl:mt-20 md:mx-16  xl:mx-20 ">
