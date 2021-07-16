@@ -11,8 +11,8 @@ import CardCasesEstructure from "../../../../components/CardCases/CardCasesEstru
 import { getLawyerData } from "../../../../lib/api";
 import LoggedCardCasesEstructure from "../../../../components/CardCases/LoggedCardCases/LoggedCardCasesEstructure";
 
-export default async function AdminCasesPage(props) {
-  console.log("AdminCases", props.id)
+export default function AdminCasesPage(props) {
+  console.log("AdminCases", props)
 
   // 
   //en esta funcion se haria el fetch para saber todos los casos asignados que tiene el abogado y se vacia la info en CardAdminCases

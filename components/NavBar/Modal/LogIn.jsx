@@ -41,7 +41,7 @@ export default function LogIn(props) {
       <div className="flex justify-center authFFF">
         <img
           // eslint-disable-next-line react/no-unknown-property
-          class="w-48 d-block "
+          className="w-48 d-block "
           src="https://11g-files-juandedios.s3.us-east-2.amazonaws.com/amparapp/ingresar.png"
           alt=""
         />
@@ -70,10 +70,10 @@ export default function LogIn(props) {
           onChange={updateField}
         />
 
-        <div class="flex mt-6">
-          <label class="flex items-center">
+        <div className="flex mt-6">
+          <label className="flex items-center">
             <input type="checkbox" name='checkbox' value={data.checkbox} onChange={(e => setData({ ...data, checkbox: e.target.checked}))}/>
-            <span class="ml-2">
+            <span className="ml-2">
               Soy Abogado
             </span>
           </label>
