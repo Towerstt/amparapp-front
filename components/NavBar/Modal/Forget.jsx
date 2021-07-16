@@ -11,7 +11,7 @@ export default function ForgetPassword() {
     <Fragment>
       <div className="flex justify-center">
         <img
-          class="w-48  d-block "
+          className="w-48  d-block "
           src="https://11g-files-juandedios.s3.us-east-2.amazonaws.com/amparapp/recuperar.png"
           alt=""
         />
