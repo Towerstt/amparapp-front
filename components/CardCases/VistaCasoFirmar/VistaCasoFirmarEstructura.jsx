@@ -39,7 +39,7 @@ export default function VistaCasoFirmarEstructura(props) {
         </div>
 
         <div className="col-span-6 md:col-span-3   md:m-4 h-48 md:h-auto xl:col-span-2 order-1">
-          <Image
+          <img
             className=" h-full w-full shadow-lg md:border-honeyyellow md:border-2 "
             src={image}
             alt={title}
@@ -135,7 +135,7 @@ export default function VistaCasoFirmarEstructura(props) {
               className={`col-span-2 ${props.DontDisplayImageFirm && "hidden"}`}
             >
               <Link href="/cases">
-                <Image
+                <img
                   className="button-sing "
                   src="https://11g-files-juandedios.s3.us-east-2.amazonaws.com/amparapp/firma-boton.png"
                   alt=""
@@ -159,7 +159,7 @@ export default function VistaCasoFirmarEstructura(props) {
                 type="button"
                 link={documents ? documents.demanda : ''}
               >
-                <Image
+                <img
                   className="mx-auto d-block w-25"
                   src="https://11g-files-juandedios.s3.us-east-2.amazonaws.com/amparapp/icon-pdf.png"
                   alt=""
@@ -172,7 +172,7 @@ export default function VistaCasoFirmarEstructura(props) {
                 type="button"
                 link={documents ? documents.poder : ''}
               >
-                <Image
+                <img
                   className="mx-auto d-block w-25"
                   src="https://11g-files-juandedios.s3.us-east-2.amazonaws.com/amparapp/icon-pdf.png"
                   alt=""

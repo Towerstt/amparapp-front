@@ -19,14 +19,14 @@ export default function Menu(props) {
   return (
     <Fragment>
       <div className="card   border-0 menu-logged">
-        <Image
+        <img
           className="mx-auto d-block w-25"
           src="https://11g-files-juandedios.s3.us-east-2.amazonaws.com/amparapp/amparapp-icono.png"
           alt=""
         />
 
         <div className="flex justify-center items-center mt-3 pr-3">
-          <Image
+          <img
             className="d-block w-25"
             src="https://11g-files-juandedios.s3.us-east-2.amazonaws.com/amparapp/icon-perfil.png"
             alt=""
@@ -52,7 +52,7 @@ export default function Menu(props) {
         />
 
         <div className="flex justify-center items-center mt-2">
-          <Image
+          <img
             className="d-block w-25"
             src="https://11g-files-juandedios.s3.us-east-2.amazonaws.com/amparapp/icon-casos.png"
             alt=""

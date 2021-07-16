@@ -42,7 +42,7 @@ export default function CreateNewCasePage(props) {
       />
 
       <section className="container grid grid-cols-2 carga-caso mt-20 pt-5  md:mt-14 xl:mt-20">
-        <Image
+      <img
           className="col-span-2 mx-auto md:w-1/3 "
           src="https://11g-files-juandedios.s3.us-east-2.amazonaws.com/amparapp/caso.png"
           alt=""

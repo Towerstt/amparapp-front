@@ -19,7 +19,7 @@ const {keyid, image, altImage, title, aditionals, shortDescription, limitDate, t
     <Fragment>
       <Link href={path}>
       <div key={keyid} className="col-span-2 md:col-span-1 card-case-green d-block d-md-flex justify-content-center align-items-center border-left rounded shadow mb-3 mb-md-3  mx-auto my-0 w-full">
-        <Image
+        <img
           className="case-img m-3"
           src={image}
           alt={altImage}
@@ -45,7 +45,7 @@ const {keyid, image, altImage, title, aditionals, shortDescription, limitDate, t
           <div className="bg-warning p-1">
             <div className={`bg-dark p-1 w-${signersWidth}`}></div>
           </div>
-          <Image
+          <img
             className="button-sing"
             src="https://11g-files-juandedios.s3.us-east-2.amazonaws.com/amparapp/firma-boton.png"
             alt=""

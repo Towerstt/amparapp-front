@@ -6,7 +6,7 @@ export default function DashboardEstructure(props) {
   return (
     <section className="container-fluid  bg-light p-5 dashboard mt-20  md:mt-14 xl:mt-20" >
       <div className="row d-block p-0 p-mb-5">
-        <Image
+        <img
           className="d-block mx-auto md:w-8/12 xl:w-1/2"
           src="https://11g-files-juandedios.s3.us-east-2.amazonaws.com/amparapp/dashboard.png"
           alt=""
@@ -19,7 +19,7 @@ export default function DashboardEstructure(props) {
           className="mx-2 d-flex align-items-center px-3 shadow-sm"
           link={props.linkPerfil}
           >
-            <Image
+            <img
               src="https://11g-files-juandedios.s3.us-east-2.amazonaws.com/amparapp/icon-perfil.png"
               alt=""
             />
@@ -30,7 +30,7 @@ export default function DashboardEstructure(props) {
           className="mx-2 d-flex align-items-center px-3 shadow-sm"
           link={props.linkCasos}
           >
-            <Image
+            <img
               src="https://11g-files-juandedios.s3.us-east-2.amazonaws.com/amparapp/icon-casos.png"
               alt=""
             />

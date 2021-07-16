@@ -44,7 +44,7 @@ export default function EditClientProfilePage(props) {
       />
 
       <section className="container mt-20 pt-5  md:mt-14 xl:mt-20">
-        <Image
+      <img
           className="d-block mx-auto w-96 "
           src="https://11g-files-juandedios.s3.us-east-2.amazonaws.com/amparapp/perfil.png"
           alt=""

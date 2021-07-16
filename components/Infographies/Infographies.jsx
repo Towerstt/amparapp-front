@@ -6,7 +6,7 @@ export default function Infographies(props){
 
     <div className="col-sm-4 d-flex justify-content-center align-items-center card-info">
             
-              <Image
+            <img
                 className={style}
                 src={src}
                 alt={alt}

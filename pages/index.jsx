@@ -87,7 +87,7 @@ export default function Home(props) {
       <section className="container-fluid p-5 p-md-0 bg-hero-pattern bg-cover bla">
         <main>
           <div className="cover-main">
-            <Image
+            <img
               className="mx-auto w-50 d-block"
               src="https://11g-files-juandedios.s3.us-east-2.amazonaws.com/amparapp/slogan.png"
               width={500}
@@ -118,7 +118,7 @@ export default function Home(props) {
       <section className="container-fluid p-5 d-none d-md-block ">
         <div className="d-flex justify-content-center align-items-center faqs ">
           <div className="col-md-4">
-            <Image
+            <img
               className="mx-auto d-block w-75"
               src="https://11g-files-juandedios.s3.us-east-2.amazonaws.com/amparapp/FAQs.png"
               alt=""
@@ -136,7 +136,7 @@ export default function Home(props) {
       <section className="container-fluid p-5 registro d-none d-md-block">
         <div className="row m-5">
 
-            {/* <Image
+            {/* <img
               className="d-block w-100 mx-auto"
               src="https://11g-files-juandedios.s3.us-east-2.amazonaws.com/amparapp/lema.png"
               alt=""

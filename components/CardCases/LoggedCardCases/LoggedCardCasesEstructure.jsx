@@ -16,7 +16,7 @@ export default function LoggedCardCasesEstructure(props){
       <div key={keyid} className="  block  justify-center border-left rounded shadow-sm  "  >
         
         <div className="border-8">
-            <Image
+            <img
               className="  bg-contain shadow-lg md:border-honeyyellow md:border-2 "
               src={image}
               alt={title}

@@ -9,7 +9,7 @@ export default function CardAdminCases(props) {
 
         <Link href={props.link}>
           <div className="card-case card p-5 mt-4 w-full md:w-5/6  ">
-            <Image
+          <img
               className="d-block mx-auto "
               src="https://11g-files-juandedios.s3.us-east-2.amazonaws.com/amparapp/icon-case.png"
               alt=""

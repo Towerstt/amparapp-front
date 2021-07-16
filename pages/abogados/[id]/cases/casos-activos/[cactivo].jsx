@@ -46,7 +46,7 @@ export default function DetailActiveCasePage() {
       <section className="  mt-20 pt-5  md:mt-14 xl:mt-20 md:mx-10  xl:mx-20 ">
         <div className="grid grid-cols-6 mb-10">
           <div className="col-span-6 flex justify-center ">
-            <Image
+            <img
               className="d-block mx-auto md:w-1/2"
               src="https://11g-files-juandedios.s3.us-east-2.amazonaws.com/amparapp/linea-del-tiempo.png"
               alt=""
@@ -54,7 +54,7 @@ export default function DetailActiveCasePage() {
           </div>
 
           <div className="col-span-6 md:col-span-2   md:m-4 h-48 md:h-80  ">
-            <Image
+            <img
               className=" h-full w-full shadow-lg md:border-honeyyellow md:border-2 "
               src={
                 "https://11g-files-juandedios.s3.us-east-2.amazonaws.com/amparapp/matrimonio.png"
