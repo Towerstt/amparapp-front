@@ -5,11 +5,14 @@ export default function Infographies(props){
   return(
 
     <div className="col-sm-4 d-flex justify-content-center align-items-center card-info">
-            <img
-              className={style}
-              src={src}
-              alt={alt}
-            />
+            
+              <img
+                className={style}
+                src={src}
+                alt={alt}
+              />
+            
+
             <div>
               <span>{number}</span>
               <p>{text}</p>

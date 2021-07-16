@@ -497,10 +497,12 @@ input:checked + .slider:before {
     background-position: center bottom;
     height: 531px !important;
     padding: 0;
-    margin-top: 100px;
+    margin-top: 50px;
   }
   .case-img {
-    width: 40%;
+    width: auto !important;
+    max-width:250px !important;
+    height: fit-content !important;
   }
   .card-container {
     gap: 20px;
@@ -602,4 +604,35 @@ input:checked + .slider:before {
   font-size: 16px !important;
   font-weight: 400 !important;
   text-align: right;
+}
+
+@media (max-width: 500px) {
+  nav#icona-amparapp img {
+    width: 50% !important;
+    max-width: 55px;
+    padding: 2px;
+    margin: 10px;
+  }
+
+  .bg-hero-pattern {
+    background-image: none !important;
+    background-color: #fff !important;
+  }
+
+  .cover-main img {
+    width: 100% !important;
+    max-width: 400px !important;
+  } 
+
+  section.navbar-mobile {
+    position: fixed;
+    right: 0;
+    bottom: 0;
+    left: 0;
+    z-index: 1030;
+    background-color: #fff;
+  }
+  .card-info {
+    justify-content: start !important;
+  }
 }

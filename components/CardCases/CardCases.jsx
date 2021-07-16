@@ -7,7 +7,7 @@ const {keyid, image, altImage, title, aditionals, shortDescription, limitDate, t
   return (
     <Fragment>
       <Link href={path}>
-      <div key={keyid} className="col-span-2 md:col-span-1 card-case-green d-block d-md-flex justify-content-center border-left rounded shadow mb-5 mb-md-5  mx-auto my-0 w-full">
+      <div key={keyid} className="col-span-2 md:col-span-1 card-case-green d-block d-md-flex justify-content-center align-items-center border-left rounded shadow mb-3 mb-md-3  mx-auto my-0 w-full">
         <img
           className="case-img m-3"
           src={image}

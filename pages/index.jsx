@@ -47,10 +47,13 @@ export default function Home(props) {
       </section>
 
       <section className="container-fluid bg-light p-0 pt-5 pb-5 p-md-5 shadow-sm causes-cards">
-        <div className="row d-flex align-items-center flex-column">
+        <div className="row d-flex align-items-center flex-column w-100 mx-auto p-0 p-md-5">
           <h1>Fírmalo</h1>
           <h2 className="mb-10">Casos Activos</h2>
+          
           <CardCasesEstructure />
+          
+
           </div>
       </section>
 
@@ -77,14 +80,13 @@ export default function Home(props) {
 
       <section className="container-fluid p-5 registro d-none d-md-block">
         <div className="row m-5">
-          <DynamicButton className="Regular border-0 shadow-sm d-flex align-items-center w-25 mx-auto">
+
             <img
               className="d-block w-100 mx-auto"
-              src="https://11g-files-juandedios.s3.us-east-2.amazonaws.com/amparapp/registrate.png"
+              src="https://11g-files-juandedios.s3.us-east-2.amazonaws.com/amparapp/lema.png"
               alt=""
             />
-            <Modal/>
-          </DynamicButton>
+
         </div>
       </section>
       <FooterEstructure/>
