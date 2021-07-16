@@ -2,7 +2,7 @@ import { useState, useEffect } from "react";
 import CardCasesData from "./CardCasesData";
 
 export default function CardCasesEstructure(props) {
-  console.log(props)
+  console.log('CCE', props)
   const [data, setData] = useState({});
 
   useEffect(() => {
@@ -22,7 +22,7 @@ export default function CardCasesEstructure(props) {
   return (
     <div className="container p-0">
       <div className="grid  md:grid-cols-2 p-0">
-        <CardCasesData data={Object.values(data)} />
+        <CardCasesData data={Object.values(data)} userId={props.userId} />
       </div>
     </div>
   );

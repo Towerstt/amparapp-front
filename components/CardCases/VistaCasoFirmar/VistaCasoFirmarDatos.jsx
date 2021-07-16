@@ -5,7 +5,6 @@ import VistaCasoFirmarEstructura from "./VistaCasoFirmarEstructura";
 
 export default function VistaCasoFirmarDatos(props){
 
-
   //DontDisplayImgFirm="true"
   //path={`/abogados/${'id'}/cases/casos-en-firma/${'cfirma'}`}
       
@@ -14,6 +13,7 @@ export default function VistaCasoFirmarDatos(props){
     <Fragment>
       <VistaCasoFirmarEstructura
       DontDisplayImgFirm={props.DontDisplayImgFirm}
+      data={props.data}
       
       /*
       image={props.data.image}
