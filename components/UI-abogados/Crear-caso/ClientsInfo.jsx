@@ -82,7 +82,7 @@ export default function ClientsInfo(props) {
 
       {fields.map((field, idx) => {
         return (
-          <Fragment>
+          <Fragment key={idx}>
             <div key={`${field}-${idx}`} className="col-span-5 my-3 pl-4 ">
               <DynamicInput
                 type="text"

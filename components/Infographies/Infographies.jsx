@@ -1,4 +1,4 @@
-
+import Image from "next/image";
 export default function Infographies(props){
   const {className: style, src, alt, number, text} = props
 
@@ -6,7 +6,7 @@ export default function Infographies(props){
 
     <div className="col-sm-4 d-flex justify-content-center align-items-center card-info">
             
-              <img
+              <Image
                 className={style}
                 src={src}
                 alt={alt}

@@ -6,6 +6,7 @@ import NavBarLoggeado from "../../../../../components/NavBar/NavBarLoggeado";
 import FooterEstructure from "../../../../../components/Footer/FooterEsctructure";
 import DynamicInput from "../../../../../components/DynamicInput";
 import DynamicButton from "../../../../../components/DynamicButton";
+import Image from "next/image";
 
 export default function DetailActiveCasePage() {
   return (
@@ -18,13 +19,13 @@ export default function DetailActiveCasePage() {
           rel="stylesheet"
           href="https://cdn.jsdelivr.net/npm/bootstrap@4.6.0/dist/css/bootstrap.min.css"
           integrity="sha384-B0vP5xmATw1+K9KRQjQERJvTumQW0nPEzvF6L/Z6nronJ3oUOFUFpCjEUQouq2+l"
-          crossorigin="anonymous"
+          crossOrigin="anonymous"
         />
         <link
           rel="stylesheet"
           href="https://use.fontawesome.com/releases/v5.8.1/css/all.css"
           integrity="sha384-50oBUHEmvpQ+1lW4y57PTFmhCaXp0ML5d60M1M7uH2+nqUivzIebhndOJK28anvf"
-          crossorigin="anonymous"
+          crossOrigin="anonymous"
         />
         <link rel="stylesheet" href="style.css" />
         <title>Caso Activo</title>
@@ -45,15 +46,15 @@ export default function DetailActiveCasePage() {
       <section className="  mt-20 pt-5  md:mt-14 xl:mt-20 md:mx-10  xl:mx-20 ">
         <div className="grid grid-cols-6 mb-10">
           <div className="col-span-6 flex justify-center ">
-            <img
-              class="d-block mx-auto md:w-1/2"
+            <Image
+              className="d-block mx-auto md:w-1/2"
               src="https://11g-files-juandedios.s3.us-east-2.amazonaws.com/amparapp/linea-del-tiempo.png"
               alt=""
             />{" "}
           </div>
 
           <div className="col-span-6 md:col-span-2   md:m-4 h-48 md:h-80  ">
-            <img
+            <Image
               className=" h-full w-full shadow-lg md:border-honeyyellow md:border-2 "
               src={
                 "https://11g-files-juandedios.s3.us-east-2.amazonaws.com/amparapp/matrimonio.png"
@@ -263,7 +264,7 @@ export default function DetailActiveCasePage() {
                       </div>
                     </div>
                   </div>
-                  <i class="fas fa-arrow-right fa-4x"></i>
+                  <i className="fas fa-arrow-right fa-4x"></i>
                 </div>
               </div>
 
@@ -299,7 +300,7 @@ export default function DetailActiveCasePage() {
                       </div>
                     </div>
                   </div>
-                  <i class="fas fa-arrow-right fa-4x"></i>
+                  <i className="fas fa-arrow-right fa-4x"></i>
                 </div>
               </div>
 
@@ -345,22 +346,22 @@ export default function DetailActiveCasePage() {
       <link
         rel="preconnect"
         href="https://fonts.gstatic.com"
-        crossorigin="true"
+        crossOrigin="true"
       />
       <link
         href="https://fonts.googleapis.com/css2?family=Roboto:ital,wght@0,100;0,300;0,400;0,500;0,700;0,900;1,100;1,300;1,400;1,500;1,700;1,900&display=swap"
         rel="stylesheet"
       />
-      <script
+      {/* <script
         src="https://code.jquery.com/jquery-3.5.1.slim.min.js"
         integrity="sha384-DfXdz2htPH0lsSSs5nCTpuj/zy4C+OGpamoFVy38MVBnE+IbbVYUew+OrCXaRkfj"
-        crossorigin="anonymous"
+        crossOrigin="anonymous"
       ></script>
       <script
         src="https://cdn.jsdelivr.net/npm/bootstrap@4.6.0/dist/js/bootstrap.bundle.min.js"
         integrity="sha384-Piv4xVNRyMGpqkS2by6br4gNJ7DXjqk09RmUpJ8jgGtD7zP9yug3goQfGII0yAns"
-        crossorigin="anonymous"
-      ></script>
+        crossOrigin="anonymous"
+      ></script> */}
     </Fragment>
   );
 }

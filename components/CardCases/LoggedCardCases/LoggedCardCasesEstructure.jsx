@@ -1,6 +1,7 @@
 
 import { Fragment } from "react";
 import Link from "next/link";
+import Image from "next/image";
 
 export default function LoggedCardCasesEstructure(props){
 
@@ -15,7 +16,7 @@ export default function LoggedCardCasesEstructure(props){
       <div key={keyid} className="  block  justify-center border-left rounded shadow-sm  "  >
         
         <div className="border-8">
-            <img
+            <Image
               className="  bg-contain shadow-lg md:border-honeyyellow md:border-2 "
               src={image}
               alt={title}

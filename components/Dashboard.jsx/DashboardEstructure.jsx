@@ -1,3 +1,4 @@
+import Image from "next/image";
 import DynamicButton from "../DynamicButton";
 
 export default function DashboardEstructure(props) {
@@ -5,7 +6,7 @@ export default function DashboardEstructure(props) {
   return (
     <section className="container-fluid  bg-light p-5 dashboard mt-20  md:mt-14 xl:mt-20" >
       <div className="row d-block p-0 p-mb-5">
-        <img
+        <Image
           className="d-block mx-auto md:w-8/12 xl:w-1/2"
           src="https://11g-files-juandedios.s3.us-east-2.amazonaws.com/amparapp/dashboard.png"
           alt=""
@@ -18,7 +19,7 @@ export default function DashboardEstructure(props) {
           className="mx-2 d-flex align-items-center px-3 shadow-sm"
           link={props.linkPerfil}
           >
-            <img
+            <Image
               src="https://11g-files-juandedios.s3.us-east-2.amazonaws.com/amparapp/icon-perfil.png"
               alt=""
             />
@@ -29,7 +30,7 @@ export default function DashboardEstructure(props) {
           className="mx-2 d-flex align-items-center px-3 shadow-sm"
           link={props.linkCasos}
           >
-            <img
+            <Image
               src="https://11g-files-juandedios.s3.us-east-2.amazonaws.com/amparapp/icon-casos.png"
               alt=""
             />

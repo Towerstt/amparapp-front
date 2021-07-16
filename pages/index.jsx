@@ -14,6 +14,8 @@ import {
   setCurrentLawyer,
   setCurrentUser,
 } from "../lib/api";
+import Image from 'next/image'
+
 export default function Home(props) {
   const [hiddenNavBar, setHiddenNavBar] = useState("hidden");
 
@@ -85,7 +87,7 @@ export default function Home(props) {
       <section className="container-fluid p-5 p-md-0 bg-hero-pattern bg-cover bla">
         <main>
           <div className="cover-main">
-            <img
+            <Image
               className="mx-auto w-50 d-block "
               src="https://11g-files-juandedios.s3.us-east-2.amazonaws.com/amparapp/slogan.png"
               alt=""
@@ -114,7 +116,7 @@ export default function Home(props) {
       <section className="container-fluid p-5 d-none d-md-block ">
         <div className="d-flex justify-content-center align-items-center faqs ">
           <div className="col-md-4">
-            <img
+            <Image
               className="mx-auto d-block w-75"
               src="https://11g-files-juandedios.s3.us-east-2.amazonaws.com/amparapp/FAQs.png"
               alt=""
@@ -132,7 +134,7 @@ export default function Home(props) {
       <section className="container-fluid p-5 registro d-none d-md-block">
         <div className="row m-5">
 
-            <img
+            <Image
               className="d-block w-100 mx-auto"
               src="https://11g-files-juandedios.s3.us-east-2.amazonaws.com/amparapp/lema.png"
               alt=""
@@ -151,7 +153,7 @@ export default function Home(props) {
         href="https://fonts.googleapis.com/css2?family=Roboto:ital,wght@0,100;0,300;0,400;0,500;0,700;0,900;1,100;1,300;1,400;1,500;1,700;1,900&display=swap"
         rel="stylesheet"
       />
-      <script
+      {/* <script
         src="https://code.jquery.com/jquery-3.5.1.slim.min.js"
         integrity="sha384-DfXdz2htPH0lsSSs5nCTpuj/zy4C+OGpamoFVy38MVBnE+IbbVYUew+OrCXaRkfj"
         crossOrigin="anonymous"
@@ -160,7 +162,7 @@ export default function Home(props) {
         src="https://cdn.jsdelivr.net/npm/bootstrap@4.6.0/dist/js/bootstrap.bundle.min.js"
         integrity="sha384-Piv4xVNRyMGpqkS2by6br4gNJ7DXjqk09RmUpJ8jgGtD7zP9yug3goQfGII0yAns"
         crossOrigin="anonymous"
-      ></script>
+      ></script> */}
     </Fragment>
   );
 }

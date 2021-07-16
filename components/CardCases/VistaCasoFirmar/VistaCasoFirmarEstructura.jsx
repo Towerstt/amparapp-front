@@ -1,11 +1,11 @@
 import Link from "next/link";
-import { useEffect } from "react";
-import { useState } from "react/cjs/react.development";
+import { useEffect, useState } from "react";
 import { getLawyerData } from "../../../lib/api";
 import DynamicButton from "../../DynamicButton";
+import Image from "next/image";
 
 export default function VistaCasoFirmarEstructura(props) {
-  console.log("VCDDFFF", props.data.responsibleUser);
+  // console.log("VCDDFFF", props.data.responsibleUser);
 
   const {
     title,
@@ -17,15 +17,15 @@ export default function VistaCasoFirmarEstructura(props) {
     limitDate,
     signers,
     longDescription,
-    responsibleUser,
+    responsibleUser = '60f12ebf8f80e68b05334940',
     aditionals,
     documents,
-  } = props.data;
+  } = props.data || {};
   const [lawyerData, setLawyerData] = useState({});
   useEffect(async () => {
     if(!responsibleUser) return
     console.log('RU', responsibleUser)
-    const response = await getLawyerData(props.data.responsibleUser);
+    const response = await getLawyerData(responsibleUser);
     setLawyerData(response.lawyer[0]);
   }, [responsibleUser]);
 
@@ -39,7 +39,7 @@ export default function VistaCasoFirmarEstructura(props) {
         </div>
 
         <div className="col-span-6 md:col-span-3   md:m-4 h-48 md:h-auto xl:col-span-2 order-1">
-          <img
+          <Image
             className=" h-full w-full shadow-lg md:border-honeyyellow md:border-2 "
             src={image}
             alt={title}
@@ -132,10 +132,10 @@ export default function VistaCasoFirmarEstructura(props) {
               </div>
             </div>
             <div
-              className={`col-span-2 ${props.DontDisplayImgFirm && "hidden"}`}
+              className={`col-span-2 ${props.DontDisplayImageFirm && "hidden"}`}
             >
               <Link href="/cases">
-                <img
+                <Image
                   className="button-sing "
                   src="https://11g-files-juandedios.s3.us-east-2.amazonaws.com/amparapp/firma-boton.png"
                   alt=""
@@ -159,7 +159,7 @@ export default function VistaCasoFirmarEstructura(props) {
                 type="button"
                 link={documents ? documents.demanda : ''}
               >
-                <img
+                <Image
                   className="mx-auto d-block w-25"
                   src="https://11g-files-juandedios.s3.us-east-2.amazonaws.com/amparapp/icon-pdf.png"
                   alt=""
@@ -172,7 +172,7 @@ export default function VistaCasoFirmarEstructura(props) {
                 type="button"
                 link={documents ? documents.poder : ''}
               >
-                <img
+                <Image
                   className="mx-auto d-block w-25"
                   src="https://11g-files-juandedios.s3.us-east-2.amazonaws.com/amparapp/icon-pdf.png"
                   alt=""

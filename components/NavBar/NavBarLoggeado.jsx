@@ -1,5 +1,6 @@
 import Icons from "../Icons";
 import Link from "next/link";
+import Image from "next/image";
 import HambMenu from "./HambMenu/HambMenu";
 
 export default function NavBarLoggeado(props) {
@@ -15,7 +16,7 @@ export default function NavBarLoggeado(props) {
         <div className="col-sm ">
           <Link href={`/${props.rutalink}`}>
             <a>
-              <img
+              <Image
                 className="d-block d-md-none mx-auto w-25"
                 src="https://11g-files-juandedios.s3.us-east-2.amazonaws.com/amparapp/amparapp-icono.png"
                 alt="Alza la voz logo"
@@ -40,7 +41,7 @@ export default function NavBarLoggeado(props) {
           <a className="navbar-brand amparapp-logo ">
             <Link href={`/${props.rutalink}`}>
               <button>
-                <img
+                <Image
                   className="mx-auto d-block w-15 "
                   src="https://11g-files-juandedios.s3.us-east-2.amazonaws.com/amparapp/amparapp-icono.png"
                   alt=""

@@ -2,6 +2,7 @@ import { Fragment, useEffect, useState } from "react";
 import DynamicInput from "../../DynamicInput";
 import DynamicButton from "../../DynamicButton";
 import { passwordRecovery } from "../../../lib/api";
+import Image from "next/image";
 
 export default function ForgetPassword() {
   const [email, setEmail] = useState('')  
@@ -10,7 +11,7 @@ export default function ForgetPassword() {
   return (
     <Fragment>
       <div className="flex justify-center">
-        <img
+        <Image
           className="w-48  d-block "
           src="https://11g-files-juandedios.s3.us-east-2.amazonaws.com/amparapp/recuperar.png"
           alt=""
