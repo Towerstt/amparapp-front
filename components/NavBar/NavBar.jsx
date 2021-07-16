@@ -22,6 +22,8 @@ export default function NavBar(props) {
             className="d-block d-md-none mx-auto w-25"
             src="https://11g-files-juandedios.s3.us-east-2.amazonaws.com/amparapp/amparapp-icono.png"
             alt="Alza la voz logo"
+            width={75}
+        height={75}
           />
             </a>
           </Link>

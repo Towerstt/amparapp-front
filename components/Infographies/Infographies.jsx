@@ -10,7 +10,7 @@ export default function Infographies(props){
                 className={style}
                 src={src}
                 alt={alt}
-                width={200}
+                width={315}
                 height={200}
               />
             
