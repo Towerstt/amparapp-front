@@ -17,26 +17,17 @@ export default function FooterEstructure(props) {
               src="https://11g-files-juandedios.s3.us-east-2.amazonaws.com/amparapp/logo-slogan-icon.png"
               alt=""
             />
-            <p>
-              Le damos voz a tus causas en México, tramitamos amparos de forma
-              digital.
-            </p>
+           
           </div>
           <div className="col-12 col-md-4 d-none d-md-block ">
-            <h2>Información</h2>
+            <h2>Nuestra iniciativa</h2>
             <p>
-              <a href="#"> Acerca de Nosotros</a>
+            Le damos voz a las causas en México, tramitamos amparos de forma
+              digital.
+
+              Nosotros somos Alza la Voz, una iniciativa digital. Juntos hemos desarrollado un proyecto que conjunte  a los mejores abogados para poderle dar causa legal a las quejas.
             </p>
-            <p className={`${props.displayRegister&&'hidden'}`}>
-              <a href="#">Registro</a>
-              <Modal/>
-            </p>
-            <p>
-              <a href="#">Aviso de Privacidad</a>
-            </p>
-            <p>
-              <a href="#">Póliticas de Pago</a>
-            </p>
+            
           </div>
           <div className="col-12 col-md-4">
             <h2>Suscríbete</h2>

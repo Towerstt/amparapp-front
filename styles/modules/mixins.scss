@@ -6,7 +6,7 @@
 }
 
 @mixin inset-yellow-shadow {
-    box-shadow: inset 1px 2px 5px $yellowShadow;
+    box-shadow: inset 1px 2px 5px gray;
 }
 
 @mixin inset-white-shadow {

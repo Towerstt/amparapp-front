@@ -8,7 +8,7 @@ export default function NavBar(props) {
 
   return (
     <header>
-      <nav
+      <nav id="icona-amparapp"
         className={` 
       ${props.fixedTop ? "fixed-top" : ""} 
       ${props.bgTransparent ? "bg-transparent" : "bg-campaing"} 

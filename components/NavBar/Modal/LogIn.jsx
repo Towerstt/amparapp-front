@@ -70,7 +70,7 @@ export default function LogIn(props) {
           onChange={updateField}
         />
 
-        <div className="flex mt-6">
+        <div className="flex align-items-center justify-content-center mt-6 bg-white">
           <label className="flex items-center">
             <input type="checkbox" name='checkbox' value={data.checkbox} onChange={(e => setData({ ...data, checkbox: e.target.checked}))}/>
             <span className="ml-2">

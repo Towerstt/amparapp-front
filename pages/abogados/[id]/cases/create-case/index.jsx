@@ -6,7 +6,7 @@ import CaseDetailsInputs from "../../../../../components/UI-abogados/Crear-caso/
 
 export default function CreateNewCasePage() {
   return (
-    <Fragment>
+    <Fragment> 
       <Head>
         <meta charSet="UTF-8" />
         <meta httpEquiv="X-UA-Compatible" content="IE=edge" />

@@ -42,7 +42,7 @@ export default function Register(props) {
         />
       </div>
 
-      <form className="mt-3" onSubmit={handleSubmit}>
+      <form className="mt-3 form-auth" onSubmit={handleSubmit}>
         <DynamicInput
           value={data.firstName}
           name='firstName'
