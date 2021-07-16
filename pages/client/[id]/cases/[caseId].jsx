@@ -1,11 +1,17 @@
-import { Fragment } from "react";
+import { Fragment, useState, useEffect } from "react";
 
 import Head from "next/head";
 import NavBarLoggeado from "../../../../components/NavBar/NavBarLoggeado";
 import FooterEstructure from "../../../../components/Footer/FooterEsctructure";
 import VistaCasoFirmar from "../../../../components/CardCases/VistaCasoFirmar/VistaCasoFirmarDatos"
+import { getCase } from "../../../../lib/api";
 
 export default function LoggedDetailCasoEnFirmaPage(props) {
+  const [caseData, setCaseData] = useState('')
+    useEffect(async () => {
+      const response = await getCase(props.caseId)
+      setCaseData(response[0])
+    },[])
   return (
     <Fragment>
       <Head>
@@ -29,17 +35,18 @@ export default function LoggedDetailCasoEnFirmaPage(props) {
       </Head>
       <NavBarLoggeado
         fixedTop="true"
-        rutalink="abogados"
+        rutalink="client"
         searchDisplay="true"
-        pagos={`abogados/${"id"}/pagos`}
-        editar={`abogados/${"id"}/perfil`}
-        casos={`abogados/${"id"}/cases`}
-        acerca={`abogados/${"id"}/about`}
-        aviso={`abogados/${"id"}/aviso`}
-        politicas={`abogados/${"id"}/politicas`}
+        pagos={`client/${"id"}/pagos`}
+        editar={`client/${"id"}/perfil`}
+        casos={`client/${"id"}/cases`}
+        acerca={`client/${"id"}/about`}
+        aviso={`client/${"id"}/aviso`}
+        politicas={`client/${"id"}/politicas`}
       />
       <VistaCasoFirmar 
       DontDisplayImgFirm="true"
+      data={caseData}
       />
       
       <FooterEstructure displayRegister="true" />
@@ -66,4 +73,12 @@ export default function LoggedDetailCasoEnFirmaPage(props) {
       ></script>
     </Fragment>
   );
+}
+
+
+export function getServerSideProps (context) {
+  const caseId = context.params.caseId
+  return {props : {
+    caseId
+  }}
 }

@@ -32,7 +32,7 @@ export default function Menu(props) {
         <MenuList
           classNameI="fas fa-user-alt mr-2"
           text="Editar Perfil"
-          link={`${props.editar}`}
+          link={props.politicas.split('/')[0] === 'client' ? `client/${props.user}` : `abogados/${props.user}`}
           classNameButton=""
         />
 
@@ -44,11 +44,11 @@ export default function Menu(props) {
           />
           <span>Casos</span>
         </div>
-
+        
         <MenuList
           classNameI="fas fa-folder mr-2"
           text="Mis Casos"
-          link={`${props.casos}`}
+          link={props.politicas.split('/')[0] === 'client' ? `client/${props.user}/cases` : `abogados/${props.user}/cases`}
           classNameButton="w-28"
         />
       
