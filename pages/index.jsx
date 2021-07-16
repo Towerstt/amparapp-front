@@ -90,8 +90,6 @@ export default function Home(props) {
             <img
               className="mx-auto w-50 d-block"
               src="https://11g-files-juandedios.s3.us-east-2.amazonaws.com/amparapp/slogan.png"
-              width={500}
-              height={500}
               alt=""
             />
           </div>
@@ -136,11 +134,11 @@ export default function Home(props) {
       <section className="container-fluid p-5 registro d-none d-md-block">
         <div className="row m-5">
 
-            {/* <img
-              className="d-block w-100 mx-auto"
+            <img
+              className="d-block w-25 mx-auto"
               src="https://11g-files-juandedios.s3.us-east-2.amazonaws.com/amparapp/lema.png"
               alt=""
-            /> */}
+            />
         </div>
       </section>
       <FooterEstructure />
