@@ -54,9 +54,8 @@ export default function LawyerProfileEdit(props) {
   const handleSubmit = async (event) => {
     event.preventDefault();
     try {
-      console.log('DATA', data)
-      // const newData = await editLawyerData(props.userId, data);
-      // router.replace("/abogados");
+      const newData = await editLawyerData(props.userId, data);
+      router.replace("/abogados");
     } catch (error) {
       console.log(error);
     }
