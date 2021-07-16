@@ -4,7 +4,7 @@ export default function Infographies(props){
 
   return(
 
-    <div className="col-sm-4 d-flex justify-content-center align-items-center card-info">
+    <div className="col-sm-4 flex justify-center items-center card-info">
             <img
               className={style}
               src={src}

@@ -3,7 +3,7 @@ import Link from "next/link";
 
 
 export default function CardCases(props) {
-const {keyid, image, altImage, title, aditionals, shortDescription, limitDate, totalSigners, path } = props
+const {keyid, image, altImage, title, aditionals, shortDescription, limitDate, totalSigners, path, plaint } = props
   return (
     <Fragment>
       <Link href={path}>
@@ -14,9 +14,8 @@ const {keyid, image, altImage, title, aditionals, shortDescription, limitDate, t
           alt={altImage}
         />
         <div className="p-3 bg-light">
-          <h3>{title}</h3>
-          <h4>{aditionals}</h4>
-          <span>{shortDescription}</span>
+          <h3 className="text-left">{title}</h3>
+          <span >{plaint}</span>
           <div className="d-flex justify-content-start mt-2">
             <span>
               <i className="fas fa-stopwatch"></i>

@@ -32,7 +32,7 @@ export default function Menu(props) {
         <MenuList
           classNameI="fas fa-user-alt mr-2"
           text="Editar Perfil"
-          link={`${props.user}`}
+          link={`${props.editar}`}
           classNameButton=""
         />
 
@@ -48,26 +48,10 @@ export default function Menu(props) {
         <MenuList
           classNameI="fas fa-folder mr-2"
           text="Mis Casos"
-          link={`${props.user}/cases`}
+          link={`${props.casos}`}
           classNameButton="w-28"
         />
-        <div className="flex flex-col mt-4">
-          <DynamicButton
-            link={`${props.acerca}`}
-            children="Acerca de Nosotros"
-            
-          />
-          <DynamicButton
-            link={`${props.privacidad}`}
-            children="Aviso de Privacidad"
-            className="mt-2"
-          />
-          <DynamicButton
-            link={`${props.politicas}`}
-            children="Políticas de Pago"
-            className="mt-2"
-          />
-        </div>
+      
       </div>
     </Fragment>
   );

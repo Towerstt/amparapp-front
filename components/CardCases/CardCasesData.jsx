@@ -2,7 +2,7 @@ import React from "react";
 import CardCases from "./CardCases";
 
 export default function CardCasesData(props) {  
-    const dataToPrint = ({_id, image, title, shortDescription, aditionals, limitDate, signers, creationDate}) =>{
+    const dataToPrint = ({_id, image, title, shortDescription, aditionals, limitDate, signers, creationDate, plaint}) =>{
         return(
           <CardCases 
           key={_id}
@@ -15,6 +15,7 @@ export default function CardCasesData(props) {
           totalSigners={signers ? signers.length : 0}
           creationDate={creationDate}
           path={`/detalle-del-caso/${_id}`}
+          plaint={plaint}
           />
         )
     }

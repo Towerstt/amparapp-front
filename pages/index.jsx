@@ -32,6 +32,7 @@ export default function Home(props) {
         <link rel="stylesheet" href="style.css"></link>
       </Head>
       
+      
       <NavBar bgTransparent="" fixedTop="true" />
 
       <section className="container-fluid p-5 p-md-0 bg-hero-pattern bg-cover bla">

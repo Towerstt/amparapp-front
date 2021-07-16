@@ -5,7 +5,7 @@ export default function InfographiesEstructure(props){
   return(
     <section className="container-fluid p-5 infogaphy border">
 
-        <div className="row d-flex justify-content-center p-0 p-md-5">
+        <div className="row flex justify-center p-0 ">
           <Infographies
             className="d-block"
             src="https://11g-files-juandedios.s3.us-east-2.amazonaws.com/amparapp/icon.causas.png"
