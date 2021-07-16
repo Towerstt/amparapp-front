@@ -49,6 +49,8 @@ const {keyid, image, altImage, title, aditionals, shortDescription, limitDate, t
             className="button-sing"
             src="https://11g-files-juandedios.s3.us-east-2.amazonaws.com/amparapp/firma-boton.png"
             alt=""
+            srcSet=' '
+            sizes='0'
           />
         </div>
       </div>
