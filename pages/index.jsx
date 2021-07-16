@@ -89,7 +89,7 @@ export default function Home(props) {
           <div className="cover-main">
             <Image
               className="mx-auto w-50 d-block "
-              src="https://11g-files-juandedios.s3.us-east-2.amazonaws.com/amparapp/slogan.png"
+              src="amparapp/slogan.png"
               alt=""
             />
           </div>
