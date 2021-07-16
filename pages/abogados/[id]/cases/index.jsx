@@ -12,10 +12,15 @@ import LoggedCardCasesEstructure from "../../../../components/CardCases/LoggedCa
 import { getCasesInfo } from "../../../../lib/api";
 
 export default function AdminCasesPage(props) {
+  console.log('AdminCases', props)
   const activeLawyerId = props.id;
   const [data, setData] = useState({ signed: "", active: "" });
+  const [activeLawyer, setActiveLawyer ] = useState('')
 
   useEffect(async () => {
+    const currentLawyer = await getLawyerData(activeLawyerId)
+    console.log('CL', currentLawyer)
+    setActiveLawyer(currentLawyer.lawyer)
     const response = await getCasesInfo();
     const allCases = response.allCases;
     console.log("Values", Object.values(allCases));
@@ -114,9 +119,9 @@ export default function AdminCasesPage(props) {
                 <div className="col-span-2      lg:mx-12">
                   <CardAdminCases
                   data={data.active}
-                    link={`/abogados/${"id"}/cases/casos-activos/${"cactivo"}`}
+                    link={`/abogados/${activeLawyerId}/cases/casos-activos/${"cactivo"}`}
                     title={"title"}
-                    responsibleUser={"responsibleUser"}
+                    responsibleUser={activeLawyer._id}
                     sentenceEffects={"sentenceEffects"}
                   />
                 </div>

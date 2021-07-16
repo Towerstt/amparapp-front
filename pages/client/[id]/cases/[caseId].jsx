@@ -7,9 +7,11 @@ import VistaCasoFirmar from "../../../../components/CardCases/VistaCasoFirmar/Vi
 import { getCase } from "../../../../lib/api";
 
 export default function LoggedDetailCasoEnFirmaPage(props) {
+  console.log('LDCSDDFSDf', props)
   const [caseData, setCaseData] = useState('')
     useEffect(async () => {
       const response = await getCase(props.caseId)
+      console.log(response[0])
       setCaseData(response[0])
     },[])
   return (

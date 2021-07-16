@@ -14,7 +14,8 @@ export default function CaseDetailsInputs(props) {
   // console.log('EDASDASDas', props)
   const router = useRouter();
   const [docs, setDocs] = useState({demanda : '', poder : '', image : ''})
-  const [docsToData, setDocsToData] = useState({demanda : '', poder : ''})
+  const [demanda, setDemanda] = useState('')
+  const [poder, setPoder] = useState('')
   const [data, setData] = useState({
     image: "",
     title: "",
@@ -76,7 +77,7 @@ export default function CaseDetailsInputs(props) {
       .on("complete", (result) => {
         console.log("Upload result:", result);
 
-        // setDocsToData({...docsToData, demanda : result.successful[0].response.uploadURL})
+        setDemanda( result.successful[0].response.uploadURL)
       });
 
       const uppyPoder = new Uppy({restrictions:{
@@ -98,18 +99,17 @@ export default function CaseDetailsInputs(props) {
       .on("complete", (result) => {
         console.log("Upload result:", result);
 
-        // setData({...data, documents : {poder : result.successful[0].response.uploadURL}})
+        setPoder(result.successful[0].response.uploadURL)
       });
-
-      // setData({...data, documents: docsToData})
   }, []);
 
   const handleSubmit = async (event) => {
     event.preventDefault();
     try {
-      console.log(data)
-      console.log(docsToData)
-      // const newCase = await postNewCase(data)
+      data.documents.demanda = demanda
+      data.documents.poder = poder
+      const newCase = await postNewCase(data)
+      console.log(newCase)
       router.replace("/abogados");
     } catch (error) {
       console.log(error);
@@ -128,7 +128,6 @@ export default function CaseDetailsInputs(props) {
       ...docs,
       [e.target.name]: e.target.value,
     });
-    setDocsToData({...docsToData, [e.target.name]: e.target.value})
   };
   return (
     <Fragment >
@@ -267,7 +266,7 @@ export default function CaseDetailsInputs(props) {
         <div className="col-span-6 md:col-span-4 xl:col-span-5 mt-3 self-start xl:ml-12">
           <div
             name='demanda'
-            value={docsToData.demanda}
+            value={docs.demanda}
             id='demanda'
             type="file"
             className="  "
@@ -287,7 +286,7 @@ export default function CaseDetailsInputs(props) {
         <div className="col-span-6 md:col-span-4 xl:col-span-5 mt-3 self-start xl:ml-12">
           <div
             name='poder'
-            value={docsToData.poder}
+            value={docs.poder}
             id='poder'
             type="file"
             className="  "

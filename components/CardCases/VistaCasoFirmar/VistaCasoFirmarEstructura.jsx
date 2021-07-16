@@ -7,7 +7,7 @@ import { getLawyerData } from "../../../lib/api"
 export default function VistaCasoFirmarEstructura(props){
   console.log('VCDDFFF', props)
 
-  const {title, image, plaint, shortDescription, sentenceEffects, cost, limitDate, signers, longDescription, responsibleUser, aditionals} = props.data
+  const {title, image, plaint, shortDescription, sentenceEffects, cost, limitDate, signers, longDescription, responsibleUser, aditionals, documents} = props.data
   const [lawyerData, setLawyerData] = useState({})
   useEffect(async () => {
     // const response = await getLawyerData(responsibleUser)
@@ -79,7 +79,7 @@ export default function VistaCasoFirmarEstructura(props){
                   </span>
                   <div className="grid grid-cols-2">
                     <div className="col-span-1 mt-1"><p>Nombre:</p></div>
-                    <div className="col-span-1 mt-1"><p>{`${lawyerData.name} ${lawyerData.lastName}`}</p></div>
+                    <div className="col-span-1 mt-1"><p>{`${lawyerData.firstName} ${lawyerData.lastName}`}</p></div>
                     <div className="col-span-1 mt-1"><p>Email:</p></div>
                     <div className="col-span-1 mt-1"><p>{lawyerData.email}</p> </div>
                     <div className="col-span-1 mt-1"><p>Cédula Profesional:</p> </div>
@@ -112,7 +112,7 @@ export default function VistaCasoFirmarEstructura(props){
                 <p className="text-white text-xl">Documentos descargables del caso</p>
               </div>
 
-              <div className="col-span-2 flex justify-center my-2">
+              <div className="col-span-2  my-2">
 
               <button className="bg-light border-0 mx-5 my-2 px-2 px-md-5 py-2 d-flex justify-content-center align-items-center w-50 ">
               <img
@@ -120,7 +120,15 @@ export default function VistaCasoFirmarEstructura(props){
                 src="https://11g-files-juandedios.s3.us-east-2.amazonaws.com/amparapp/icon-pdf.png"
                 alt=""
               />
-              <b>Demanda.pdf</b>
+              <b>{'documents.demanda'}</b>
+            </button>
+            <button className="bg-light border-0 mx-5 my-2 px-2 px-md-5 py-2 d-flex justify-content-center align-items-center w-50 ">
+              <img
+                className="mx-auto d-block w-25"
+                src="https://11g-files-juandedios.s3.us-east-2.amazonaws.com/amparapp/icon-pdf.png"
+                alt=""
+              />
+              <b>{'documents.poder' }</b>
             </button>
               </div>
 
