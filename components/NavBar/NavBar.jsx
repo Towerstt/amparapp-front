@@ -61,6 +61,8 @@ export default function NavBar(props) {
               className="mx-auto d-block w-15 "
               src="https://11g-files-juandedios.s3.us-east-2.amazonaws.com/amparapp/amparapp-icono.png"
               alt=""
+              width={75}
+        height={75}
             />
 
               </button>
