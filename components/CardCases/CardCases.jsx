@@ -6,13 +6,13 @@ import Image from "next/image";
 export default function CardCases(props) {
 const {keyid, image, altImage, title, aditionals, shortDescription, limitDate, totalSigners, path,plaint } = props
   const months = ['0', 'Enero', 'Febrero', 'Marzo', 'Abril', 'Mayo', 'Junio', 'Julio', 'Agosto', 'Septiembre', 'Octubre', 'Noviembre', 'Diciembre']
-  const day = limitDate.split(' ')[0]
-  const month = limitDate.split(' ')[2]
+  const day = limitDate.split('-')[2]
+  const month = (limitDate.split('-')[1])
   const numberMonth = months.findIndex(el => el === month)
-  const year = limitDate.split(' ')[3]
-  const today = new Date
-  const width = numberMonth - today.getMonth()+1 === 0 ? 25 : numberMonth - today.getMonth()+1 < 6 ? 50 : numberMonth - today.getMonth()+1 < 9 ? 75 : 100
-  console.log(numberMonth - today.getMonth()+1, width)
+  const year = limitDate.split('-')[0]
+  const today = new Date()
+  const width = month - today.getMonth()+1 === 0 ? 0 : month - today.getMonth()+1 < 2 ? 25 : month - today.getMonth()+1 <  6 ? 50 : month - today.getMonth()+1 <  9 ? 75 : 100
+  console.log(month - today.getMonth()+1, width)
   const signersWidth = totalSigners < 20 ? 0 : totalSigners < 50 ? 25 : totalSigners < 100 ? 50 : totalSigners < 200 ? 75 : 100
 
   return (

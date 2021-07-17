@@ -5,14 +5,16 @@ import { editUserData } from "../../lib/api";
 import { useRouter } from "next/router";
 
 export default function ClientProfileEdit(props) {
+  console.log('CPE',props)
   const router = useRouter();
-  const [data, setData] = useState({firstName : '', lastName : '', email : '', password : '', phoneNumber : '', curp : '',address : '', birthDate : ''})
+  const [data, setData] = useState({firstName : '', lastName : '', password : '', phoneNumber : '', curp : '',address : '', birthDate : ''})
   
   const handleSubmit = async (event) => {
     event.preventDefault()
       try { 
-        const newData = await editUserData(props.id, data)
-        router.replace("/client");
+        const newData = await editUserData(props.userId, data)
+        alert('Datos actualizados correctamente')
+        // router.replace("/client");
       }
       catch (error) {
         console.log(error)
@@ -70,7 +72,7 @@ export default function ClientProfileEdit(props) {
               classNameContainer=""
               onChange={updateField}
             />
-            <DynamicInput
+            {/* <DynamicInput
               name='email'
               value={data.email}
               type="email"
@@ -79,7 +81,7 @@ export default function ClientProfileEdit(props) {
               classNameInput=" form-control  col-12  "
               classNameContainer=" "
               onChange={updateField}
-            />
+            /> */}
             
           </div>
           
